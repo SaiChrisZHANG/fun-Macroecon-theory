@@ -30,7 +30,7 @@
 
 \let\bar\overline
 
-\setlist[itemize]{topsep=0pt,leftmargin=15pt,itemsep=-0.2em}
+\setlist[itemize]{topsep=0pt,leftmargin=10pt,itemsep=-0.2em}
 \definecolor{myblue}{cmyk}{1,.72,0,.38}
 \definecolor{mypurple}{cmyk}{.57,1,0,.58}
 \definecolor{myred}{cmyk}{0,.88,.88,.58}
@@ -53,7 +53,7 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm,
 
 %\newcommand{\header}{
 %\begin{mdframed}[style=header]
-%\footnotesize
+%\scriptsize
 %\sffamily
 %Cheat sheet\\
 %by~Your~Name,~page~\thepage~of~2
@@ -193,7 +193,7 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm,
 \makeatother
 \setlength{\parindent}{0pt}
 
-% material references: Prof. Caroline Betts's lecture notes
+% material references: Prof. Caroline Betts' lecture notes
 % latex coding references: https://github.com/tim-st/latex-cheatsheet, https://www.overleaf.com/latex/templates/hoja-de-ecuaciones-electricidad-y-magnetismo/xwgjqkrjjgcb
 
 \begin{document}
@@ -226,8 +226,101 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \tikzstyle{iorangebox} = [draw=myorange, fill=myorange, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=white]
 \tikzstyle{iorangetitle} =[draw=myorange, fill=white, text=myorange, font=\bfseries]
 
-\section*{Random experiments}
-The outcome in a random experiment is 
+\vspace{2pt}
+\begin{tikzpicture}
+\node [orangebox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{myorange}
+    \scriptsize
+    \begin{itemize}
+        \item[-] \textbf{Primitive assumptions}:
+        \begin{itemize}
+            \item[-] Who the \textbf{agents} are, what are their \textbf{preferences} and objective functions
+            \item[-] What \textbf{technology} agents can access
+            \item[-] What \textbf{endowment} agents have
+        \end{itemize}
+        \item[-] \textbf{Decision problems}: resource allocation problem (among agents, over time, etc.).
+        \item[-] \textbf{Information sets}: what do agents know, how will their knowledge change, what is their \textbf{expectation}.
+        \item[-] \textbf{Allocation mechanism}: how agents interact and achieve equilibrium. 2 main mechanisms are:
+        \begin{itemize}
+            \item[-] \textbf{price system} in competitive equilibrium
+            \item[-] benevolent \textbf{central planner} maximizes a social welfare function.
+        \end{itemize}
+    \end{itemize}
+    \end{minipage}
+};
+\node[orangetitle, right=4pt] at (box.north west) {Modelling essential: what we need to decide};
+\end{tikzpicture}
+
+\section*{Infinitely Lived Agent Model}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] \textbf{discrete} time, indexed by $t$
+        \item[-] economy lives \textbf{infinitely}, $t=0,1,2,\cdots$
+        \item[-] single commodity exogenously produced, indexed by $t$, pure \textbf{exchange/endowment} economy.
+        \item[-] no firms/government, only \textbf{two types of households}.
+        \item[-] each type of households is continuum of \textbf{identical} households of that type, they are \textbf{price takers}, can be represented by a \textbf{representative} household
+    \end{itemize}
+    \end{minipage}
+};
+\node[ibluetitle, right=4pt] at (box.north west) {Features};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{myblue}
+    \scriptsize
+    Utility of type $i$ household is
+    $$U(c^i)=\sum^{\infty}_{t=0}\beta^t_i u(c_t^i)$$
+    where $\left(c^i\right)=\left\{c_t^i\right\}^{\infty}_{t=0}$, $\beta_i\in(0,1)$,
+    
+    The utility function $u(c_t^i)$ is assumed to be:
+    \begin{itemize}
+        \item[-] \textbf{continuously differentiable} of the second order
+        \item[-] \textbf{monotonically increasing, strictly concave}: $u'(c_t^i)>0,u''(c_t^i)<0$
+        \item[-] \textbf{satisfies Inada conditions} (never 0 or infinity consumption): $\lim_{c^i_t\rightarrow \infty}u'(c_t^i)=0, \lim_{c^i_t\rightarrow 0}u'(c_t^i)=\infty$
+        \item[-] \textbf{time additivity}: $u(c_t^i)$ is independent of $c_{t+j}^i$, $c_{t-j}^i$.
+        \item[-] \textbf{impatient discounting} $\beta_i<1$: households value today's consumption more than future's.
+        \item[-] Constant relative risk aversion (\textbf{CRRA}): $u(c_t^i)=\frac{c^{1-\sigma}-1}{1-\sigma}$    
+        \tiny
+        $\left(\lim_{\sigma\rightarrow1}\frac{c^{1-\sigma}-1}{1-\sigma}=\lim_{\sigma\rightarrow1}\frac{e^{(1-\sigma)\ln(c)}-1}{1-\sigma}=\ln(c)\right)$, 
+        \scriptsize
+        \textbf{The RRA coefficient} $\sigma(c)=$
+        \tiny
+        $\frac{-u''(c_t^i)c}{u'(c_t^i)}=\frac{-\left(-\sigma c^{-(1+\sigma)}c\right)}{c^{-\sigma}}$
+        \scriptsize
+        $=\sigma$. Higher RRA means higher risk aversion. 
+        \item[-] Constant intertemporal elasticity of substitution \textbf{(IES)}: $$IES=-\frac{\mathrm{d}\ln\left(c_{t+1}/c_t\right)}{\mathrm{d}\ln\left(u'(c_{t+1}/u'(c_t)\right)}=\frac{1}{\sigma}$$
+        hence higher RRA (more risk-averse), lower IES (consumption variation over time).
+    \end{itemize}
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Agents' preferences};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{myblue}
+    \scriptsize
+    A deterministic endowment stream of the consumption good for type $i$ household is
+    $$w^i=\left(w^i_0,w_1^i,\cdots\right)=\left\{ w^i_t \right\}^{\infty}_{t=0}$$
+    
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Agents' endowment};
+\end{tikzpicture}
+
+
 
 \end{multicols*}
 
