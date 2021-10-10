@@ -1,3 +1,3 @@
-# Fun Micro Econ Theory
+# Fun Macro Econ Theory
 
-Microeconomic theory learning notes, for fun.
+Macroeconomic theory learning notes, for fun.
