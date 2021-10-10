@@ -229,7 +229,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [orangebox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{myorange}
     \scriptsize
     \begin{itemize}
@@ -257,7 +257,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [ibluebox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{white}
     \scriptsize
     \begin{itemize}
@@ -275,7 +275,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [bluebox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{myblue}
     \scriptsize
     Utility of type $i$ household is
@@ -309,7 +309,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [bluebox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{myblue}
     \scriptsize
     A deterministic endowment stream of the consumption good for type $i$ household is
@@ -325,7 +325,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [redbox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{myred}
     \scriptsize
     Households trade just \textbf{once} in $t=0$ market, they trade all future consumption and deliver the promised amount in $t=1,2,\cdots$ market. 
@@ -340,7 +340,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [iredbox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{white}
     \scriptsize
     \begin{itemize}
@@ -384,7 +384,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \vspace{2pt}
 \begin{tikzpicture}
 \node [redbox] (box){%
-    \begin{minipage}{0.235\textwidth}
+    \begin{minipage}{0.23\textwidth}
     \color{myred}
     \scriptsize
     An allocation $\left(c^1,c^2\right)=\left\{c_t^1,c_t^2\right\}^{\infty}_{t=0}$ is \textbf{Pareto efficient} if:
@@ -427,8 +427,133 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 \node[redtitle, right=4pt] at (box.north west) {Pareto efficiency: Basic Case};
 \end{tikzpicture}
 
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    By \textbf{1st welfare theorem}, we can solve the competitive equilibrium allocation by solving Pareto efficient allocation. This is the social planner's problem: a \textbf{weighted} utility maximization problem.
+    
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+        \item[-] utility weight: $\left\{\alpha^1,\alpha^2\right\}$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\alpha^1,\alpha^2\right\}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+        $$\max \alpha^1 \sum^{\infty}_{t=0}\beta^t u(c_t^1)+\alpha^2 \sum^{\infty}_{t=0}\beta^t u(c_t^2)$$
+        s.t. $c^1_t+c^2_t\leq w^1_t+w^2_t,\alpha^1+\alpha^2=1,\alpha^i,c^i_t\geq0$
+    \item[-] market clearing is the budget constraint.
+    \end{itemize}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [redbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myred}
+        \scriptsize
+        \underline{\textit{\textbf{How to solve}}}:
+        
+        solve the Lagrangian
+        $$\alpha^1 \sum^{\infty}_{t=0}\beta^t u(c_t^1)+\alpha^2 \sum^{\infty}_{t=0}\beta^t u(c_t^2)+\sum^{\infty}_{t=0}\mu_t\left(w_t^1+w_t^2-c_t^1-c_t^2\right)$$
+        FOC gives $\alpha^1\beta^t u'(c_t^1)=\mu_t=\alpha^2\beta^t u'(c_t^2)\Rightarrow \alpha^1 u'(c_t^1)=\alpha^2 u'(c_t^2)$, plug them back to $c_t^1+c_t^2=w_t^1+w_t^2$, solve $(c_t^1,c_t^2)=\left(c_t^1(\alpha_1,\alpha_2),c_t^2(\alpha_1,\alpha_2)\right)$. 
+        
+        \textbf{The Lagrangian multiplier $\mu_t$ is the AD equilibrium prices, normalized by the total endowment each period}:
+        $\hat{\alpha}^i\beta^t u'(\hat{c}^i_t)=\hat{\mu}_t,\beta^t u'(\hat{c}^i_t)=\hat{\lambda}^i\hat{p}_t\Rightarrow \frac{\hat{\mu}_t}{\hat{\alpha}^i}=\hat{\lambda}^i\hat{p}_t$
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    \vspace{4pt}
+    \textbf{All the PE allocations are Pareto efficient}, but only one is AD equilibrium allocation, that allocation needs to satisfy the AD budget constraint, achieved by \underline{\textit{\textbf{transfer}}}. This procedure, Negishi "trick", follows the second welfare theorem: every Pareto-efficient allocation can be decentralized as an equilibrium with transfers.
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [redbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myred}
+        \scriptsize
+        
+        The AD equilibrium with transfer is:
+        \begin{itemize}
+            \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+            \item[-] lifetime transfer: $\left\{\hat{t}^1,\hat{t}^2\right\}$
+            \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, with numeraire $\hat{p}_0=1$
+        \end{itemize}
+        such that:
+        \begin{itemize}
+            \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+            $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)\ \text{ s.t. }\sum^{\infty}_{t=0}\hat{p}_t c^i_t\leq \sum^{\infty}_{t=0}\hat{p}_t w^i_t+\hat{t}^i_t,c^i_t\geq0$$
+        \item[-] market clearing: $\hat{c}^1_t+\hat{c}^2_t=w^1_t+w^2_t,\forall t$
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    But the solving is actually much easier, we just solve the zero lifetime transfer condition:
+    $$t^i(\alpha)\equiv \sum^{\infty}_{t=0}\mu_t\left(c^i_t(\alpha)-w_t^i\right) =\sum^{\infty}_{t=0}\alpha^i\beta^t u'(c_t^i)\left(c^i_t(\mathbf{\alpha})-w_t^i\right)=0$$
+    In general, transfer function $t^i(\mathbf{\alpha})$ satisfies \textbf{zero sum}: $t^1(\mathbf{\alpha})+t^2(\mathbf{\alpha})=0$; and \textbf{homogeneous of degree 1} $t^i(k\mathbf{\alpha})=kt^i(\mathbf{\alpha})$.
+    
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {PE allocation: Social planner's problem};
+\end{tikzpicture}
 
+\subsection*{Sequential Market (SM) approach}
 
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    Households trade in spot markets for immediate delivery of consumption goods at every $t$, \textbf{bond} is traded, (purchasing at $t$ denoted by $a^i_{t+1}$), they are traded at $t$, representing one unit of consumption at $t+1$. The interest rate of bonds $r_{t+1}$ regulates the market: bond of 1 unit of consumption at $t$ will be compensated by $(1+r_{t+1})$ units of consumption at $t+1$.
+    
+    Households have perfect information of the entire endowment sequence, all information is public.
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Market structure};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+        \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, with numeraire $\hat{p}_0=1$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+        $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)\ \text{ s.t. }\sum^{\infty}_{t=0}\hat{p}_t c^i_t\leq \sum^{\infty}_{t=0}\hat{p}_t w^i_t,c^i_t\geq0$$
+    \item[-] market clearing (disposal of unused goods is costly):
+    $$\hat{c}^1_t+\hat{c}^2_t=w^1_t+w^2_t,\forall t$$
+    \end{itemize}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [redbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myred}
+        \scriptsize
+        \underline{\textit{\textbf{How to solve}}}:
+        \begin{itemize}
+            \item[-] \textbf{\textit{Step 1}}: 
+            \item[-] \textbf{\textit{Step 2}}: 
+            \item[-] \textit{\textbf{Step 3}}:
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {Equilibrium};
+\end{tikzpicture}
 
 \end{multicols*}
 
