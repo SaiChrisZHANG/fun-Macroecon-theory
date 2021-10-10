@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.7)  8 OCT 2021 22:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.7)  9 OCT 2021 17:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1926,38 +1926,53 @@ Overfull \hbox (5.75282pt too wide) in paragraph at lines 321--322
 [][] 
  []
 
+
+Overfull \hbox (5.75282pt too wide) in paragraph at lines 338--339
+[][] 
+ []
+
+
+Overfull \hbox (5.75282pt too wide) in paragraph at lines 382--383
+[][] 
+ []
+
+
+Overfull \hbox (5.75282pt too wide) in paragraph at lines 428--429
+[][] 
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 325.
+(babel)             in language  on input line 433.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 325.
+(babel)             in language  on input line 433.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 325.
+(babel)             in language  on input line 433.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 325.
+(babel)             in language  on input line 433.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 327.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 327.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 435.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 435.
  (/Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 327.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 327.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 435.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 435.
 Package rerunfilecheck Info: File `"cheat sheet".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34360 strings out of 492649
- 687258 string characters out of 6129623
- 811877 words of memory out of 5000000
- 37640 multiletter control sequences out of 15000+600000
- 600198 words of font info for 98 fonts, out of 8000000 for 9000
+ 34372 strings out of 492649
+ 687421 string characters out of 6129623
+ 834733 words of memory out of 5000000
+ 37647 multiletter control sequences out of 15000+600000
+ 615084 words of font info for 103 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,67p,10492b,971s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb>
-Output written on "/Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.pdf" (1 page, 52156 bytes).
+ 55i,12n,67p,10492b,1439s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb>
+Output written on "/Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.pdf" (1 page, 72218 bytes).
 PDF statistics:
- 45 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
- 3 named destinations out of 1000 (max. 500000)
- 16909 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 50 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 18445 words of extra memory for PDF output out of 20736 (max. 10000000)
 

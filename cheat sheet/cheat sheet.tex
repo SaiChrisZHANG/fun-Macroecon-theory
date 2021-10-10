@@ -193,7 +193,7 @@ leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm,
 \makeatother
 \setlength{\parindent}{0pt}
 
-% material references: Prof. Caroline Betts' lecture notes
+% material references: Prof. Geert Ridder's lecture notes
 % latex coding references: https://github.com/tim-st/latex-cheatsheet, https://www.overleaf.com/latex/templates/hoja-de-ecuaciones-electricidad-y-magnetismo/xwgjqkrjjgcb
 
 \begin{document}
@@ -319,6 +319,114 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
 };
 \node[bluetitle, right=4pt] at (box.north west) {Agents' endowment};
 \end{tikzpicture}
+
+\subsection*{Arrow-Debreu Market (AD) approach}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{myred}
+    \scriptsize
+    Households trade just \textbf{once} in $t=0$ market, they trade all future consumption and deliver the promised amount in $t=1,2,\cdots$ market. 
+    
+    Households have perfect information of the entire endowment sequence, all information is public.
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Market structure: Basic Case};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+        \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, with numeraire $\hat{p}_0=1$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+        $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)\ \text{ s.t. }\sum^{\infty}_{t=0}\hat{p}_t c^i_t\leq \sum^{\infty}_{t=0}\hat{p}_t w^i_t,c^i_t\geq0$$
+    \item[-] market clearing (disposal of unused goods is costly):
+    $$\hat{c}^1_t+\hat{c}^2_t=w^1_t+w^2_t,\forall t$$
+    \end{itemize}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [redbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myred}
+        \scriptsize
+        \underline{\textit{\textbf{How to solve}}}:
+        \begin{itemize}
+            \item[-] \textbf{\textit{Step 1}}: solve the Lagrangian
+            $$\max\sum^{\infty}_{t=0}\beta^t\ln(c_t^i)+\lambda^i\left(\sum^{\infty}_{t=0}p_t w_t^i-\sum^{\infty}_{t=0}p_t c_t^i\right)$$
+            FOCs: $\beta^t/c_t^i=\lambda^i p_t\Rightarrow \frac{\beta^t}{c_t^i p_t}=\frac{\beta^{t+1}}{c_{t+1}^i p_{t+1}}\Rightarrow c^i_{t+1}=\beta\frac{p_t}{p_{t+1}}c^i_t$. FOC gives that price changes $p_t/p_{t+1}$ and subjective discounting $\beta$ determines consumption smoothing.
+            \item[-] \textbf{\textit{Step 2}}: Use market clearing condition
+            $$c_t^1 +c_t^2=w_t^1+w_t^2$$
+            and FOC $p_{t+1}c_{t+1}^i=\beta p_t c_t^i$, get $\frac{p_{t+1}}{p_{t}}=\beta\frac{w_t^1+w_t^2}{w_{t+1}^1+w_{t+1}^2}$, combined with the numeraire assumption $p_0=1$, solve the price sequence $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$.
+        \item[-] \textit{\textbf{Step 3}}: Plug $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$ and $p_{t+1}c_{t+1}^i=\beta p_t c_t^i$ back to budget constraint
+        $$\sum^{\infty}_{t=0}p_t c_t^i=\sum^{\infty}_{t=0}\beta^t c_0^i=\frac{c_0^i}{1-\beta}= \sum^{\infty}_{t=0}p_t w_t^i$$
+        to solve allocation $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {Equilibrium: Basic Case};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.235\textwidth}
+    \color{myred}
+    \scriptsize
+    An allocation $\left(c^1,c^2\right)=\left\{c_t^1,c_t^2\right\}^{\infty}_{t=0}$ is \textbf{Pareto efficient} if:
+    \begin{itemize}
+        \item[-] it is feasible: $\sum^{\infty}_{t=0}p_t c^i_t\leq \sum^{\infty}_{t=0}p_t w^i_t$
+        \item[-] no other feasible allocation $(\tilde{c}^1,\tilde{c}^2)$ such that $\forall i, U(\tilde{c}^i)\geq U(c^i)$ and $\exists i, U(\tilde{c}^i)\geq U(c^i)$
+    \end{itemize}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [iredbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{white}
+        \scriptsize
+        
+        \textbf{An AD competitive equilibrium allocation $\left(c^1,c^2\right)=\left\{c^1_t,c^2_t\right\}^{\infty}_{t=0}$ is Pareto efficient.}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    \vspace{2pt}
+    \underline{\textit{\textbf{Proof}}}:
+    Suppose there is an allocation $\left(\bar{c}^1,\bar{c}^2\right)=\left\{\bar{c}^1_t,\bar{c}^2_t\right\}^{\infty}_{t=0}$, Pareto-dominating AD allocation $\left(\hat{c}^1,\hat{c}^2\right)=\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$.
+    
+    If the Pareto dominating allocation $\left(\bar{c}^1,\bar{c}^2\right)$ exists, its utility $\bar{U}=U(\bar{c}^1,\bar{c}^2)$ must be bigger than the AD allocation utility $\tilde{U}=U(\tilde{c}^1,\tilde{c}^2)$, therefore, the only reason that it is not chosen as the AD allocation is that it is \textbf{infeasible}.
+    
+    \vspace{2pt}
+    Formally, suppose $\bar{c}^1>\hat{c}^1$ and $\bar{c}^2\geq \hat{c}^2$,
+    \begin{itemize}
+        \item[-] \textbf{Step 1}: for household 1 ($\hat{c}^1<\bar{c}^1$), if $\sum^{\infty}_{t=0}\hat{p}_t \bar{c}^1_t \leq \sum^{\infty}_{t=0} \hat{p}_t\hat{c}^1_t=\sum^{\infty}_{t=0}\hat{p}_t w_t^1$ (the Pareto-dominating allocation is also feasible), the AD equilibrium $(\hat{c}^1,\hat{c}^2)$ will NOT maximize HH1's utility, hence contradiction.
+        \item[-] \textbf{Step 2}: for household 2 ($\hat{c}^2\leq\bar{c}^2$), if $\sum^{\infty}_{t=0}\hat{p}_t \bar{c}^2_t<\sum^{\infty}_{t=0}\hat{p}_t\hat{c}^2_t=\sum^{\infty}_{t=0}\hat{p}_t w_t^2$ (the Pareto-superior allocation cost less for HH2), then $\exists \delta>0$ s.t. $\sum^{\infty}_{t=0}\hat{p}_t\bar{c}^2_t+\delta\leq \sum^{\infty}_{t=0}\hat{p}_t\hat{c}^c_t=\sum^{\infty}_{t=0}\hat{p}_t w_t^2$, then there is always an allocation $\left\{\bar{c}_0^2+\delta,\bar{c}_t^2\right\}$, achieves a strictly higher utility than the AD allocation (which is utility maximizing), hence contradiction.
+        \item[-] \textbf{Step 3}: from \textbf{Step 1}, $\sum^\infty_{t=0}\hat{p}_t\bar{c}^1_t>\sum^{\infty}_{t=0}\hat{p}_t\hat{c}^1_t=\sum^{\infty}_{t=0}\hat{p}_t w^1_t$; from \textbf{Step 2}, $\sum^{\infty}_{t=0}\hat{p}_t\bar{c}^2_t\geq \sum^{\infty}_{t=0}\hat{p}_t \hat{c}^2_t=\sum^{\infty}_{t=0}\hat{p}_t w^2_t$, then
+        $$\sum_{i=1,2}\sum^{\infty}_{t=0}\hat{p}_t w_t^i<\sum_{i=1,2}\sum^{\infty}_{t=0}\hat{p}_t\bar{c}^i_t$$
+    \end{itemize}
+    Therefore, this Pareto allocation is actually infeasible.
+    
+    This proof requires \textbf{the value of the aggregate endowment is finite}, which is quite intuitive.
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Pareto efficiency: Basic Case};
+\end{tikzpicture}
+
 
 
 
