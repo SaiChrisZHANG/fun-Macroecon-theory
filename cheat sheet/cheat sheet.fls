@@ -1,9 +1,9 @@
-PWD /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet
+PWD /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet
 INPUT /usr/local/texlive/2018/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.tex
-OUTPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.log
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.tex
+OUTPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.log
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
@@ -316,9 +316,9 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.aux
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.aux
-OUTPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.aux
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux
+OUTPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/omljkp.fd
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/omljkp.fd
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/omsjkp.fd
@@ -346,14 +346,14 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-OUTPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-OUTPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.pdf
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+OUTPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+OUTPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.pdf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmn8t.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpbn8t.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmn8t.tfm
@@ -458,9 +458,9 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmne.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/public/kpfonts/jkpmit8t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmit8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmite.tfm
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.aux
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
-INPUT /Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
+INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb
