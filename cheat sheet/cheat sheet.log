@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.7)  10 OCT 2021 14:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.7)  11 OCT 2021 21:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1952,51 +1952,161 @@ Overfull \hbox (1.56618pt too wide) in paragraph at lines 518--519
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 556--557
+Underfull \hbox (badness 10000) in paragraph at lines 553--556
+[][]
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 578--579
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 580.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 580.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 580.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 580.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 597--598
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+[]\T1/jkp/m/n/7 It is ea-sy to show that the as-set hol-ding
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+[] \OT1/jkp/m/n/6.8 = [][] [] \OMS/jkp/m/n/6.8 ^^U ^^@ [][] [] ^^U
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+\OMS/jkp/m/n/6.8 ^^@ [][] \OML/jkp/m/it/6.8 ^^X[][] > \OMS/jkp/m/n/6.8 ^^@1$\T1/jkp/m/n/7 , the-re-fo-re, hou-se-holds
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
+\T1/jkp/m/n/7 will \T1/jkp/b/n/7 ne-ver \T1/jkp/m/n/7 choo-se $[]$ to ex-ceed the debt li-mit
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 627--628
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 651--652
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 670--671
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 686--687
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 713--714
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 763--764
+[][] 
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 782.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 782.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 558.
+(babel)             in language  on input line 782.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 558.
- [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 560.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 560.
+(babel)             in language  on input line 782.
+[2]
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 827--828
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 893--894
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 939--940
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 972--973
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 996--997
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1025--1026
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1049.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1049.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1049.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1049.
+[3]
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1095--1096
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1099.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1099.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1099.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1099.
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1101.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1101.
  (/Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 560.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 560.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1101.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1101.
 Package rerunfilecheck Info: File `"cheat sheet".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34390 strings out of 492649
- 687685 string characters out of 6129623
- 860503 words of memory out of 5000000
+ 34412 strings out of 492649
+ 687880 string characters out of 6129623
+ 868262 words of memory out of 5000000
  37662 multiletter control sequences out of 15000+600000
- 619156 words of font info for 107 fonts, out of 8000000 for 9000
+ 621307 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,67p,10492b,1448s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb>
-Output written on "/Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.pdf" (2 pages, 82484 bytes).
+ 55i,20n,67p,10492b,1461s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbite.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
+Output written on "/Users/admin/Desktop/LearningNotes/fun-Microecon-theory/cheat sheet/cheat sheet.pdf" (4 pages, 138757 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 20493 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 88 PDF objects out of 1000 (max. 8388607)
+ 70 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
+ 24589 words of extra memory for PDF output out of 24883 (max. 10000000)
 

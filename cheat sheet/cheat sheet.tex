@@ -364,7 +364,7 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
         \underline{\textit{\textbf{How to solve}}}:
         \begin{itemize}
             \item[-] \textbf{\textit{Step 1}}: solve the Lagrangian
-            $$\max\sum^{\infty}_{t=0}\beta^t\ln(c_t^i)+\lambda^i\left(\sum^{\infty}_{t=0}p_t w_t^i-\sum^{\infty}_{t=0}p_t c_t^i\right)$$
+            $$\sum^{\infty}_{t=0}\beta^t\ln(c_t^i)+\lambda^i\left(\sum^{\infty}_{t=0}p_t w_t^i-\sum^{\infty}_{t=0}p_t c_t^i\right)$$
             FOCs: $\beta^t/c_t^i=\lambda^i p_t\Rightarrow \frac{\beta^t}{c_t^i p_t}=\frac{\beta^{t+1}}{c_{t+1}^i p_{t+1}}\Rightarrow c^i_{t+1}=\beta\frac{p_t}{p_{t+1}}c^i_t$. FOC gives that price changes $p_t/p_{t+1}$ and subjective discounting $\beta$ determines consumption smoothing.
             \item[-] \textbf{\textit{Step 2}}: Use market clearing condition
             $$c_t^1 +c_t^2=w_t^1+w_t^2$$
@@ -437,11 +437,11 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
     
     \begin{itemize}
         \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
-        \item[-] utility weight: $\left\{\alpha^1,\alpha^2\right\}$
+        \item[-] utility weight: $\left\{\hat{\alpha}^1,\hat{\alpha}^2\right\}$
     \end{itemize}
     such that:
     \begin{itemize}
-        \item[-] given $\left\{\alpha^1,\alpha^2\right\}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+        \item[-] given $\left\{\hat{\alpha}^1,\hat{\alpha}^2\right\}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
         $$\max \alpha^1 \sum^{\infty}_{t=0}\beta^t u(c_t^1)+\alpha^2 \sum^{\infty}_{t=0}\beta^t u(c_t^2)$$
         s.t. $c^1_t+c^2_t\leq w^1_t+w^2_t,\alpha^1+\alpha^2=1,\alpha^i,c^i_t\geq0$
     \item[-] market clearing is the budget constraint.
@@ -524,15 +524,16 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
     \color{white}
     \scriptsize
     \begin{itemize}
-        \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
-        \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, with numeraire $\hat{p}_0=1$
+        \item[-] allocation: $\left\{\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\},\left\{\tilde{a}^1_{t+1},\tilde{a}^2_{t+1}\right\}\right\}^{\infty}_{t=0}$
+        \item[-] regulating mechanism: $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$
     \end{itemize}
     such that:
     \begin{itemize}
-        \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
-        $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)\ \text{ s.t. }\sum^{\infty}_{t=0}\hat{p}_t c^i_t\leq \sum^{\infty}_{t=0}\hat{p}_t w^i_t,c^i_t\geq0$$
+        \item[-] given $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$, $\left\{\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\},\left\{\tilde{a}^1_{t+1},\tilde{a}^2_{t+1}\right\}\right\}^{\infty}_{t=0}$ solves:
+        $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)$$
+        s.t. $c^i_t+\frac{a^i_{t+1}}{1+\tilde{r}_{t+1}}\leq w^i_t+a^i_t,\ c^i_t\geq0,\ a^i_{t+1}\geq-\bar{A}^i>-\infty$
     \item[-] market clearing (disposal of unused goods is costly):
-    $$\hat{c}^1_t+\hat{c}^2_t=w^1_t+w^2_t,\forall t$$
+    $$\tilde{c}^1_t+\tilde{c}^2_t=w^1_t+w^2_t,\  \tilde{a}^1_{t+1}+\tilde{a}^2_{t+1}=0,\ \forall t$$
     \end{itemize}
     
     \vspace{2pt}
@@ -543,17 +544,557 @@ Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \
         \scriptsize
         \underline{\textit{\textbf{How to solve}}}:
         \begin{itemize}
-            \item[-] \textbf{\textit{Step 1}}: 
-            \item[-] \textbf{\textit{Step 2}}: 
-            \item[-] \textit{\textbf{Step 3}}:
+            \item[-] \textbf{\textit{Step 1}}: Take advantage the fact that the SM equilibrium allocation $\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\}^{\infty}_{t=0}$ and the AD equilibrium $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ are equivalent.
+            \item[-] \textbf{\textit{Step 2}}: Solve the asset holdings $\left\{\tilde{a}^1_t,\tilde{a}^2_t\right\}^{\infty}_{t=0}$ with: $$\tilde{a}^i_{t+1}=\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}\left(\hat{c}^i_{t+\tau}-w^i_{t+\tau}\right)}{\hat{p}_{t+1}}$$
+            i.e., the asset holding at $t$ is the sum of all future excess demands, discounted by the $t+1$ price.
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    \vspace{4pt}
+    The existence of a SM equilibrium requires No-Ponzi scheme: $\bar{A}^i<\infty$. 
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [redbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myred}
+        \scriptsize
+        \underline{\textit{\textbf{Proof by contradiction}}}: Suppose there is no debt limit.
+        
+        Without debt limit, agent $i$ can consume more at $t=0$ and keep borrowing to keep the consumption level in the future, formally:
+        \begin{align*}
+            c_0^i=\tilde{c}_0^i+\frac{\epsilon}{1+\tilde{r}_1},&\ c_t^i=\tilde{c}_t^i\\
+            a_1^i=\tilde{a}_1^i+\epsilon,&\ a_{t+1}^i=\tilde{a}_{t+1}^i-\prod^t_{\tau=1}\left(1+\tilde{r}_{\tau+1}\right)\epsilon
+        \end{align*}
+        This allocation satisfies the budget constraint, and can achieve a strictly higher utility, hence contradicting utility maximization. At the same time, $\prod^t_{\tau=1}\left(1+\tilde{r}_{\tau+1}\epsilon\right)\xrightarrow{t\rightarrow\infty}\infty$, contradicting to the limited resource nature of the economy.
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {Equilibrium};
+\end{tikzpicture}
+
+\subsection*{Link AD and SM equilibrium}
+The link between AD equilibrium and SM equilibrium is built on 2 propositions:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[1] For an AD equilibrium allocation $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ and prices $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$ with $\frac{\hat{p_{t+1}}}{\hat{p}_{t}}=\xi<1,\forall t$, then there exists debt limits $\left(\bar{A}^1,\bar{A}^2\right)$ and a corresponding SM equilibrium, with allocation $\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\}^{\infty}_{t=0}$ and interest rates $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$, such that $$\tilde{c}^i_t=\hat{c}^i_t,\forall i,t$$
+        \item[2] For a SM equilibrium allocation $\left\{\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\},\left\{\tilde{a}^1_{t+1},\tilde{a}^2_{t+1}\right\}\right\}^{\infty}_{t=0}$ and interest rates $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$ where $\tilde{a}^i_t\geq -\bar{A}^i$, $\tilde{r}_{t+1}>0$, there exists a corresponding AD equilibrium with allocation $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ and prices $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$ such that $$\hat{c}^i_t=\tilde{c}^i_t,\forall i,t$$
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[ibluetitle, right=4pt] at (box.north west) {Propositions of AD$\equiv$SM};
+\end{tikzpicture}
+
+\vspace{2pt}
+    \begin{tikzpicture}
+    \node [bluebox] (box){%
+        \begin{minipage}{0.23\textwidth}
+        \color{myblue}
+        \scriptsize
+        \begin{itemize}
+            \item[-] \textbf{Step 1: Construct interest rate}
+            
+            Define the SM interest rate as $\frac{1}{1+\tilde{r}_{t+1}}=\frac{\hat{p}_{t+1}}{\hat{p}_t}$, then the SM budget will be $\hat{p}_t\tilde{c}_t^i+\hat{p}_{t+1}\tilde{a}^i_{t+1}=\hat{p}_tw_t^i+\hat{p}_t\tilde{a}^i_t$, iterate this, get $\sum^{\infty}_{t=0}\hat{p}_t\tilde{c}^i_t+\lim_{T\rightarrow\infty}\hat{p}_{T+1}\tilde{a}^i_{T+1}=\sum^{\infty}_{t=0}\hat{p}_t w^i_t$, since $\lim_{T\rightarrow\infty}\hat{p}_{T+1}\tilde{a}^i_{T+1}=\lim_{T\rightarrow\infty}\prod^{T+1}_{\tau=1}\frac{\tilde{a}^i_{T+1}}{1+\tilde{r}_{\tau}^i}\geq 0$, \textbf{SM budget satisfaction leads to AD budget satisfaction}.
+            
+            \item[-] \textbf{Step 2: Derive $\tilde{a}^i_{t+1}$}
+            
+            By plug in $\frac{1}{1+\tilde{r}_{t+1}}=\frac{\hat{p}_{t+1}}{\hat{p}_t}$ to SM budget constraint, get $\tilde{a}_t^i=c_t^i-w_t^i+\tilde{a}_{t+1}^i\frac{\hat{p}_{t+1}}{\hat{p}_t}$, do an iteration of this equation, derive asset holding as $$\tilde{a}^i_{t+1}=\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}\left(\hat{c}^i_{t+\tau}-w^i_{t+\tau}\right)}{\hat{p}_{t+1}}$$
+            plug it in the SM equilibrium budget constraint $\hat{c}^i_t+\frac{\tilde{a}_{t+1}^i}{1+\tilde{r}_{t+1}}=w_t+\tilde{a}_t^i$, the constraint is satisfied.
+            
+            \item[-] \textbf{Step 3: Find debt limit $\bar{A}^i$}
+            
+            It is easy to show that the asset holding $\tilde{a}^i_{t+1}=\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}\left(\hat{c}^i_{t+\tau}-w^i_{t+\tau}\right)}{\hat{p}_{t+1}}\geq -\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}w^i_{t+\tau}}{\hat{p}_{t+1}}\geq -\sum^{\infty}_{\tau=1}\xi^{\tau-1}{\hat{p}_{t+1}}>-\infty$, therefore, households will \textbf{never} choose $\tilde{a}^i_{t+1}$ to exceed the debt limit $-\bar{A}^i=-\sup \sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}}{\hat{p}_{t+1}}w^i_{t+\tau}$. This debt limit can also be derived by setting consumption $c^i_t$ as 0 in SM budget constraint and a backward iteration.
+            
+            \item[-] \textbf{Step 4: Check utility maximization}
+            
+            This constructed SM allocation must satisfy AD budget as well, and it is an AD equilibrium allocation, hence it is lifetime utility maximizing allocation.
+
+        \end{itemize}
+        \end{minipage}
+    };
+\node[bluetitle, right=4pt] at (box.north west) {Proof of Position 2: AM$\Leftarrow$SM};
+\end{tikzpicture}
+
+\vspace{2pt}
+    \begin{tikzpicture}
+    \node [bluebox] (box){%
+        \begin{minipage}{0.23\textwidth}
+        \color{myblue}
+        \scriptsize
+        \begin{itemize}
+            \item[-] \textbf{Step 1: Construct price series}
+            
+            From the construction before, $$\hat{p}_{t+1}=\frac{\hat{p}_t}{1+\tilde{r}_{t+1}}$$
+            SM equilibrium consumption satisfies AD budget constraint, market clearing and non-negative consumption condition.
+            
+            \item[-] \textbf{Step 2: SM equilibrium allocation is utility maximizing within AD budget}
+            
+            Prove by contradiction: suppose there exist an alternative satisfying AD budget and yields a higher utility. Optimization within SM budget has one more constraint than optimization within AD budget: \textbf{No Ponzi scheme}.  
+            
+            Since no Ponzi scheme constraints ever bind in the SM equilibrium, SM equilibrium allocation will be optimizer within AD budget set as well.
+
+        \end{itemize}
+        \end{minipage}
+    };
+\node[bluetitle, right=4pt] at (box.north west) {Proof of Position 2: AM$\Leftarrow$SM};
+\end{tikzpicture}
+
+\section*{Overlapping Generation Model}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] \textbf{discrete} time, indexed by $t$
+        \item[-] For each $t$, a new generation $t$ of identical individuals is born and live for two periods $t,t+1$.
+        \item[-] There is an initial old generation (generation 0), they are born before $t=1$, they can be endowed with $m$ units of \textbf{fiat maoney}.
+        \item[-] single commodity exogenously produced, indexed by $t$, pure \textbf{exchange/endowment} economy.
+        \item[-] There is exogenouly given \textbf{net} asset/liability of the entire private sector
+    \end{itemize}
+    \end{minipage}
+};
+\node[ibluetitle, right=4pt] at (box.north west) {Features};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    utility of a generation $t$ agent is
+    $$U_t(c^t)=u(c_t^t)+\beta u(c_{t+1}^t)$$
+    utility of the initial old is $$U_0(c^0)=u(c_1^0)$$
+    
+    Again, $u(\cdot)$ is assumed to be strictly increasing, strictly concave, twice continuously differentiable, typically satisfying Inada condition and CRRA as well.
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Agents' preferences};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$
+        \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$, with $m$ or $p_1$ (when $m=0$) as the numeraire.
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$, $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ solves:
+        \begin{align*}
+            \max_{c^t\geq 0} u(c_t^t)+\beta u(c_{t+1}^t)\ &\text{ s.t. } \hat{p}_t c^t_t+\hat{p}_{t+1}c^t_{t+1}\leq \hat{p}_t w^t_t+\hat{p}_{t+1}w^t_{t+1}\\
+            \max_{c_1^0\geq 0} u(c_1^0)\ &\text{ s.t. } \hat{p}_1 c_1^0\leq \hat{p}_1 w_1^0+m
+        \end{align*}
+        
+    \item[-] market clearing (disposal of unused goods is costly):
+    $$\hat{c}^{t-1}_t+\hat{c}^t_t=w^{t-1}_t+w^t_t,\forall t\geq 1$$
+    \end{itemize}
+
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {AD Equilibrium};
+\end{tikzpicture}
+
+\scriptsize
+\underline{\textit{\textbf{How to solve}}}:
+\begin{itemize}
+    \item[-] \textbf{\textit{Step 1}}: solve the Lagrangian
+    $$ u_t(c^t_t)+\beta u_{t+1}(c^t_{t+1})+\lambda^t\left( p_t w_t^t+p_{t+1}w_{t+1}^t-p_t c_t^t-p_{t+1}c^t_{t+1} \right)$$
+    FOCs: $\frac{u'_t(c^t_t)}{p_t}=\lambda^t =\frac{\beta u'_{t+1}(c^t_{t+1})}{p_{t+1}}\Rightarrow \frac{p_{t+1}}{p_t}=\frac{\beta u'_{t+1}(c^t_{t+1})}{u'_t(c_t^t)}\Rightarrow c_t^t=f(c^t_{t+1},w^t_t,w^t_{t+1})$. FOC gives that price changes $p_t/p_{t+1}$ and subjective discounting $\beta$ determines consumption smoothing.
+    
+    \item[-] \textit{\textbf{Step 2}}: Solve the initial old's Lagrangian:
+    $$u(c^0_1)+\lambda^0\left(w_1^0+m-c_1^0\right)$$ get the initial old's consumption $\hat{c}^0_1=w_1^0+m$.
+    
+    \item[-] \textbf{\textit{Step 3}}: Plug $\hat{c}_1^0$ into the market clearing condition $c_t^{t-1} +c_t^t=w_t^{t-1}+w_t^t$, get
+    $$\hat{c}_1^1=w_1^0+w_1^1-\hat{c}_1^0=w_1^1-m$$
+    
+    
+    \item[-] \textit{\textbf{Step 4}}: Plug $\hat{c}_1^1=w_1^1-m$ and the FOC back to the budget constraint
+    $$\hat{p}_1 c^1_1+\hat{p}_2 c^1_2 = \hat{p}_1 w^1_1+\hat{p}_2 w^1_2$$
+    get $\hat{c}^1_2$. Iterate this process forward, solve the allocation $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ and price stream $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$.
+\end{itemize}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] allocation: $\left\{\tilde{c}^0_1,\left\{\tilde{c}^t_t,\tilde{c}^t_{t+1},\tilde{s}_t^t\right\}^{\infty}_{t=1}\right\}$
+        \item[-] regulating mechanism: interest rates $\left\{\tilde{r}_{t}\right\}^{\infty}_{t=1}$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=1},\forall t>1$, $\left\{\tilde{c}^t_t,\tilde{c}^t_{t+1}\right\}^{\infty}_{t=1}$ solves:
+        \begin{align*}
+            \max_{c^t\geq 0} u(c_t^t)+\beta u(c_{t+1}^t)\ \text{ s.t. } & c^t_t+s^t_t\leq w_t^t,\\
+            & c^t_{t+1}\leq w^t_{t+1}+(1+\tilde{r}_{t+1})s^t_t\\
+            \max_{c_1^0\geq 0} u(c_1^0)\ \text{ s.t. } & c_1^0\leq w_1^0+m(1+\tilde{r}_1)
+        \end{align*}
+    \item[-] good market clearing (disposal of unused goods is costly):
+    $$\tilde{c}^{t-1}_t+\tilde{c}^t_t=w^{t-1}_t+w^t_t,\forall t\geq 1$$
+    \item[-] asset market clearing: the budget constraint gives $$\tilde{c}^{t+1}_{t+1}+\tilde{c}^t_{t+1}+s^{t+1}_{t+1}=w^{t+1}_{t+1}+w^t_{t+1}+(1+\tilde{r}_{t+1})s^t_t$$
+    plug the good market clearing condition, get
+    $$s^{t+1}_{t+1}=(1+\tilde{r}_{t+1})s^t_t $$
+    iterate this backwards to $s^0_0=m$, get
+    $$s^t_t=\prod^t_{\tau=1}(1+\tilde{r}_{\tau})m$$
+    \end{itemize}
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {SM Equilibrium};
+\end{tikzpicture}
+
+\scriptsize
+\underline{\textit{\textbf{How to solve}}}:
+\begin{itemize}
+    \item[-] \textbf{\textit{Step 1}}: solve the Lagrangian
+    \begin{align*}
+        u_t(c^t_t)+\beta u_{t+1}(c^t_{t+1}) &+ \mu^t_t\left(w^t_t-c^t_t-s^t_t \right)\\
+        &+ \mu^t_{t+1}\left(w^t_t+(1+\tilde{r}_{t+1})s^t_t-c^t_{t+1} \right)
+    \end{align*}
+    FOCs: $u'_t(c^t_t)=\mu^t =\beta u'_{t+1}(c^t_{t+1})(1+\tilde{r}_{t+1})\Rightarrow \tilde{r}_{t+1}=\frac{u'_{t}(c^t_t)}{\beta u'_{t+1}(c_{t+1}^t)}-1\Rightarrow c_t^t=f(c^t_{t+1},w^t_t,w^t_{t+1})$.
+    
+    \item[-] \textit{\textbf{Step 2}}: Solve the initial old's Lagrangian:
+    $$u(c^0_1)+\lambda^0\left(w_1^0+m(1+r_1)-c_1^0\right)$$ get the initial old's consumption $\hat{c}^0_1=w_1^0+m(1+\tilde{r}_{t+1})$.
+    
+    \item[-] \textbf{\textit{Step 3}}: Plug $\hat{c}_1^0$ into the market clearing condition $c_t^{t-1} +c_t^t=w_t^{t-1}+w_t^t$, get
+    $$\hat{c}_1^1=w_1^0+w_1^1-\hat{c}_1^0=w_1^1-m(1+\tilde{r}_{t+1})$$
+    
+    \item[-] \textit{\textbf{Step 4}}: Plug $\hat{c}_1^1=w_1^1-m(1+\tilde{r}_{t+1})$ and the FOC back to the budget constraint
+    $$w_t^t+\frac{1}{1+\tilde{r}_{t+1}}w_{t+1}^t= c_t^t+\frac{1}{1+\tilde{r}_{t+1}}c^t_{t+1}$$
+    get $\hat{c}^1_2$. Iterate this process forward, solve the allocation $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ and price stream $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=1}$.
+\end{itemize}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[1] For an AD equilibrium allocation $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ and prices $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$ with $\hat{p}_t>0$, then there exists a corresponding SM equilibrium, with allocation $\left\{\tilde{c}^0_1,\left\{\tilde{c}^t_t,\tilde{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ and interest rates $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$, such that $$\tilde{c}^{t-1}_t=\hat{c}^{t-1}_t,\tilde{c}^t_t=\hat{c}^t_t\forall t\geq 1$$
+        \item[2] For a SM equilibrium allocation $\left\{\tilde{c}^0_1,\left\{\tilde{c}^t_t,\tilde{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ and interest rates $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$ where $\tilde{r}_{t+1}>-1$, there exists a corresponding AD equilibrium with allocation $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ and prices $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$ such that $$\hat{c}^{t-1}_t=\tilde{c}^{t-1}_t,\hat{c}^t_t=\tilde{c}^t_t\forall t\geq 1$$
+    \end{itemize}
+    
+    The interest rate and price stream are still inter-determined:
+    $$\frac{1}{1+\tilde{r}_{t+1}}=\frac{\hat{p}_{t+1}}{\hat{p}_t},\ \frac{1}{1+\tilde{r}_1}=\hat{p}_1$$
+    
+    The two Euler equations are:
+    \begin{align*}
+        u'_t(c_t^t)=\beta u'_{t+1}(c_{t+1}^t)(\hat{p}_t/\hat{p}_{t+1}) &\ \cdots \text{ AD}\\
+        u'_t(c_t^t)=\beta u'_{t+1}(c_{t+1}^t)(1+\tilde{r}_{t+1}) & \ \cdots\text{ SM}
+    \end{align*}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [bluebox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myblue}
+        \scriptsize
+        \underline{\textit{\textbf{An easy proof}}}:
+        \begin{itemize}
+            \item[-] \textbf{\textit{Prop. 1}}: AD equilibrium allocation  satisfies SM FOC and the SM budget constraints: 
+            $$\tilde{\mu}_t^t=\hat{\lambda}\hat{p}_t,\tilde{\mu}_{t+1}^t=\hat{\lambda}\hat{p}_{t+1},\forall t\geq 0;\  \tilde{s}^t_t=w^t_t-\hat{c}^t_t,\forall t\geq 1$$
+            \item[-] \textbf{\textit{Prop. 2}}: SM equilibrium allocation satisfies AD FOC and the AD budget constraints:  $$\hat{\lambda}^t=\frac{\tilde{\mu}^t_t}{\prod^{t-1}_{\tau=0}(1+\tilde{r}_{t-\tau})}=\frac{\tilde{\mu}^t_{t+1}}{\prod^{t-1}_{\tau=0}(1+\tilde{r}_{t+1-\tau})},\forall t\geq 1$$
+            
+            $$\hat{\lambda}^0=\tilde{\mu}^0_1(1+\tilde{r}_1)$$
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    \end{minipage}
+};
+\node[ibluetitle, right=4pt] at (box.north west) {Propositions of AD$\equiv$SM};
+\end{tikzpicture}
+
+\subsection*{Offer curve}
+\scriptsize
+Assume the economy is stationary, the endowments at each period of life by successive generations are constant:
+
+$$w^t_t=w_1,w^t_{t+1}=w_2,\forall t\geq 1;\ w^0_1=w_2$$
+
+By the Lagrangian of AD equilibrium:
+\begin{align*}
+    u'(c^t_t) &=\lambda^t p_t\\
+    \beta u'(c^t_{t+1}) &= \lambda^t p_{t+1}
+\end{align*}
+
+solve $c^t_t,c^t_{t+1}$ as functions of $p_t,p_{t+1}$, get $c^t_{t}(p_t,p_{t+1}),c^t_{t+1}(p_t,p_{t+1})$, then define $y$ as the excess demand at $t$, define $z$ as the excess demand at $t+1$:
+\begin{align*}
+    y(p_t,p_{t+1})=&c^t_t(p_t,p_{t+1})-w_1\\
+    z(p_t,p_{t+1})=&c^t_{t+1}(p_t,p_{t+1})-w_2
+\end{align*}
+
+The excess demand at $t=0$ is
+$$z(m,p_1)=c^0_1-w_2=\frac{m}{p_1}$$
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    By the AD budget constraint: $p_t c_t^t+p_{t+1} c^t_{t+1}=p_t w_t+p_{t+1} w^t_{t+1}$, this gives
+    $$ p_t y(p_t,p_{t+1}) + p_{t+1} z(p_t,p_{t+1})=0$$
+    leading to
+    $$\frac{z(p_t,p_{t+1})}{y(p_t,p_{t+1})}=-\frac{p_t}{p_{t+1}},\forall t\geq 1$$
+    Notice that $y(p_t,p_{t+1})$ and $z(p_t,p_{t+1})$ are both functions of $\frac{p_t}{p_{t+1}}$, this way, we can replace $\frac{p_t}{p_{t+1}}$ as a function of $y$, plug this $\frac{p_t}{p_{t+1}}=g(y)$ into $z(p_t,p_{t+1})$, we will have the offer curve $$z=f(y)$$
+
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [bluebox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myblue}
+        \scriptsize
+        \underline{\textit{\textbf{Properties of offer curve}}}:
+        \begin{itemize}
+            \item[-] The offer curve is bounded by endowment:
+            $$y(p_t,p_{t+1})\geq -w_1,z_(p_t,p_{t+1})\geq -w_2$$
+            \item[-] The curve is in the $2^{nd}$ and $4^{th}$ Quadrant:
+            $$y(p_t,p_{t+1})\cdot z(p_t,p_{t+1})<0$$
+            \item[-] The origin $(0,0)$ is on the offer curve: $z^*(p_t,p_{t+1})=y^*(p_t,p_{t+1})=0$.
+            \item[-] for $y(p_t,p_{t+1})\neq 0$, AD budget constraint is always satisfied:
+            $$\frac{z(p_t,p_{t+1})}{y(p_t,p_{t+1})}=-\frac{p_t}{p_{t+1}},\forall t\geq 1$$
+            hence the slope of the straight line connecting each point on the offer curve to the origin determines the price ratio $\frac{p_t}{p_{t+1}}$
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    Besides, we also have a market clearing curve:
+    \begin{align*}
+        y(p_t,p_{t+1})+z(p_{t-1},p_t)=0,&\ \forall t>1\\
+        y(p_1,p_2)+z(m,p_1)=0,&\ t=1
+    \end{align*}
+    
+    this is a 45-degree line through the $2^{nd}$ and $4^{th}$ quadrants.
+    \end{minipage}
+};
+\node[ibluetitle, right=4pt] at (box.north west) {Features of offer curve};
+\end{tikzpicture}
+
+With offer curve and market clearing curve, we can determine the \textbf{entire sequence of excess demands} of young and old at every date as following:
+\begin{itemize}
+    \item[-] \textit{\textbf{Step 1}}: for a given $m$, at $t=1$, the excess demand of the initial old $z^0=z^0(p_1,m)=m/p_1$
+    \item[-] \textit{\textbf{Step 2}}: the initial young's excess demand at $t=1$ is determined by the market clearing curve $y^1(p_1,p_2)=-z^0$
+    \item[-] \textit{\textbf{Step 3}}: $y^1$ will determine $z^1(p_1,p_2)$ on the offer curve.
+    \item[-] \textit{\textbf{Step 4}}: repeat this \textbf{market clearing curve}-\textbf{offer curve} procedure.
+\end{itemize}
+In this procedure, the initial price $p_1$ must be picked first. If $m\neq 0$, different $p_1$ can index a continuum of equilibria.
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    First, we need the slope of the offer curve to be convex:
+    $$ \frac{\partial c^t_t}{\partial (p_t/p_{t+1})} =\frac{\partial c^t_t}{\partial (1+r_{t+1})} <0 $$
+    \begin{itemize}
+        \item[-] graphically, $-\frac{p_t}{p_{t+1}}$ is the slope of the line connecting a point on the offer curve to the origin, $c_t^t-w_t^t=y(p_t,p_{t+1})$ is the x-axis, hence $\frac{\partial c^t_t}{\partial (p_t/p_{t+1})}<0$ means that as $c^t_t$ increases, the slope of the connecting line is increasing (less negative, or shallower).
+        \item[-]economically, if interest rates increasing, young period saving will increase, consumption will decrease (substitution effect).
+    \end{itemize}
+
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [bluebox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{myblue}
+        \scriptsize
+        \textit{\textbf{A very important object: \underline{Autarkic interest rate $\bar{r}$}}}:
+        
+        If we assume stationary endowment: $w^t_t=w1,w^t_{t+1}=w_2,\forall t\geq 1; w^0_1=w_2$, we will the autarkic interest rate as:
+        $$1+\bar{r} = \frac{\hat{p}_t}{\hat{p}_{t+1}}=\frac{u_t'(w_1)}{\beta u_{t+1}'(w_2)}$$
+        where 
+        \begin{itemize}
+            \item[-] $\hat{p}_t,\hat{p}_{t+1}$ are the autarky equilibrium price.
+            \item[-]$\bar{r}$ is determined by the relative size of endowment $w_1,w_2$
+            \item[-] $\bar{r}$ determines the general shape of the offer curve: $1+\bar{r}$ it is the \textbf{\underline{negative} of the slop of the offer curve at the origin}.
         \end{itemize}
         \end{minipage}
     };
     \end{tikzpicture}
     \end{minipage}
 };
-\node[iredtitle, right=4pt] at (box.north west) {Equilibrium};
+\node[ibluetitle, right=4pt] at (box.north west) {Slope of offer curve};
 \end{tikzpicture}
+
+\vspace{4pt}
+\subsection*{Different cases of OLG model}
+In the overlapping generation economy:
+\begin{itemize}
+    \item[-] $m$ and $p_1$
+    
+    $m$ determines the equilibrium sequences, the initial price level $p_1$ determines the starting point of an equilibrium sequence hence indexes a continuum of equilibria. There is a special initial price $p^*_1$ such that $m/p^*_1$ is exactly \textbf{the intersection point} of the offer curve and the market clearing curve. This will be the \textbf{stationary monetary equilibrium}.
+    
+    \item[-] $1+\bar{r}=\hat{p}_t/\hat{p}_{t+1}=u_t'(w_1)/\beta u_{t+1}'(w_2)$
+    
+    relative size of endowments $w_1,w_2$ determines autarkic interest rate $1+\bar{r}$, which determines the shape of the offer curve, and the Pareto efficiency and the stationary of the equilibria.
+\end{itemize}
+Now we discuss the different cases:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [orangebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myorange}
+    \scriptsize
+    \begin{itemize}
+        \item[-] shape of offer curve: the offer curve is tangent to the market clearing line \textbf{at the origin}
+        \item[-] equilibrium: 
+        \begin{itemize}
+            \item[-] the only stationary equilibrium is the origin allocation, autarky. It is Pareto efficiency.
+            \item[-] there is NO stationary monetary equilibria, i.e., money is not valued; But $\forall m<0$, there is a continuum of monetary equilibria, converging to autarky.
+        \end{itemize}
+    \end{itemize}
+    \end{minipage}
+};
+\node[orangetitle, right=4pt] at (box.north west) {Knife-edge economy $1+\bar{r} = \hat{p}_t/\hat{p}_{t+1}=u_t'(w_1)/\beta u_{t+1}'(w_2)=1$};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [orangebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myorange}
+    \scriptsize
+    In this economy, the \textbf{old} generation is richer: $w_2>w_1$, since $u'>0,u''<0$, $u'(w_1)>u'(w_2)>0$
+    \begin{itemize}
+        \item[-] shape of offer curve: the slope of the offer curve is \textbf{steeper} than the 45-degree market clearing line \textbf{at the origin}.
+        \item[-] two intersections: the origin and a point in the \textbf{fourth} quadrant $m/p^*_1, m<0$
+        \item[-] equilibrium: 
+        \begin{itemize}
+            \item[-] autarky is a stationary equilibrium, and it is \textbf{Pareto efficient}.
+            \item[-] there is a stationary monetary equilibria at the other intersection point $m/p^*_1$. It is \textbf{Pareto efficient}. In this equilibrium, $m<0$, the initial old has a debt, the economy has a net debt.
+            \item[-] there is a continuum of dynamic monetary equilibria with $p_1>p^*_1$. For all of them, $m<0$. They all converge to the monetary stationary equilibrium.
+        \end{itemize}
+        \item[-] AD prices: $\hat{p}_t$ decreases over time.
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[orangetitle, right=4pt] at (box.north west) {Classical economy $1+\bar{r} = \hat{p}_t/\hat{p}_{t+1}=u_t'(w_1)/\beta u_{t+1}'(w_2)>1$};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [orangebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myorange}
+    \scriptsize
+    In this economy, the \textbf{young} generation is richer: $w_1>w_2$, since $u'>0,u''<0$, $u'(w_2)>u'(w_1)>0$
+    \begin{itemize}
+        \item[-] shape of offer curve: the slope of the offer curve is \textbf{shallower} than the 45-degree market clearing line \textbf{at the origin}.
+        \item[-] two intersections: the origin and a point in the \textbf{second} quadrant $m/p^*_1, m>0$
+        \item[-] equilibrium: 
+        \begin{itemize}
+            \item[-] autarky is a stationary equilibrium, and it is \textbf{NOT} Pareto efficient.
+            \item[-] there is a stationary monetary equilibria at the other intersection point $m/p^*_1$. In this equilibrium, $m>0$, the initial old has positive fiat money.
+            \item[-] there are two continuum of dynamic monetary equilibria:
+            \begin{itemize}
+                \item[-] $m>0$: the continuum is between autarky and stationary monetary equilibrium, with $p_1>p^*_1$, they all converge to autarky.
+                \item[-] $m<0$: every possible $(m,p_1)$ is a dynamic monetary equilibrium, they all converge to autarky.
+            \end{itemize}
+            
+        \end{itemize}
+        \item[-] AD prices: $\hat{p}_t$ increases over time.
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[orangetitle, right=4pt] at (box.north west) {Samuelson economy $1+\bar{r} = \hat{p}_t/\hat{p}_{t+1}=u_t'(w_1)/\beta u_{t+1}'(w_2)<1$};
+\end{tikzpicture}
+
+\subsection*{Pareto efficiency of the equilibria}
+\begin{itemize}
+    \item[-] \underline{\textbf{Autarky equilibrium}} 
+    \begin{itemize}
+        \item[-] In \textit{knife-edge economy}, \textbf{Autarky is PE}: young and old have the same marginal utility. To compensate old by transferring from young, the utility loss of transferring in young cannot be compensated by the compensation in old since utility is concave.
+        \item[-] In \textit{classical economy}, \textbf{Autarky is PE}: young are endowed less, have a higher marginal utility. The utility loss of young from transferring to old can not be compensated by receiving that amount when old, again, it is due to the concavity of utility.
+        \item[-] In \textit{Samuelson economy}, \textbf{Autarky is NOT PE}: young are endowed more, have a lower marginal utility. The utility loss of young from transferring to old actually can be compensated by receiving that amount when old, it is also due to the concavity of utility.
+    \end{itemize}
+    
+    \item[-] \underline{\textbf{Monetary stationary equilibrium}}
+    \begin{itemize}
+        \item[-] In \textit{Samuelson economy}, \textbf{MSE is PE} and \textbf{Pareto dominating Autarky}: the initial old, with positive fiat money, are strictly better off, and as well off as they can be in equilibrium for any $m>0$. For generation $t\geq 1$, MSE allocation is identical to the steady-state utility maximizing allocation, hence every generation is at least as good as in autarky.
+        
+        \item[-] In \textit{classical economy}, \textbf{MSE is PE} but \textbf{NOT Pareto dominating Autarky}, MSE allocation is also steady-state utility maximizing, hence, it is Pareto efficient, but Autarky can not be Pareto improved either.
+    \end{itemize}
+    \item[-] \underline{\textbf{Monetary non-stationary equilibria}}
+    \begin{itemize}
+        \item[-] In \textit{Samuelson economy}, \textbf{MNSE is not PE}. All the non-stationary equilibria converge to Autarky, and features \textbf{rising prices}, hence $\lim_{t\rightarrow\infty}p_t=\infty$. All of these non-stationary equilibria are arbitrarily close to each other, they all converge to Autarky, which has a positive, constant price inflation $\hat{p}_t/\hat{p}_{t+1}<1$, hence a negative autarky interest rate $\bar{r}<0$, this means NOT PE.
+        
+        \item[-] In \textit{classical economy}, \textbf{every MNSE is PE}. All the non-stationary equilibria converge to the monetary stationary equilibrium, which has zero inflation, zero interest rate, hence they are all PE.
+        
+        \item[-] In \textbf{knife-edge economy}, the conclusion is the same as the classical economy.
+    \end{itemize}
+\end{itemize}
+
+A general theoretical result is given by Balasko and Shell:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    Assume:
+    \begin{itemize}
+        \item[-] stationary endowment $w^t_t=w_1>0,w^t_{t+1}=w^0_1=w_2>0$
+        \item[-] allocation is bounded away from zero: $\left(\hat{c}^{t-1}_t,\hat{c}^t_t\right)\geq \delta >0$
+    \end{itemize}
+    
+    Define $$\frac{1}{1+r_{t+1}}=\frac{\beta U'\left(\hat{c}^t_{t+1}\right)}{U'\left(\hat{c}^t_t\right)}=\frac{\hat{p}_{t+1}}{\hat{p}_t}$$
+    
+    Then the allocation is Pareto efficient if and only if
+    $$\sum^{\infty}_{t=1}\prod_{\tau}^t\left(1+r_{\tau+1}\right) =+\infty$$
+    
+    This \underline{\textbf{includes}} two scenarios (PE):
+    \begin{itemize}
+        \item[-] AD prices falling, i.e., positive interest rate $r_{t+1}$
+        \begin{itemize}
+            \item[-] \underline{classic Autarky}
+        \end{itemize}
+        
+        \item[-] AD prices constant, i.e., zero interest rate $r_{t+1}$
+        \begin{itemize}
+            \item[-] \underline{knife-edge Autarky}, \underline{all knife-edge MNSE} (converge to Autarky) 
+            \item[-]\underline{classic MSE}, \underline{all classic MNSE} (converge to classic MSE)
+            \item[-] \underline{Samuelson MSE}
+        \end{itemize}
+    \end{itemize}
+    This \underline{\textbf{excludes}} one scenario (not PE):
+    \begin{itemize}
+        \item[-] AD prices increasing, i.e., negative interest rate $r_{t+1}$ 
+        \begin{itemize}
+            \item[-] \underline{Samuelson Autarky}, \underline{all Samuelson MNSE} (converge to Samuelson Autarky). 
+        \end{itemize}
+    \end{itemize}
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Balasko and Shell Pareto-efficiency condition};
+\end{tikzpicture}
+
+\section*{Neoclassical growth model}
 
 \end{multicols*}
 
