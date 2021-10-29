@@ -1096,6 +1096,398 @@ A general theoretical result is given by Balasko and Shell:
 
 \section*{Neoclassical growth model}
 
-\end{multicols*}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [ibluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    \begin{itemize}
+        \item[-] \textbf{discrete} time, indexed by $t$
+        \item[-] economy, households, firms live \textbf{infinitely}
+        \item[-] single commodity endogenously produced by firms, consumed and invested by households.
+        \item[-] there is a continuum of identical \underline{\textbf{households}}, they are \textbf{price takers}, they maximize their lifetime utility, can be represented by a \textbf{representative} household.
+        \item[-] there is a continuum of identical \underline{\textbf{firms}}, they are perfectly competitive, maximize their lifetime profits, can be represented by a representative household.
+    \end{itemize}
+    \end{minipage}
+};
+\node[ibluetitle, right=4pt] at (box.north west) {Features};
+\end{tikzpicture}
 
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    households are endowed with
+    \begin{itemize}
+        \item[-] 1 unit of time, can be used for labor or leisure $n_t+l_t=1$
+        \item[-] initial capital stock $\bar{k}_0>0$
+        \item[-] \textbf{NO goods}: all final goods are produced endogenously.
+    \end{itemize}
+    \vspace{3pt}
+    households and firms meet in markets and trade:
+    \begin{itemize}
+        \item[-] households sell capital and labor, earn rental and wage
+        \item[-] firms sell goods, earn \textbf{zero} profit
+    \end{itemize}
+    \vspace{3pt}
+    \textbf{And, Households are assumed to own firms}, hence own profit.
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Agents' endowment};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    household: $\max U(c)=\sum^{\infty}_{t=0}\beta^t [u(c_t)+\psi(l_t)]$
+    
+    firms: $\max F(k_t,n_t)-r_t k_t-w_t n_t$ where $F(k_t,n_t)=y_t =c_t+i_t$
+    
+    \vspace{-6pt}
+\begin{center}
+\tiny
+       \begin{tabular}{rl}
+       \multicolumn{2}{c}{assumptions of $u(\cdot)$ and $F(\cdot)$}\\
+        \hline\hline
+        $u(c_t):$ & \\
+          &continuously differentiable\\
+          &strictly increasing and concave \\
+          &satisfying Inada condition\\
+          &time separable, $\beta\in (0,1)$\\
+          \hline
+          $\psi(l_t):$ & \\
+          &value of leisure\\
+          \hline
+          $F(k_t,n_t):$ & \\
+          &continuously differentiable\\
+          &strictly increasing and concave \\
+          &both $F_k$ and $F_n$ satisfying Inada condition\\
+          & homogeneous of degree 1, constant return to scale\\
+          \hline\hline
+        \end{tabular} 
+\end{center}
+
+Households and firms are perfectly competitive: they are price takers, earn zero economic profit, and achieve a perfectly \textbf{competitive equilibrium environment}.
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Agents' preferences and equilibrium behavior};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    \textbf{households}: households are endowed with initial capital $k_0$ and produce new capital via: $$k_{t+1}=(1-\delta)k_t+i_t$$
+    where $\delta$ is the depreciation ratio $\delta\in [0,1]$
+    
+    \rule{\textwidth}{0.4pt}
+    
+    \vspace{3pt}
+    \textbf{firms}: the most common production functions is the family of the constant elasticity of substitution (CES) function:
+    $$y_t = F(k_t,n_t)=A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^\frac{1}{1-\frac{1}{\gamma}}$$
+    it has the following properties:
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [ibluebox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{white}
+        \scriptsize
+        \underline{\textit{\textbf{Properties of CES function}}}:
+        \begin{itemize}
+            \item[-] Convergence:
+            \begin{itemize}
+                \item[-] $\gamma\rightarrow 1$: converges to Cobb-Douglas function 
+                \item[-] $\gamma\rightarrow 0$: converges to Leontief function
+            \end{itemize}
+            \item[-] constant return to scale
+            \item[-] positive and diminishing marginal productivity
+            \item[-] inputs are complements (cross partial derivatives $>0$)
+        \end{itemize}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Agents' technology};
+\end{tikzpicture}
+
+Here is the proof of the properties of CES functions:
+\begin{itemize}
+    \item[-] $\gamma\rightarrow 1$ leading to Cobb-Douglas:
+    \begin{itemize}
+        \item[-] \textbf{L'Hopital rule:} rewrite the function as 
+        \begin{align*}
+        \ln y_t &= \ln A +\frac{\ln\left[\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right]{\color{myorange}\xrightarrow{\gamma\rightarrow 1}0}}{1-\frac{1}{\gamma}{\color{myorange}\xrightarrow{\gamma\rightarrow 1}0}}\\
+        {\color{myorange}(\text{L'Hopital})}&\rightarrow\ln A+\frac{\alpha \ln k_t\cdot k_t^{1-\frac{1}{\gamma}}+(1-\alpha) \ln n_t\cdot n_t^{1-\frac{1}{\gamma}}}{\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)}\\
+        \Rightarrow\lim_{\gamma\rightarrow 1}\ln y_t & =\ln A+\alpha \ln k_t +(1-\alpha)\ln n_t\\
+        \Rightarrow \lim_{\gamma\rightarrow 1} y_t & =e^{\ln A+\alpha \ln k_t +(1-\alpha)\ln n_t} = Ak_t^{\alpha}n_t^{1-\alpha}
+        \end{align*}
+        
+        \item[-] \textbf{Total differentials:} rewrite the function as 
+        $$
+            y_t^{1-\frac{1}{\gamma}}=A^{1-\frac{1}{\gamma}}\left[\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right]
+        $$
+        take total differentials, get:
+        \begin{align*}
+            \left(1-\frac{1}{\gamma}\right)y_t^{-\frac{1}{\gamma}}\mathrm{d}y_t =& A^{1-\frac{1}{\gamma}}\left(\left(1-\frac{1}{\gamma}\right)\alpha k_t^{-\frac{1}{\gamma}}\mathrm{d}k_t\right.\\
+            &+\left.\left(1-\frac{1}{\gamma}\right)(1-\alpha)n_t^{-\frac{1}{\gamma}}\mathrm{d}n_t\right)\\
+            \Rightarrow y_t^{-\frac{1}{\gamma}}\mathrm{d}y_t =&A^{1-\frac{1}{\gamma}}\left(\alpha k_t^{-\frac{1}{\gamma}}\mathrm{d}k_t +(1-\alpha)n_t^{-\frac{1}{\gamma}}\mathrm{d}n_t\right)\\
+            \xRightarrow{\gamma\rightarrow 1} \frac{1}{y_t}\mathrm{d}y_t=&\left(\alpha\frac{1}{k_t}\mathrm{d}k_t+(1-\alpha)\frac{1}{n_t}\mathrm{d}n_t \right)\\
+            \xRightarrow{\int} \ln y_t +c_y =& \left[\alpha\left(\ln k_t+c_k\right)+(1-\alpha)\left( \ln n_t+c_n\right) \right]\\
+            \Rightarrow y_t =& {\color{myorange}e^{\alpha c_k+(1-\alpha)c_n-c_y}}k_t^{\alpha}n_t^{1-\alpha}=\tilde{A}k_t^{\alpha}n_t^{1-\alpha}
+        \end{align*}
+        
+        \item[-] \textbf{Taylor expansion:} expand $Q(k_t,n_t)\equiv\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}$ at $\gamma=1$, get:
+        \begin{align*}
+            Q(k_t,n_t)= & \left.\alpha k_t^{1-\frac{1}{\gamma}}\right\vert_{\gamma=1}+\left.(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right\vert_{\gamma=1}\\
+            &+ \left.\alpha\ln k_t\cdot k_t^{1-\frac{1}{\gamma}}\right\vert_{\gamma=1}\cdot(\gamma-1)\\
+            &+ \left. (1-\alpha)\ln n_t\cdot n_t^{1-\frac{1}{\gamma}} \right\vert_{\gamma=1}\cdot (\gamma-1) + O\left((\gamma-1)^2\right)\\
+            = & 1+(\gamma-1)\ln k_t^{\alpha}n_t^{1-\alpha} +O\left((\gamma-1)^2\right)
+        \end{align*}
+        plug $Q(k_t,n_t)$ into $y_t$, get
+        \begin{align*}
+            y_t &= A\cdot Q(k_t,n_t)^{\frac{1}{1-\frac{1}{\gamma}}}\\
+             &= A \left[1+(\gamma-1)\ln k_t^{\alpha}n_t^{1-\alpha} +O\left((\gamma-1)^2\right)\right]^{\frac{1}{1-\frac{1}{\gamma}}}\\
+            \xRightarrow{r=\frac{1}{\gamma-1}} &= A\left[ 1+\frac{1}{r}\ln k_t^{\alpha}n_t^{1-\alpha} +O(\frac{1}{r^2}) \right]^{\gamma r}
+        \end{align*}
+        since $\gamma\rightarrow 1\Rightarrow r\rightarrow \infty$, we have 
+        \begin{align*}
+            \lim_{\gamma\rightarrow 1} y_t &= \lim_{\gamma\rightarrow 1} A\left[ 1+\frac{\ln k_t^{\alpha}n_t^{1-\alpha}}{r}+O(\frac{1}{r^2}) \right]^{\gamma r}\\
+            &=\lim_{\gamma\rightarrow 1} A\left[ 1+\frac{\ln k_t^{\alpha}n_t^{1-\alpha}}{r} \right]^{\gamma r}\\
+            \xRightarrow{(1+\frac{x}{\infty})^{\infty}\rightarrow e^x} & = \left(e^{\ln k_t^{\alpha}n_t^{1-\alpha}}\right)^{\gamma} = k_t^{\alpha}n_t^{1-\alpha}
+        \end{align*}
+    \end{itemize}
+    
+    \item[-] $\gamma\rightarrow 0$ leading to Leontief:
+    \begin{itemize}
+        \item[-] \textbf{L'Hopital rule:} rewrite the function as 
+        \begin{align*}
+        \ln y_t &= \ln A +\frac{\ln\left[\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right]{\color{myorange}\xrightarrow{\gamma\rightarrow 0}-\infty}}{1-\frac{1}{\gamma}{\color{myorange}\xrightarrow{\gamma\rightarrow 0}-\infty}}\\
+        {\color{myorange}(\text{L'Hopital})}&\rightarrow\ln A+\frac{\alpha \ln k_t\cdot k_t^{1-\frac{1}{\gamma}}+(1-\alpha) \ln n_t\cdot n_t^{1-\frac{1}{\gamma}}{\color{myorange}\rightarrow 0}}{\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right){\color{myorange}\rightarrow 0}}
+        \end{align*}
+        
+        Here, we have a $\frac{0}{0}$ limit. Using L'Hopital rule again yields NOTHING. To proceed, define $x_t=\min\left\{k_t,n_t\right\}$, then we have
+        \begin{align*}
+        \lim_{\gamma\rightarrow 0}\ln y_t &=\ln A+\frac{\alpha \ln k_t\cdot \left(\frac{k_t}{x_t}\right)^{1-\frac{1}{\gamma}}+(1-\alpha) \ln n_t\cdot \left(\frac{n_t}{x_t}\right)^{1-\frac{1}{\gamma}}}{\left(\alpha \left(\frac{k_t}{x_t}\right)^{1-\frac{1}{\gamma}}+(1-\alpha)\left(\frac{n_t}{x_t}\right)^{1-\frac{1}{\gamma}}\right)}\\
+        &=\ln A +
+        \begin{cases}
+        \ln k_t, & k_t<n_t\\
+        \ln n_t, & k_t>n_t\\
+        \ln \alpha\ln k_t +(1-\alpha)\ln n_t, & k_t=n_t\\
+        \end{cases}\\
+        &=\ln A + \ln(\min\{n_t,k_t\})\Rightarrow \lim_{\gamma\rightarrow 0}y_t = A\min\{n_t,k_t\}
+        \end{align*}
+        
+        \item[-] \textbf{Sandwich theorem:} without losing generality, assume $k_t\geq n_t>0$, consider this inequality:
+        \begin{align*}
+            & (1-\alpha)n_t^{1-\frac{1}{\gamma}} \leq \alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}} \leq n_t^{1-\frac{1}{\gamma}}\\
+            \Rightarrow & (1-\alpha)^{\frac{1}{1-\frac{1}{\gamma}}}n_t \leq \left[\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right]^{\frac{1}{1-\frac{1}{\gamma}}} \leq n_t
+        \end{align*}
+        notice that $$ \lim_{\gamma\rightarrow 0}(1-\alpha)^{\frac{1}{1-\frac{1}{\gamma}}}n_t = n_t$$ then by the Sandwich Theorem, we have
+        $$ \lim_{\gamma\rightarrow 0}\left[\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right]^{\frac{1}{1-\frac{1}{\gamma}}} =n_t$$
+        therefore
+        \begin{align*}
+            \lim_{\gamma\rightarrow 0}y_t &= \lim_{\gamma\rightarrow 0}A\left[\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right]^{\frac{1}{1-\frac{1}{\gamma}}}\\
+            & =A n_t = A\min\left\{k_t,n_t\right\}
+        \end{align*}
+    \end{itemize}
+    
+    \item[-] Constant return to scale: $F(\lambda k_t,\lambda n_t)=\lambda F(k_t,n_t)$
+    
+    It is very easy to verify directly. Another way to verify this is use Euler's theorem, constant return to scale means homogeneity of degree 1, hence Euler's theorem requires $F(k_t,n_t)=F_k(k_t,n_t)k_t+F_n(k_t,n_t)n_t$, that is:
+    \begin{align*}
+        & k_t F_k(k_t,n_t)+n_t F_n(k_t,n_t) \\
+        =& k_t A \frac{1}{1-\frac{1}{\gamma}}\cdot \left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{\gamma-1}} \alpha\left(1-\frac{1}{\gamma}\right)k_t^{-\frac{1}{\gamma}}\\ &+n_t A \frac{1}{1-\frac{1}{\gamma}}\cdot \left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{\gamma-1}} (1-\alpha)\left(1-\frac{1}{\gamma}\right)n_t^{-\frac{1}{\gamma}}\\
+        =& A\left( \alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha) n_t^{1-\frac{1}{\gamma}} \right)\cdot\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{\gamma-1}}\\
+        =& A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{1-\frac{1}{\gamma}}}= F(k_t,n_t)
+    \end{align*}
+    
+    \item[-] positive and diminishing marginal productivity.
+    
+    Again, fairly straightforward, we verity $F_k(k_t,n_t)>0, F_n(k_t,n_t)>0$; $F_{kk}(k_t,n_t)<0,F_{nn}(k_t,n_t)<0$:
+    \begin{itemize}
+        \item[-] $F_k$ and $F_n$: take partial derivatives w.r.t. $k_t$, get
+        $$
+        F_k=A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{1-\frac{1}{\gamma}}-1}\cdot\alpha k_t^{-\frac{1}{\gamma}}\geq 0
+        $$
+        
+        for $n_t$, similarly
+        $$
+        F_n=A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{1-\frac{1}{\gamma}}-1}\cdot(1-\alpha) n_t^{-\frac{1}{\gamma}}\geq 0
+        $$
+        
+        \item[-] $F_{kk}$ and $F_{nn}$: take twice partial derivatives w.r.t. $k_t$, for simplicity, again let $Q_t\equiv \alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}$, get
+        \begin{align*}
+            F_{kk} =& AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1-1}\cdot\left(\frac{1}{1-\frac{1}{\gamma}}-1\right)\cdot\left(1-\frac{1}{\gamma}\right)\alpha k_t^{-\frac{1}{\gamma}}\cdot \alpha k_t^{-\frac{1}{\gamma}}\\
+            &+ \alpha\left(-\frac{1}{\gamma}\right)k_t^{-\frac{1}{\gamma}-1}\cdot AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1}\\
+            =& AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1-1}\alpha \frac{1}{\gamma}\cdot \alpha k_t^{-\frac{2}{\gamma}}-\alpha\frac{1}{\gamma}k_t^{-\frac{1}{\gamma}-1}AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1}\\
+            =& \alpha \frac{1}{\gamma}k_t^{-\frac{1}{\gamma}-1}AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1}\cdot \left( Q_t^{-1}\alpha k_t^{1-\frac{1}{\gamma}} -1\right)
+        \end{align*}
+        since $\alpha k_t^{1-\frac{1}{\gamma}}Q_t^{-1}=\frac{\alpha k_t^{1-\frac{1}{\gamma}}}{\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha) n_t^{1-\frac{1}{\gamma}}}<1$, $F_{kk}<0$. Similarly for $F_{nn}$:
+        $$
+            F_{nn} = (1-\alpha) \frac{1}{\gamma}n_t^{-\frac{1}{\gamma}-1}AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1}\cdot \left( Q_t^{-1}(1-\alpha) n_t^{1-\frac{1}{\gamma}} -1\right)<0
+        $$
+        
+        \item[-] $F_{kn}=F_{nk}>0$: by the symmetry of Hessian matrix, we only need to verifyt $F_{kn}$, that is
+        \begin{align*}
+            F_{kn} =& AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-1-1}\left(\frac{1}{1-\frac{1}{\gamma}}-1\right)\alpha k_t^{-\frac{1}{\gamma}}\cdot (1-\alpha)(1-\frac{1}{\gamma})n_t^{-\frac{1}{\gamma}}\\
+            =& AQ_t^{\frac{1}{1-\frac{1}{\gamma}}-2}\frac{1}{\gamma}\alpha(1-\alpha)(k_tn_t)^{-\frac{1}{\gamma}}>0
+        \end{align*}
+    \end{itemize}
+\end{itemize}
+
+\subsection*{How to solve the model: social planner's problem}
+
+This model can be analytically solved only when certain assumptions are imposed on utility functions and production functions. However, there exists a solution: capital must be cleared eventually, that is $k_{T+1}=0$; and constraint set for $k_{t+1}$ is compact.
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+        $$\max_{\left\{c_t,i_t,k_{t+1},l_t,n_t,y_t\right\}^{\infty}_{t=0}} \sum^{\infty}_{t=0}\beta^t(u(c_t)+\psi(l_t))$$
+    s.t.
+    \begin{align*}
+        y_t&=c_t+i_t &\text{market clearing}\\
+        k_{t+1}&=(1-\delta)k_t+i_t &\text{capital accumulation}\\
+        1&=n_t+l_t & \text{time endowment}\\
+        y_t &= A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{1-\frac{1}{\gamma}}} & \text{production function}\\
+        0&\leq c_t,i_t,k_t,n_t,l_t,y_t,\forall t&\text{non-negativity}
+    \end{align*}
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {Social planner's problem};
+\end{tikzpicture}
+
+This problem can be rewritten as:
+$$
+\max_{\left\{c_t,n_t,k_{t+1}\right\}^{\infty}_{t=0}}\sum^{\infty}_{t=0}\beta^t\left(u(c_t)+\psi(1-n_t)\right)
+$$
+s.t. 
+$$
+k_{t+1}=(1-\delta)k_t + A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{1-\frac{1}{\gamma}}} - c_t 
+$$
+and $c_t,k_t,n_t\geq 0,\forall t$. Then, we can derive the Euler equation with Lagrange method:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+        $$\mathcal{L}= \sum^{\infty}_{t=0}\left[ \beta^t\left(u(c_t)+\psi(1-n_t)\right) +\lambda_t\left( (1-\delta)k_t + F(k_t,n_t)-k_{t+1}-c_t\right)  \right]$$
+    FOC gives:
+    \begin{align*}
+        \frac{\partial \mathcal{L}}{\partial c_t}=0 \Rightarrow & \beta^t u'(c_t)=\lambda_t &(1)\\
+        \frac{\partial \mathcal{L}}{\partial n_t}=0 \Rightarrow & \beta^t \psi'(1-n_t)= \lambda_t F_n(k_t,n_t) &(2)\\
+        \frac{\partial \mathcal{L}}{\partial k_{t+1}}=0\Rightarrow & \lambda_{t+1}\left(F_k(k_{t+1},n_{t+1}) +1-\delta \right)=\lambda_t &(3)
+    \end{align*}
+    
+    \begin{tikzpicture}
+    \node [iredbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{white}
+        (1) and (3) together, gives the Euler equation:
+        $$
+        u'(c_t)=\left(F_k(k_{t+1},n_{t+1})+1-\delta\right)\beta u'(c_{t+1})
+        $$
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    Interpretation: today's consumption lost must be compensated by discounted tomorrow's consumption gain.
+    \begin{itemize}
+        \item[-] $u'(c_t)$: the utility loss of giving up 1 unit of $c_t$ for investment
+        \item[-] $\beta u'(c_{t+1})(F_k(k_{t+1},n_{t+1})+1-\delta)$:
+        \begin{itemize}
+            \item[-] $F_k(k_{t+1},n_{t+1})+1-\delta$: the capital accumulation ($1-\delta$) and production $F_k(k_{t+1},n_{t+1})$ of an extra unit of capital
+            \item[-] $\beta u'(c_{t+1})$: per-unit discounted utility compensation at $t+1$
+        \end{itemize}
+    \end{itemize}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [iredbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{white}
+        (1) and (2) together, gives the consumption-leisure condition:
+        $$
+        u'(c_t)\cdot F_n(k_t,n_t)=\psi'(1-n_t)
+        $$
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    Interpretation: the utility loss of giving up 1 unit of $l_t$ ($\psi'(1-n_t)$) must be compensated by the consumption utility gain due to the additional output $F_n(k_t,n_t)\cdot u'(c_t)$
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {FOC of social planner's problem};
+\end{tikzpicture}
+
+\vspace{2pt}
+With the FOCS, we can characterize the equilibrium and steady state of this economy:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    The equilibrium in this economy is characterized by the following equations:
+    \begin{align*}
+        u'(c_t)&=\left(F_k(k_{t+1},n_{t+1})+1-\delta\right)\beta u'(c_{t+1}) & \text{Euler equation} \\
+        u'(c_t)&=\frac{\psi'(1-n_t)}{F_n(k_t,n_t)} & \text{leisure condition}\\
+        k_{t+1}&=F(k_t,n_t)+(1-\delta)k_t-c_t & \text{budget constraint}
+    \end{align*}
+    where $F(k_t,n_t)=A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha) n_t^{1-\frac{1}{\gamma}} \right)^{\frac{1}{1-\frac{1}{\gamma}}}$
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Social planner's problem: equilibrium};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    The steady state in this economy is achieved when $c_t\equiv c^*,k_{t+1}\equiv k^*,n_t\equiv n^*$, hence:
+    \begin{align*}
+        \frac{1}{\beta}-(1-\delta)&=F_k(k^*,n^*) & \text{Euler equation} \\
+        u'(c^*)&=\frac{\psi'(1-n^*)}{F_n(k^*,n^*)} & \text{leisure condition}\\
+        c^*&=F(k^*,n^*)-\delta k^* & \text{budget constraint}
+    \end{align*}
+    Plug the output level $y_t=F(k_t,n_t)$ and its partial derivatives back into these three equations, we have the steady state:
+    \begin{align*}
+        \frac{1}{\beta}-(1-\delta)&=\alpha A^{1-\frac{1}{\gamma}}\left(\frac{y^*}{k^*}\right)^{\frac{1}{\gamma}} & \text{Euler equation} \\
+        u'(c^*)&=\frac{\psi'(1-n^*)}{(1-\alpha) A^{1-\frac{1}{\gamma}}\left(\frac{y^*}{n^*}\right)^{\frac{1}{\gamma}}} & \text{leisure condition}\\
+        c^*&=y^*-\delta k^* & \text{budget constraint}
+    \end{align*}
+    
+    And we can have the steady state capital-labor ratio:
+    $$
+    \frac{k^*}{n^*}= \left( \frac{\alpha}{1-\alpha}\cdot\frac{\psi'(1-n^*)/u'(c^*)}{\frac{1}{\beta}-(1-\delta)} \right)
+    $$
+    but it is generally impossible to solve analytically.
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Social planner's problem: steady state};
+\end{tikzpicture}
+
+\subsection*{Social planner's problem: a simple example}
+In general, social planner's problem of NGM cannot be solved analytically, but for the simplest example, it is possible
+
+\end{multicols*}
 \end{document}
