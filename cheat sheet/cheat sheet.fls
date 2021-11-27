@@ -179,6 +179,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/comment/comment.sty
+INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/comment/comment.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/sourcesanspro/sourcesanspro.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/sourcesanspro/sourcesanspro.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
@@ -458,6 +460,8 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmne.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/public/kpfonts/jkpmit8t.vf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmit8r.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpmite.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/kpfonts/jkpbn8t.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/vf/public/kpfonts/jkpmn8t.vf
 INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux
 INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out
 INPUT /Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out

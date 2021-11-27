@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.7)  29 OCT 2021 20:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.7)  26 NOV 2021 23:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -783,7 +783,9 @@ LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `sf'
 LaTeX Font Info:    Overwriting symbol font `largesymbolsA' in version `boldsf'
 (Font)                  U/jkpexa/m/n --> U/jkpexa/bx/n on input line 620.
 LaTeX Info: Redefining \not on input line 1580.
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/sourcesanspro/sourcesanspro.sty
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write4
+ Excluding comment 'comment') (/usr/local/texlive/2018/texmf-dist/tex/latex/sourcesanspro/sourcesanspro.sty
 Package: sourcesanspro 2016/12/03 v2.6 Adobe's Source Sans Pro typeface
  (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
@@ -1732,53 +1734,53 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 )
 \pgf@layerbox@background=\box110
 \pgf@layerboxsaved@background=\box111
-Package hyperref Info: Option `colorlinks' set `true' on input line 189.
+Package hyperref Info: Option `colorlinks' set `true' on input line 190.
  (/Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux)
 \openout1 = `"cheat sheet.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 199.
-LaTeX Font Info:    Try loading font information for OML+jkp on input line 199.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 200.
+LaTeX Font Info:    Try loading font information for OML+jkp on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 199.
-LaTeX Font Info:    Try loading font information for OMS+jkp on input line 199.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 200.
+LaTeX Font Info:    Try loading font information for OMS+jkp on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 199.
-LaTeX Font Info:    Try loading font information for OMX+jkp on input line 199.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 200.
+LaTeX Font Info:    Try loading font information for OMX+jkp on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 199.
-LaTeX Font Info:    Try loading font information for U+jkpexa on input line 199.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 200.
+LaTeX Font Info:    Try loading font information for U+jkpexa on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 199.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 199.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 200.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 199.
-LaTeX Font Info:    Try loading font information for LY1+ptm on input line 199.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 200.
+LaTeX Font Info:    Try loading font information for LY1+ptm on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/ly1/ly1ptm.fd
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 199.
-LaTeX Font Info:    ... okay on input line 199.
-LaTeX Font Info:    Try loading font information for T1+jkp on input line 199.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Try loading font information for T1+jkp on input line 200.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/t1jkp.fd
 File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
 ) ABD: EveryShipout initializing macros (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -1841,7 +1843,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box113
-LaTeX Info: Redefining \microtypecontext on input line 199.
+LaTeX Info: Redefining \microtypecontext on input line 200.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1855,7 +1857,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `jkp' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package hyperref Info: Link coloring ON on input line 199.
+Package hyperref Info: Link coloring ON on input line 200.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1863,14 +1865,14 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count330
 )
-LaTeX Info: Redefining \ref on input line 199.
-LaTeX Info: Redefining \pageref on input line 199.
-LaTeX Info: Redefining \nameref on input line 199.
+LaTeX Info: Redefining \ref on input line 200.
+LaTeX Info: Redefining \pageref on input line 200.
+LaTeX Info: Redefining \nameref on input line 200.
  (/Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out) (/Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.out)
-\@outlinefile=\write4
-\openout4 = `"cheat sheet.out"'.
+\@outlinefile=\write5
+\openout5 = `"cheat sheet.out"'.
 
-LaTeX Font Info:    Try loading font information for OT1+jkp on input line 250.
+LaTeX Font Info:    Try loading font information for OT1+jkp on input line 251.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
@@ -1878,288 +1880,400 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `jkp' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for U+jkpmia on input line 250.
+LaTeX Font Info:    Try loading font information for U+jkpmia on input line 251.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 250.
+LaTeX Font Info:    Try loading font information for U+msa on input line 251.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 250.
+LaTeX Font Info:    Try loading font information for U+msb on input line 251.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 250.
+LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 251.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+esint on input line 250.
+LaTeX Font Info:    Try loading font information for U+esint on input line 251.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/esint/uesint.fd
 File: uesint.fd 
 )
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 253--254
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 254--255
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 273--274
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 274--275
 [][] 
  []
 
 
-Underfull \hbox (badness 6300) in paragraph at lines 288--289
+Underfull \hbox (badness 6300) in paragraph at lines 289--290
 []\T1/jkp/b/n/7 monotonically in-cre-a-sing, strict-ly con-ca-ve\T1/jkp/m/n/7 : $\OML/jkp/m/it/6.8 u[]\OT1/jkp/m/n/6.8 (\OML/jkp/m/it/6.8 c[]\OT1/jkp/m/n/6.8 ) \OML/jkp/m/it/6.8 >
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 307--308
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 308--309
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 321--322
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 322--323
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 338--339
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 339--340
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 382--383
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 383--384
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 428--429
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 429--430
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 501--502
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 502--503
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 518--519
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 519--520
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 553--556
+Underfull \hbox (badness 10000) in paragraph at lines 554--557
 [][]
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 578--579
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 579--580
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 580.
+(babel)             in language  on input line 581.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 580.
+(babel)             in language  on input line 581.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 580.
+(babel)             in language  on input line 581.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 580.
+(babel)             in language  on input line 581.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 597--598
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 598--599
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 []\T1/jkp/m/n/7 It is ea-sy to show that the as-set hol-ding
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 [] \OT1/jkp/m/n/6.8 = [][] [] \OMS/jkp/m/n/6.8 ^^U ^^@ [][] [] ^^U
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 \OMS/jkp/m/n/6.8 ^^@ [][] \OML/jkp/m/it/6.8 ^^X[][] > \OMS/jkp/m/n/6.8 ^^@1$\T1/jkp/m/n/7 , the-re-fo-re, hou-se-holds
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 617--618
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
 \T1/jkp/m/n/7 will \T1/jkp/b/n/7 ne-ver \T1/jkp/m/n/7 choo-se $[]$ to ex-ceed the debt li-mit
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 627--628
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 628--629
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 651--652
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 652--653
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 670--671
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 671--672
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 686--687
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 687--688
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 713--714
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 714--715
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 763--764
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 764--765
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 782.
+(babel)             in language  on input line 783.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 782.
+(babel)             in language  on input line 783.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 782.
+(babel)             in language  on input line 783.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 782.
+(babel)             in language  on input line 783.
 [2]
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 827--828
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 828--829
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 893--894
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 894--895
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 939--940
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 940--941
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 972--973
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 973--974
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 996--997
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 997--998
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1025--1026
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1026--1027
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1049.
+(babel)             in language  on input line 1050.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1049.
+(babel)             in language  on input line 1050.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1049.
+(babel)             in language  on input line 1050.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1049.
+(babel)             in language  on input line 1050.
 [3]
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1095--1096
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1096--1097
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1115--1116
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1116--1117
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1140--1141
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1141--1142
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1180--1181
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1181--1182
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1221--1222
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1222--1223
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1316--1318
+Underfull \hbox (badness 10000) in paragraph at lines 1317--1319
 []\T1/jkp/m/n/7 Again, fair-ly straight-for-ward, we ve-ri-ty $\OML/jkp/m/it/6.8 F[]\OT1/jkp/m/n/6.8 (\OML/jkp/m/it/6.8 k[]; n[]\OT1/jkp/m/n/6.8 ) \OML/jkp/m/it/6.8 >
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1334.
+(babel)             in language  on input line 1335.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1334.
+(babel)             in language  on input line 1335.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1334.
+(babel)             in language  on input line 1335.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1334.
+(babel)             in language  on input line 1335.
 [4]
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1370--1371
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1371--1372
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1436--1437
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1437--1438
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1458--1459
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1459--1460
 [][] 
  []
 
 
-Overfull \hbox (1.56618pt too wide) in paragraph at lines 1487--1488
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1488--1489
 [][] 
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1492.
+(babel)             in language  on input line 1500.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1492.
+(babel)             in language  on input line 1500.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1492.
+(babel)             in language  on input line 1500.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1492.
+(babel)             in language  on input line 1500.
 [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1493.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1493.
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1526--1527
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1543--1544
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1564--1565
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1628--1629
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1634.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1634.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1634.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1634.
+[6]
+Overfull \hbox (2.12106pt too wide) detected at line 1648
+[]
+ []
+
+
+Overfull \hbox (3.68724pt too wide) in paragraph at lines 1652--1653
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1715--1716
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1756--1757
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1767.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1767.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1767.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1767.
+[7]
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1799--1800
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1887--1888
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 1961--1962
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 2002--2003
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 2030--2031
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 2057--2058
+[][] 
+ []
+
+
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 2102--2103
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2134.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2134.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2134.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2134.
+[8]
+Overfull \hbox (1.56618pt too wide) in paragraph at lines 2134--2135
+[][] 
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2136.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2136.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 2136.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 2136.
+[9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2137.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2137.
  (/Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1493.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1493.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2137.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2137.
 Package rerunfilecheck Info: File `"cheat sheet".out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34415 strings out of 492649
- 687908 string characters out of 6129623
- 875262 words of memory out of 5000000
- 37662 multiletter control sequences out of 15000+600000
- 621307 words of font info for 117 fonts, out of 8000000 for 9000
+ 34632 strings out of 492649
+ 692131 string characters out of 6129623
+ 878614 words of memory out of 5000000
+ 37865 multiletter control sequences out of 15000+600000
+ 626492 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,20n,67p,10492b,1497s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbite.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmn8a.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpmne.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsy.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb>
-Output written on "/Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.pdf" (5 pages, 170070 bytes).
+Output written on "/Users/admin/Desktop/LearningNotes/fun-Macroecon-theory/cheat sheet/cheat sheet.pdf" (9 pages, 210146 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 24589 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 100 compressed objects within 1 object stream
+ 27 named destinations out of 1000 (max. 500000)
+ 25101 words of extra memory for PDF output out of 29859 (max. 10000000)
 

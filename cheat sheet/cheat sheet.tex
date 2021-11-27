@@ -4,6 +4,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
 \usepackage[nosf]{kpfonts}
+\usepackage{comment}
 \usepackage{graphicx}
 \usepackage[t1]{sourcesanspro}
 %\usepackage[lf]{MyriadPro}
@@ -1486,8 +1487,651 @@ With the FOCS, we can characterize the equilibrium and steady state of this econ
 \node[redtitle, right=4pt] at (box.north west) {Social planner's problem: steady state};
 \end{tikzpicture}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Social planner's problem: a simple example}
-In general, social planner's problem of NGM cannot be solved analytically, but for the simplest example, it is possible
+In general, social planner's problem of NGM cannot be solved analytically, but for the simplest example, it actually is possible.
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Endogenous growth model:
+\newpage
+\section*{Endogenous growth models}
+To explain \textbf{sustained differences} in growth rates across countries. Instead of assuming exogenous technological changes, these models either alter specifications of the production function and capital accumulation or endogenize technological changes.
+
+\subsection*{AK model}
+The basic idea is to \textbf{NOT} let the production function cross the 45-degree line so that it can imply sustained growth.
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    Start from a simple Solow world: savings and investment is constant fractions of output. The savings and consumption per capita are:
+    $$s_t =sAk_t,\ c_t =(1-s)Ak_t$$
+    Then the capital accumulation is 
+    $$k_{t+1}=(1-\delta)k_t +sAk_t\Rightarrow k_{t+1}=(1-\delta+sA)k_t $$
+    Hence, capital growth rate is constant:
+    $$ g_k = \frac{k_{t+1}}{k_t}=1-\delta+sA $$
+    All endogenous variables grow at this rate:
+    $$
+    g_y=\frac{Ak_{t+1}}{Ak_t}=g_k = \frac{(1-s)Ak_{t+1}}{(1-s)Ak_t}= g_c = \frac{k_{t+2}-(1-\delta)k_{t+1}}{k_{t+1}-(1-\delta)k_t}=g_i
+    $$
+    That is, growth rate of output per capita $g_y$ always equals the growth rate of capital per capita $g_k$, \textbf{on or off a balance growth path}. With Solow preferences, there is no transition to BGP: you either on the path, or not.
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {A simple example: Solow policy};
+\end{tikzpicture}
+
+\vspace{2pt}
+Now, we move to a AK model with CES preferences, consider the social planner's problem:
+
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+$$\max \sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma}$$
+s.t.
+$$c_t+k_{t+1} - (1-\delta)k_t =Ak_t, k_0>0$$
+Here the production function is $F(K,L)=AK$, the per capita production function is $f\left(\frac{K}{L}\right)=f(k)=Ak$.
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Social planner's problem};
+\end{tikzpicture}
+
+The Lagrange:
+$$ \mathcal{L}\sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma} +\mu_t \left[Ak_t - (c_t+k_{t+1}-(1-\delta)k_t) \right] $$
+FOCs are:
+\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial c_t}=0 &\Rightarrow \beta^t c_t^{-\sigma}=\mu_t\\
+    \frac{\partial \mathcal{L}}{\partial k_{t+1}}=0 &\Rightarrow \mu_t = \mu_{t+1}(A+1-\delta)
+\end{align*}
+which give the Euler equation:
+
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    The Euler equation is
+    $$ c_t^{-\sigma} = \beta c_{t+1}^{-\sigma}(A+1-\delta) $$ which gives a constant consumption growth rate $$g_c = \frac{c_{t+1}}{c_t}=\left[\beta(A+1-\delta)\right]^{1/\sigma}$$
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {AK model: Euler equation};
+\end{tikzpicture}
+
+This optimal, constant consumption growth rate will be equal to the constant growth rate of investment and output.
+
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    Rearrange the constraint:
+    $$c_t+k_{t+1} - (1-\delta)k_t =Ak_t \xRightarrow{\div k_t} \frac{c_t}{k_t}+\frac{k_{t+1}}{k_t}=A+1-\delta$$
+    this will give that $g_k$ is constant:
+    \begin{itemize}
+        \item[-] \textbf{if $g_k$ increases}, $c_t/k_t$ must be decreasing over time, but this violates the transversality condition, as marginal utility would fall less quickly than capital grows, hence it is \textbf{NOT an optimal path}. 
+        \item[-] \textbf{if $g_k$ decreases}, $c_t/k_t$ must be increasing over time, consumption would exhaust output in finite time and \textbf{violate non-negativity}.
+    \end{itemize}
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [iredbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{white}
+        Hence, on BGP, capital must grow at a \textbf{constant rate}, the same growth rate of consumption $g_k=g_c$. Rewrite the consumption-capital ratio:
+        \begin{align*}
+            & \frac{c_t}{k_t} +g_c=A+1-\delta\\
+            & \Rightarrow \frac{c_t}{k_t}=A+1-\delta - \left[\beta(A+1-\delta)\right]^{1/\sigma}>0\\
+            & \Rightarrow (A+1-\delta)\cdot\left[1-\beta^{1/\sigma}(A+1-\delta)^{\frac{1-\sigma}{\sigma}}\right]>0\\
+            & \Rightarrow 1- \beta^{1/\sigma}(A+1-\delta)^{\frac{1-\sigma}{\sigma}}>0
+        \end{align*}
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    \vspace{2pt}
+    This condition $1- \beta^{1/\sigma}(A+1-\delta)^{\frac{1-\sigma}{\sigma}}>0$, combined with the positive growth of consumption: $g_c=\frac{c_{t+1}}{c_t}=\left(\beta (A+1-\delta)\right)^{1/\sigma}>1$, gives the conditions of $\beta, A,\delta$:
+    $$ \left(\beta (A+1-\delta)\right)^{1/\sigma}>1 >\beta^{1/\sigma}(A+1-\delta)^{\frac{1-\sigma}{\sigma}}$$
+    
+    \vspace{2pt}
+    \begin{tikzpicture}
+    \node [iredbox] (box){%
+        \begin{minipage}{0.935\textwidth}
+        \color{white}
+        For a given $k_0$, the unique value of initial consumption $c_0$ that puts the economy on the unique balanced growth path is given by:
+        $$ c_0 +k_1 -(1-\delta)k_0 =Ak_0 $$
+        rearrange this, get
+        $$
+        c_0 = Ak_0 - k_1 + (1-\delta)k_0 = (A-g_c +(1-\delta))k_0>0
+        $$
+        If and only if $c_0 = (A-g_c +(1-\delta))k_0>0$, the economy is on the balanced growth path.
+        \end{minipage}
+    };
+    \end{tikzpicture}
+    
+    \vspace{2pt}
+    The balanced growth rate of this economy is
+    $$ g_c = g_k =g_i =g_y = \left(\beta (A+1-\delta)\right)^{1/\sigma}$$
+    Finally, we need to check whether lifetime utility is bounded: 
+    $$ \max\sum^\infty_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma} = \sum^\infty_{t=0}\beta^t \frac{\left[\left(\beta (A+1-\delta)\right)^{t/\sigma}c_0\right]^{1-\sigma}-1}{1-\sigma}$$
+    For this to be bounded, we must have $\beta^t\cdot \left(\beta (A+1-\delta)\right)^{\frac{1-\sigma}{\sigma}\cdot t} $ is bounded, or 
+    $$ \beta \cdot \left(\beta (A+1-\delta)\right)^{\frac{1-\sigma}{\sigma}} = \beta^{\frac{1}{\sigma}} (A+1-\delta)^{\frac{1-\sigma}{\sigma}} <1$$
+    this is satisfied by the condition of $c_t/k_t>0$ already.
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Growth rate of $c_t$, $k_t$, $i_t$, $y_t$};
+\end{tikzpicture}
+
+The core feature of this model is that the balanced growth rate, always attained immediately after selecting the proper initial consumption, is a function of preferences ($\beta,\sigma$) and technology ($A$), which vary across countries.
+
+
+%%%%%%%%%% lucas two-sector
+\newpage
+\subsection*{Lucas two-sector model}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+$$\max \sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma}$$
+s.t.
+\begin{align*}
+    c_t+K_{t+1}-(1-\delta_K)K_t& = K_t^{\alpha}\left(\phi_t H_t \right)^{1-\alpha} & {\color{black}{\scriptscriptstyle\phi_tH_t}\textbf{ output}} \\
+    H_{t+1}-H_{t}&=A(1-\phi_t)H_t & {\color{black}{\scriptscriptstyle(1-\phi_t)H_t} \textbf{ accumulation}}\\
+    c_t, \phi_t, H_{t+1},K_{t+1} & \geq 0
+\end{align*}
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Social planner's problem};
+\end{tikzpicture}
+
+\vspace{2pt}
+The \textbf{Lagrangean} (choosing ${\color{myred}\left\{c_t,\phi_t,H_{t+1},K_{t+1}\right\}}$) is
+\begin{align*}
+    \mathcal{L} = &\sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma} \\
+    &+\mu_{K,t}\left[ K_t^{\alpha}\left(\phi_t H_t \right)^{1-\alpha}-\left(c_t+K_{t+1}-\left(1-\delta_K\right)K_t\right) \right]\\
+    & + \mu_{H,t}\left[A\left(1-\phi_t\right)H_t-\left(H_{t+1}-H_t\right) \right]
+\end{align*}
+
+We have two sets of \textbf{FOC}:
+
+\begin{itemize}
+    \item[-] w.r.t. control variables $\{c_t,\phi_t\}$:
+    \begin{align*}
+        \frac{\partial \mathcal{L}}{\partial c_t}=0 \Rightarrow & \beta^t c_t^{-\sigma}=\mu_{K,t}\\
+        \frac{\partial \mathcal{L}}{\partial \phi_t}=0 \Rightarrow& (1-\alpha)\left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}\mu_{K,t}=A\mu_{H,t}
+    \end{align*}
+    
+    \item[-] w.r.t. state variables $\{K_{t+1},H_{t+1}\}$:
+    \begin{align*}
+        \frac{\partial \mathcal{L}}{\partial K_{t+1}} =0\Rightarrow  \mu_{K,t}=&\mu_{K,t+1}\left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right]\\
+        \frac{\partial \mathcal{L}}{\partial H_{t+1}}=0\Rightarrow \mu_{H,t}=&\mu_{H,t+1}\left[A(1-\phi_{t+1})+1\right]+\\
+         &\mu_{K,t+1}(1-\alpha)\phi_{t+1}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}\\
+    \end{align*}
+\end{itemize}
+
+To solve this system of equations, first plug $(1-\alpha)\left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}\mu_{K,t}=A\mu_{H,t}$ into the second set of FOCs, to get the relation between $\mu_{K,t}$ and $\mu_{K,t+1}$:
+\begin{align*}
+    &(1-\alpha)\left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}\mu_{K,t}\\
+    = & A\left\{ \mu_{H,t+1}\left[A(1-\phi_{t+1})+1\right]+\mu_{K,t+1}(1-\alpha)\phi_{t+1}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha} \right\} \\
+    = & (1-\alpha)\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}\mu_{K,t+1}\left[A(1-\phi_{t+1})+1\right]\\
+    &+ A \mu_{K,t+1}(1-\alpha)\phi_{t+1}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}\\
+    \Rightarrow & \left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}\mu_{K,t} = \mu_{K,t+1}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}(1+A)
+\end{align*}
+
+Plug this equation back to the capital accumulation FOC ($\partial \mathcal{L}/\partial K_{t+1}=0$), ${\color{myred}\mu_{K,t}=\mu_{K,t+1}\left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right]}$, get: 
+\begin{align*}
+    &\left(\frac{(\phi_{t+1}/\phi_t)(H_{t+1}/H_t)}{(K_{t+1}/K_t)}\right)^{-\alpha}(1+A) = \left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right]\\
+    \Rightarrow & {\color{myred}\left(\frac{(\phi_{t+1}/\phi_t)(H_{t+1}/H_t)}{(K_{t+1}/K_t)}\right)^{-\alpha}=\frac{\left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right]}{1+A}}
+\end{align*}
+
+Combine this with FOC w.r.t. $c_t$, ${\color{myred}\mu_{K,t}=\beta^t c_t^{-\sigma}}$, get the Euler equation:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [iredbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{white}
+    \scriptsize
+    The Euler equation of this problem is
+    $$
+    \left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}c_t^{-\sigma} = \beta c_{t+1}^{-\sigma}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}(1+A)
+    $$
+    This equation gives the expression of the consumption growth rate:
+\begin{align*}
+    &\left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}c_t^{-\sigma} = \beta c_{t+1}^{-\sigma}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}(1+A)\\
+    \Rightarrow & g_c=\frac{c_{t+1}}{c_t}=\left\{\beta \cdot \frac{\left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right]}{1+A}\cdot(1+A) \right\}^{1/\sigma}\\
+    \Rightarrow & g_c = \left\{\beta \cdot \left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right] \right\}^{1/\sigma}
+\end{align*}
+    \end{minipage}
+};
+\node[iredtitle, right=4pt] at (box.north west) {Euler equation};
+\end{tikzpicture}
+
+\vspace{2pt}
+For a \textbf{balanced growth path} to satisfy this equation, that is, $g_c$ being constant, $H_{t+1}$ and $K_{t+1}$ must have the same growth rate, and this growth rate is also the growth rate of output ($\phi_t$ constant): 
+$$ g_K = g_H\Rightarrow g_y =g_K^{\alpha}g_H^{1-\alpha}=g_K=g_H$$
+
+Next, calculate the growth rates:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    On BGP, the growth rate of all variables are constant:
+    \begin{itemize}
+        \item[-] $g_H$: growth rate of human capital
+        $$g_H = \frac{H_{t+1}}{H_t}=A\left(1-\phi_t\right)+1 \xRightarrow{\text{constant }g_H} g_H=A(1-\phi)+1 $$
+        \item[-] $g_K$: growth rate of physical capital
+        $$ g_K =g_H =A(1-\phi)+1$$
+        \item[-] $g_y$: growth rate of output
+        $$g_y = g_K = g_H = A(1-\phi)+1$$ 
+    \end{itemize}
+    \rule{\textwidth}{0.4pt}
+    \vspace{1pt}
+    
+    What about the consumption rate? 
+    
+    By the Euler equation: 
+    $$
+    \left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}c_t^{-\sigma} = \beta c_{t+1}^{-\sigma}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}(1+A)
+    $$
+    the consumption growth rate is
+    \begin{align*}
+        g_c & =\frac{c_{t+1}}{c_t}=\left\{\beta \cdot \left(\frac{\frac{\phi_{t+1}}{\phi_t}\frac{H_{t+1}}{H_t}}{\frac{K_{t+1}}{K_t}}\right)^{-\alpha}\cdot(1+A) \right\}^{1/\sigma}\\
+        \xRightarrow[\text{constant }\phi]{g_H=g_K} g_c & =\left(\beta(1+A) \right)^{1/\sigma} = g_H=g_K=A(1-\phi)+1
+    \end{align*}
+    In return, $\phi = 1-\frac{\left(\beta(1+A) \right)^{1/\sigma}-1}{A}$ can be used to determine the optimal, BGP allocation of human capital to human capital accumulation $\phi$
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Growth rate on balanced growth path (BGP)};
+\end{tikzpicture}
+
+How do we know that on a balanced growth path, consumption growth rate $g_c$ is the same as $g_K$ and $g_H$? By looking at the resource constraint:
+\begin{align*}
+    & c_t+K_{t+1}-(1-\delta_K)K_t =Y_t\\
+    \xRightarrow{\div K_t} &  \frac{c_t}{K_t}+\frac{K_{t+1}}{K_t}=\frac{Y_t}{K_t}+1-\delta_K
+\end{align*}
+where $K_{t+1}/K_t=g_K =A(1-\phi)+1 $ is constant, $Y_t/K_t$ is also constant since $Y_{t+1}/Y_t=K_{t+1}/K_t$, hence $c_t/K_t$ must also be constant, therefore, $c_{t+1}/c_{t}=K_{t+1}/K_t$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+%Romer's endogeneous imperfect competitive market
+
+\section*{Romer's endogenous growth model}
+\subsection*{Love of variety: Dixit and Stiglitz (1977)}
+The \textbf{love of variety} (here in final goods production) rationalizes the growth of trade in similar intermediate inputs among similar countries: 
+
+\begin{itemize}
+    \item[-]\textbf{{\color{myblue}demand side}}: different varieties of the same product are produced in each country and very similar varieties are traded among countries because consumers or firms value variety.
+    \item[-]\textbf{{\color{myblue}supply side}}: international trade in varieties of the same intermediate good is due to a search for larger markets by firms facing increasing returns to scale/falling average costs.
+\end{itemize}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    Consumers value diversity, a mass of varieties of consumer goods, branded by $i$:
+    $$
+    U=\left(\int^n_0 q(i)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}
+    $$
+    here $i$ is the index, $q(i)$ is quantity of demand, $\sigma$ is the elasticity of substitution among products, assumed to be $\sigma > 1$.
+    
+    A consumer's problem is then:
+    $$
+    \max U \text{ s.t. }\int^n_0q(i)p(i)\mathrm{d}i\leq I
+    $$
+    where $I$ is the income, $p(i)$ is the $i$th product's price.
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Love of variety: model setting};
+\end{tikzpicture}
+
+\vspace{2pt}
+To solve this model, write Lagrange:
+$$
+\mathcal{L} = \left(\int^n_0 q(i)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}+\mu\left( I-\int^n_0q(i)p(i)\mathrm{d}i\right)
+$$
+FOC w.r.t. $q(i)$ is:
+\begin{align*}
+    \frac{\partial\mathcal{L}}{\partial q(i)}=0\Rightarrow & \frac{\sigma}{\sigma-1} \left(\int^n_0 q(i)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{1}{\sigma-1}}\cdot\frac{\sigma-1}{\sigma}q(i)^{-\frac{1}{\sigma}}=\mu p(i)\\
+    \Rightarrow & U^{\frac{1}{\sigma}}q(i)^{-\frac{1}{\sigma}}=\mu p(i)
+\end{align*}
+
+Two objects can be derived from the FOC:
+\begin{itemize}
+    \item[-] demand for variety zero $q(0)$: 
+    
+    for $i$th and $j$th good, the relative demands $q(i)/q(j)$ is:
+$$ \frac{q(i)}{q(j)} = \left( \frac{p(i)}{p(j)} \right)^{-\sigma} $$
+
+    Then if we take an arbitrary good, good 0, as reference, the demand for every variety $i$ can be written as:
+    $$
+    q(i) = q(0)\left(\frac{p(i)}{p(0)} \right)^{-\sigma}
+    $$
+    plug this expression of $q(i)$ back into the budget constraint, get
+    \begin{align*}
+        & I=\int^n_0 q(0)p(i)\left(\frac{p(i)}{p(0)} \right)^{-\sigma} \mathrm{d}i 
+    =q(0)p(0)^{\sigma} \int^n_0 p(i)^{1-\sigma}\mathrm{d}i\\
+    \Rightarrow & q(0)=\frac{I}{p(0)^{\sigma} \int^n_0 p(i)^{1-\sigma}\mathrm{d}i}\ {\color{myblue}\cdots \text{demand for variety zero}}
+    \end{align*}
+
+    \item[-] price index for varieties $P$:
+    
+    Transform FOC, we can get:
+    \begin{align*}
+        &U^{\frac{1}{\sigma}}q(i)^{-\frac{1}{\sigma}}=\mu p(i)\ {\color{myblue}\cdots {\text{ FOC w.r.t. }q(i)}}\\
+        \xRightarrow{{\color{myblue}(\cdot)^{1-\sigma}}}& U^{\frac{1-\sigma}{\sigma}}q(i)^{-\frac{1-\sigma}{\sigma}}=\mu ^{1-\sigma}p(i)^{1-\sigma}\\
+        \xRightarrow{{\color{myblue}\int\mathrm{d}i}} & U^{\frac{1-\sigma}{\sigma}} \int^n_0 q(i)^{-\frac{1-\sigma}{\sigma}}\mathrm{d}i=\mu ^{1-\sigma} \int^n_0 p(i)^{1-\sigma}\mathrm{d}i
+    \end{align*}
+    and we know $U=\left(\int^n_0 q(i)^{\frac{\sigma-1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}$, hence
+    $$
+    \mu^{1-\sigma}\int^n_0 p(i)^{1-\sigma}\mathrm{d}i=1\Rightarrow \frac{1}{\mu}=P=\left( \int^n_0 p(i)^{1-\sigma}\mathrm{d}i \right)^{\frac{1}{1-\sigma}}
+    $$
+    here, $\mu$ can be interpreted as {\color{myblue}\textbf{the shadow/utility value}} of an additional unit of expenditure on the {\color{myblue}\textbf{consumption index}}; $\frac{1}{\mu}$ can be interpreted as the {\color{myblue}\textbf{expenditure}} required for one unit of the {\color{myblue}\textbf{consumption index}}.
+\end{itemize}
+
+Now with $q(0)=\frac{I}{p(0)^{\sigma} \int^n_0 p(i)^{1-\sigma}\mathrm{d}i}$ and $P=\left( \int^n_0 p(i)^{1-\sigma}\mathrm{d}i \right)^{\frac{1}{1-\sigma}}$, we have demand for good 0:
+$$
+q(0)=\frac{I}{p(0)^{\sigma}P^{1-\sigma}}=\frac{I}{P}\left( \frac{p(0)}{P} \right)^{-\sigma}
+$$
+and since $q(i) = q(0)\left(\frac{p(i)}{p(0)} \right)^{-\sigma}$, this will give a nice result:
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    The demand for good $i$ is:
+    $$
+    q(i)=\frac{I}{P}\left( \frac{p(0)}{P} \right)^{-\sigma}\cdot \left(\frac{p(i)}{p(0)} \right)^{-\sigma}= \frac{I}{P}\left( \frac{p(i)}{P} \right)^{-\sigma}
+    $$
+    it is clear that $\frac{\partial q(i)}{\partial p(i)}=\frac{I}{P^{1-\sigma}}(-\sigma)p(i)^{-\sigma-1}<0$: each variety has a \textbf{downward sloping} demand function.
+    
+    \rule{\textwidth}{0.4pt}
+    \vspace{1pt}
+    
+    put the demand function back to utility function, get consumers \textbf{indirect utility}:
+    \begin{align*}
+       U & =\left(\int^n_0 q(i)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}} = \left(\int^n_0 \left( \frac{I}{P}\left( \frac{p(i)}{P} \right)^{-\sigma} \right)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}\\
+       & = \frac{I}{P}\left(\int^n_0 \left( \frac{p(i)}{P} \right)^{1-\sigma}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}=\frac{I}{P}\cdot P^\sigma \cdot \left(\int^n_0 p(i)^{1-\sigma}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}
+    \end{align*}
+    since $P=\left( \int^n_0 p(i)^{1-\sigma}\mathrm{d}i \right)^{\frac{1}{1-\sigma}}$, the indirect utility is
+    $$
+    U = \frac{I}{P}P^{\sigma}P^{-\sigma} =\frac{I}{P}
+    $$
+    
+    If all goods have the same price, all goods are consumed in equal amounts i.e. $q(i)=q(j)= q,\forall i,j$. The by the \textbf{symmetry} of the market, the budget constraint can be rewritten as $I=\int ^n_0 p(i)q(i)\mathrm{d}i=nqp$, which gives the quality consumed for each variety:
+    $$ q=\frac{I}{np} $$
+    and the utility is 
+    \begin{align*}
+        U & =\left(\int^n_0 q(i)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}} = \left(\int^n_0 \left(\frac{I}{np}\right)^{1-\frac{1}{\sigma}}\mathrm{d}i\right)^{\frac{\sigma}{\sigma-1}}\\
+        & = \left[\left(\frac{I}{np}\right)^{\frac{\sigma-1}{\sigma}}\cdot n\right]^{\frac{\sigma}{\sigma-1}} = n^{\frac{1}{\sigma-1}}\frac{I}{P}
+    \end{align*}
+    here, $\partial U/\partial n = \frac{1}{\sigma-1}n^{\frac{-\sigma}{\sigma-1}}\cdot \frac{I}{P}>0$, the love for variety is there.
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Love of variety: demand and indirect utility};
+\end{tikzpicture}
+
+\textbf{The role of $\sigma$}: $\sigma$ is the willingness to substitute among varieties, when $n\geq 1$ (at least one type) and $\sigma>1$ (assumed) higher $\sigma$ leads to lower $\partial U/\partial n$, or a more \textit{mildly} love for variety, as shown in the following picture:
+
+\begin{center}
+\begin{tikzpicture}
+\draw[->] (-0.2, 0) -- (4, 0) node[below right] {$n$};
+\draw[->] (0, -0.2) -- (0, 4) node[above] {$U$};
+\draw[scale=0.5, domain=1:2.7, smooth, variable=\x, black] plot ({\x}, {(\x)^2})
+node[right] {$\sigma=1.5$};
+\draw[scale=0.5, domain=1:7, smooth, variable=\x, black] plot ({\x}, {\x})
+node[above] {$\sigma=2$};
+\draw[scale=0.5, domain=1:8, smooth, variable=\x, black] plot ({\x}, {(\x)^(2/3)})
+node[above] {$\sigma=2.5$};
+\draw[scale=0.5, domain=1:8, smooth, variable=\x, black] plot ({\x}, {(\x)^(1/2)})
+node[above] {$\sigma=3$};
+\draw[scale=0.5, domain=1:8, smooth, variable=\x, black] plot ({\x}, {(\x)^(2/5)})
+node[below] {$\sigma=3.5$};
+\draw[scale=0.5, domain=1:8, smooth, variable=\x, black] plot ({\x}, {1})
+node[below] {$\sigma=\infty$};
+\end{tikzpicture}
+\end{center}
+
+But the 1st order increasing, i.e., the love for variety, persists.
+
+Now we analysis the cost and prices in this model:
+\vspace{2pt}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myblue}
+    \scriptsize
+    Assume the profit is
+    $$ \pi(i)=p(i)q(i)- wcq(i)-c_f $$
+    where
+    \begin{itemize}
+        \item[-] $w$: wage of one unit of labor
+        \item[-] $c$: number of units of labor required to produce one unit of output
+        \item[-] $c_f$: fixed labor cost
+    \end{itemize}
+    
+    Since each firm produces a differentiated (but very similar) good, they have a monopoly power (\textbf{monopolistic} competition), they can either be \textbf{price-setting} or \textbf{quantity-setting}. Here, assume price setting, the FOC is:
+    $$
+    \frac{\partial \pi(i)}{p(i)}=q(i)+p(i)\frac{\partial q(i)}{\partial p(i)}-wc\frac{\partial q(i)}{\partial p(i)}=0
+    \Rightarrow p(i)=wc - \frac{q(i)}{\partial q(i)/\partial p(i)}$$
+    here, $\partial q(i)/\partial p(i)<0$ is a market-up over marginal cost, i.e., the price is set to be higher than the perfect competition price (marginal cost).
+    
+    
+    \rule{\textwidth}{0.4pt}
+    \vspace{1pt}
+    
+    From the demand side, demand for good $i$ is 
+    $$
+    q(i)=\frac{I}{P}\left(\frac{p(i)}{P}\right)^{-\sigma}
+    $$
+    which gives
+    $$
+    \frac{\partial q(i)}{\partial p(i)}=-\sigma \frac{I}{P}\left(\frac{p(i)}{P}\right)^{-\sigma-1}\frac{1}{P}
+    $$
+    leading to 
+    $$
+    \frac{q(i)}{\partial q(i)/\partial p(i)} = \frac{1}{-\sigma \left(\frac{p(i)}{P}\right)^{-1}\frac{1}{P}}=-\frac{p(i)}{\sigma}<0
+    $$
+    plug this back in the pricing function, get:
+    $$
+    p(i)=wc-\frac{q(i)}{\partial q(i)/\partial p(i)}=wc+\frac{p(i)}{\sigma}\Rightarrow p(i)=\frac{wc\sigma}{\sigma-1}
+    $$
+    Hence, the optimal pricing strategy is a \textbf{proportional markup} over marginal cost.
+    
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Love of variety: supply profit, cost, prices};
+\end{tikzpicture}
+
+A typical variant of this model, production of \textbf{each variety} is free-entry, i.e., for each variety $i$, there is a level of $q(i)$ leading to zero-profit, that is 
+$$
+\pi(i)=p(i)q(i)- wcq(i)-c_f=0\Rightarrow \left(\frac{\sigma}{\sigma-1}-1\right) q(i) = c_f\Rightarrow q(i)=\sigma c_f
+$$
+
+\subsection*{Romer's 3 sector model}
+To incorporate the imperfect competition in real economy, Romer model constructed a \textbf{3-technology/sector} model:
+\begin{itemize}
+    \item[1.] Final good sector: \textbf{\underline{perfect}} competition
+    \item[2.] Variety/intermediate sector: \textbf{\underline{monopolistic}} competition
+    \item[3.] R\&D sector: \textbf{\underline{perfect}} competition.
+\end{itemize}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    Market structure:
+    \begin{itemize}
+        \item[-] production: constant-return-to-scale technology with intermediate goods and labor:
+        $$
+        Y_t = L_{1,t}^{1-\alpha}\int^{A_t}_0 x_t^{\alpha}(i)\mathrm{d}i
+        $$
+        where
+        \begin{itemize}
+            \item[-] $A_t$ is the measure of varieties, final goods production take $A_t$ as exogenously given, $Y_t \propto A_t$.
+            \item[-] labor $L_{1,t}$ is purchased from HHs, assume to be a fraction of the total labor time $L$ (assumed to be constant): 
+            $$L_{1,t}=\phi_t L$$
+            \item[-] intermediate goods $x_t(i)$ are from variety sector
+        \end{itemize}
+        
+        \item[-] Perfectly competitive, \textbf{zero profit}.
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Final goods market};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    Market structure:
+    \begin{itemize}
+        \item[-] production: linear in raw physical capital, requires a \textbf{fixed cost} (R\&D patent):
+        $$
+        \int^{A_t}_0 x_t \mathrm{d}i = K_t
+        $$
+        where
+        \begin{itemize}
+            \item[-] $x_t(i)=K_t(i)$: one unit of $K_t$ produces one unit of $x_t(i)$, \underline{$\forall i$}
+            \item[-] capital is purchased from HHs, the accumulation follows: 
+            $$K_{t+1}=(1-\delta)K_t+i_t$$
+            
+        \end{itemize}
+        
+        \item[-] Monopolistically competitive, with pricing power, prices \textbf{above marginal cost}, makes \textbf{positive profits} to cover the fixed cost.
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Intermediate goods market};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    Market structure:
+    \begin{itemize}
+        \item[-] production: using labor and \textbf{existing ideas}, generating more varieties:
+        $$
+        A_{t+1}-A_t = \kappa (1-\phi_t)L_t A_t
+        $$
+        where
+        \begin{itemize}
+            \item[-] $L_{2,t}=(1-\phi_t)L$: labor used to produce new varieties
+            \item[-] $A_t$ are the existing ideas: non-rivalry, hence \textbf{externality}, representing ''standing on shoulders'' effect
+            
+        \end{itemize}
+        
+        \item[-] Perfectly competitive, free entry and \textbf{zero profit}.
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Patent market};
+\end{tikzpicture}
+
+\vspace{2pt}
+This model has:
+\begin{itemize}
+    \item[-] appeals: incorporating the imperfect competition and externality of ideas
+
+    \item[-] shortfalls: the patent production assumption doesn't reflect empirical observations:
+    $$ A_{t+1} = A_t+\kappa (1-\phi_t)L A_t\Rightarrow \frac{A_{t+1}}{A_t}= \kappa (1-\phi_t)L+1$$
+    the growth rate of new ideas is linearly increasing in labor, which doesn't reflect
+    \begin{itemize}
+        \item[-] fishing-out effect: the easiest-to-discover ideas have already been discovered
+        \item[-] stepping-on-toes effect: a bigger workforce does NOT simply imply more ideas
+    \end{itemize}
+\end{itemize}
+
+\vspace{2pt}
+Next, we solve the social planner's problem of this model in 3 steps.
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    The first step is to solve the \textbf{static choice of production inputs}:
+    $$\max L_{1,t}^{1-\alpha}\int^{A_t}_0 x_t^{\alpha}(i)\mathrm{d}i
+    $$
+    s.t.
+    $$
+    \int^{A_t}_0 x_t(i)\mathrm{d}i=K_t,\ L_{1,t}=\phi_tL
+    $$
+    and the solution is symmetric: $x_t(i)=x_t,\forall i$, that is, there is a preference for variety, the more the better, all varieties are \textbf{equally costly} in terms of capital, hence \textbf{equally valued}:
+    $$
+    \int^{A_t}_0 x_t\mathrm{d}i=K_t\Rightarrow x_t = \frac{K_t}{A_t}
+    $$
+    plug this back into the production inputs, get:
+    $$
+    Y_t = L_{1,t}^{1-\alpha}\int^{A_t}_0 x_t^{\alpha}(i)\mathrm{d}i = \left(\phi_t L\right)^{1-\alpha} A_t\left(\frac{K_t}{A_t} \right)^{\alpha}=K_t^{\alpha}\left(\phi_t L A_t\right)^{1-\alpha}
+    $$
+    this function is still CRS, with $A_t$ given exogenously.
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Solve social planner's problem: Step 1};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.23\textwidth}
+    \color{myred}
+    \scriptsize
+    The second step is to solve the familiar \textbf{intertemporal planning problem}:
+    $$\max\sum^{\infty}_{t=0}\beta^t \frac{c_t^{1-\sigma}-1}{1-\sigma}
+    $$
+    s.t.
+    \begin{align*}
+        c_t+K_{t+1}-(1-\delta)K_t &= K_t^{\alpha}\left(\phi_t L A_t\right)^{1-\alpha}\\
+        A_{t+1}-A_t &= \kappa(1-\phi_t)LA_t
+    \end{align*}
+    Lagrange:
+    \begin{align*}
+        \mathcal{L}=&\sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma} +\lambda_{A,t}\left[\kappa(1-\phi_t)LA_t-\left(A_{t+1}-A_t\right)\right]\\
+        &+ \lambda_{K,t}\left[K_t^{\alpha}\left(\phi_t L A_t\right)^{1-\alpha}-\left(c_t+K_{t+1}-(1-\delta)K_t\right)\right]
+    \end{align*}
+    FOC gives
+    \begin{align*}
+        \frac{\partial \mathcal{L}}{\partial c_t}=0 \Rightarrow & \beta^t c^{-\sigma}=\lambda_{K,t}\\
+        \frac{\partial \mathcal{L}}{\partial \phi_t} =0\Rightarrow & \lambda_{A,t}\kappa LA_t = \lambda_{K,t}K_t^{\alpha}(1-\alpha)\left(\phi_tLA_t\right)^{-\alpha}LA_t \\
+        \frac{\partial \mathcal{L}}{\partial K_{t+1}}=0\Rightarrow & \left(\right)\\
+        \frac{\partial \mathcal{L}}{\partial A_{t+1}}=0\Rightarrow & 
+    \end{align*}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Solve social planner's problem: Step 2};
+\end{tikzpicture}
 
 \end{multicols*}
 \end{document}
