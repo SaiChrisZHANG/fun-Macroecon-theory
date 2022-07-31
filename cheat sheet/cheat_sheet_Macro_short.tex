@@ -1,0 +1,1683 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,arrows,fit,calc,graphs,graphs.standard}
+\usepackage[nosf]{kpfonts}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage[t1]{sourcesanspro}
+%\usepackage[lf]{MyriadPro}
+%\usepackage[lf,minionint]{MinionPro}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[top=1mm,bottom=2mm,left=1mm,right=2mm]{geometry}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{amsfonts}
+\usetikzlibrary{decorations.pathmorphing}
+
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\makeatletter
+
+\let\bar\overline
+
+\setlist[itemize]{topsep=0pt,leftmargin=10pt,itemsep=-0.2em}
+\definecolor{myblue}{cmyk}{1,.72,0,.38}
+\definecolor{mypurple}{cmyk}{.57,1,0,.58}
+\definecolor{myred}{cmyk}{0,.88,.88,.58}
+\definecolor{mygreen}{cmyk}{1,0,.69,.66}
+\definecolor{myorange}{cmyk}{0,.58,100,.20}
+
+\def\firstcircle{(0,0) circle (1.5cm)}
+\def\secondcircle{(0:2cm) circle (1.5cm)}
+
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main}
+
+\renewcommand{\baselinestretch}{.8}
+\pagestyle{empty}
+
+\global\mdfdefinestyle{header}{%
+linecolor=gray,linewidth=1pt,%
+leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm,
+}
+
+%\newcommand{\header}{
+%\begin{mdframed}[style=header]
+%\scriptsize
+%\sffamily
+%Cheat sheet\\
+%by~Your~Name,~page~\thepage~of~2
+%\end{mdframed}
+%}
+
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}{1ex}{.2ex}{\normalsize\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{1}{0mm}{.2ex}{.2ex}{\small\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{1}{0mm}{.2ex}{.2ex}{\bfseries}}
+
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+\def\multi@column@out{%
+   \ifnum\outputpenalty <-\@M
+   \speci@ls \else
+   \ifvoid\colbreak@box\else
+     \mult@info\@ne{Re-adding forced
+               break(s) for splitting}%
+     \setbox\@cclv\vbox{%
+        \unvbox\colbreak@box
+        \penalty-\@Mv\unvbox\@cclv}%
+   \fi
+   \splittopskip\topskip
+   \splitmaxdepth\maxdepth
+   \dimen@\@colroom
+   \divide\skip\footins\col@number
+   \ifvoid\footins \else
+      \leave@mult@footins
+   \fi
+   \let\ifshr@kingsaved\ifshr@king
+   \ifvbox \@kludgeins
+     \advance \dimen@ -\ht\@kludgeins
+     \ifdim \wd\@kludgeins>\z@
+        \shr@nkingtrue
+     \fi
+   \fi
+   \process@cols\mult@gfirstbox{%
+%%%%% START CHANGE
+\ifnum\count@=\numexpr\mult@rightbox+2\relax
+          \setbox\count@\vsplit\@cclv to \dimexpr \dimen@-1cm\relax
+\setbox\count@\vbox to \dimen@{\vbox to 1cm{\header}\unvbox\count@\vss}%
+\else
+      \setbox\count@\vsplit\@cclv to \dimen@
+\fi
+%%%%% END CHANGE
+            \set@keptmarks
+            \setbox\count@
+                 \vbox to\dimen@
+                  {\unvbox\count@
+                   \remove@discardable@items
+                   \ifshr@nking\vfill\fi}%
+           }%
+   \setbox\mult@rightbox
+       \vsplit\@cclv to\dimen@
+   \set@keptmarks
+   \setbox\mult@rightbox\vbox to\dimen@
+          {\unvbox\mult@rightbox
+           \remove@discardable@items
+           \ifshr@nking\vfill\fi}%
+   \let\ifshr@king\ifshr@kingsaved
+   \ifvoid\@cclv \else
+       \unvbox\@cclv
+       \ifnum\outputpenalty=\@M
+       \else
+          \penalty\outputpenalty
+       \fi
+       \ifvoid\footins\else
+         \PackageWarning{multicol}%
+          {I moved some lines to
+           the next page.\MessageBreak
+           Footnotes on page
+           \thepage\space might be wrong}%
+       \fi
+       \ifnum \c@tracingmulticols>\thr@@
+                    \hrule\allowbreak \fi
+   \fi
+   \ifx\@empty\kept@firstmark
+      \let\firstmark\kept@topmark
+      \let\botmark\kept@topmark
+   \else
+      \let\firstmark\kept@firstmark
+      \let\botmark\kept@botmark
+   \fi
+   \let\topmark\kept@topmark
+   \mult@info\tw@
+        {Use kept top mark:\MessageBreak
+          \meaning\kept@topmark
+         \MessageBreak
+         Use kept first mark:\MessageBreak
+          \meaning\kept@firstmark
+        \MessageBreak
+         Use kept bot mark:\MessageBreak
+          \meaning\kept@botmark
+        \MessageBreak
+         Produce first mark:\MessageBreak
+          \meaning\firstmark
+        \MessageBreak
+        Produce bot mark:\MessageBreak
+          \meaning\botmark
+         \@gobbletwo}%
+   \setbox\@cclv\vbox{\unvbox\partial@page
+                      \page@sofar}%
+   \@makecol\@outputpage
+     \global\let\kept@topmark\botmark
+     \global\let\kept@firstmark\@empty
+     \global\let\kept@botmark\@empty
+     \mult@info\tw@
+        {(Re)Init top mark:\MessageBreak
+         \meaning\kept@topmark
+         \@gobbletwo}%
+   \global\@colroom\@colht
+   \global \@mparbottom \z@
+   \process@deferreds
+   \@whilesw\if@fcolmade\fi{\@outputpage
+      \global\@colroom\@colht
+      \process@deferreds}%
+   \mult@info\@ne
+     {Colroom:\MessageBreak
+      \the\@colht\space
+              after float space removed
+              = \the\@colroom \@gobble}%
+    \set@mult@vsize \global
+  \fi}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=myblue,
+    filecolor=magenta,      
+    urlcolor=myblue,
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+\makeatother
+\setlength{\parindent}{0pt}
+
+% material references: Prof. Geert Ridder's lecture notes
+% latex coding references: https://github.com/tim-st/latex-cheatsheet, https://www.overleaf.com/latex/templates/hoja-de-ecuaciones-electricidad-y-magnetismo/xwgjqkrjjgcb
+
+\begin{document}
+%\begin{center}{\large{\textbf{Macroeconomic Core Exam Cheat Sheet}}}\\
+%Author: Sai Zhang (\href{mailto:saizhang.econ@gmail.com}{email} me or check my \href{https://github.com/SaiChrisZHANG}{Github} page)
+%\end{center}
+
+\scriptsize
+\begin{multicols*}{3}
+
+% set box styles: in this file, I only use red blue and purple boxes
+%% blue boxes
+\tikzstyle{bluebox} = [draw=myblue, fill=white, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=myblue]
+\tikzstyle{bluetitle} =[fill=myblue, text=white, font=\bfseries]
+\tikzstyle{ibluebox} = [draw=myblue, fill=myblue, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=white]
+\tikzstyle{ibluetitle} =[draw=myblue, fill=white, text=myblue, font=\bfseries]
+%% red boxes
+\tikzstyle{redbox} = [draw=myred, fill=white, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=myred]
+\tikzstyle{redtitle} =[fill=myred, text=white, font=\bfseries]
+\tikzstyle{iredbox} = [draw=myred, fill=myred, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=white]
+\tikzstyle{iredtitle} =[draw=myred, fill=white, text=myred, font=\bfseries]
+%% purple boxes
+\tikzstyle{purplebox} = [draw=mypurple, fill=white, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=mypurple]
+\tikzstyle{purpletitle} =[fill=mypurple, text=white, font=\bfseries]
+\tikzstyle{ipurplebox} = [draw=mypurple, fill=mypurple, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=white]
+\tikzstyle{ipurpletitle} =[draw=mypurple, fill=white, text=mypurple, font=\bfseries]
+%% orange boxes
+\tikzstyle{orangebox} = [draw=myorange, fill=white, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=myorange]
+\tikzstyle{orangetitle} =[fill=myorange, text=white, font=\bfseries]
+\tikzstyle{iorangebox} = [draw=myorange, fill=myorange, thick, rectangle, rounded corners, inner sep=5pt, inner ysep=10pt, text=white]
+\tikzstyle{iorangetitle} =[draw=myorange, fill=white, text=myorange, font=\bfseries]
+
+\section*{Infinitely lived agent}
+\subsection*{AD equilibrium}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    \begin{itemize}
+    \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+    \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, with numeraire $\hat{p}_0=1$
+\end{itemize}
+such that:
+\begin{itemize}
+    \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+    $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)$$
+    s.t.
+    $$\sum^{\infty}_{t=0}\hat{p}_t c^i_t\leq \sum^{\infty}_{t=0}\hat{p}_t w^i_t,c^i_t\geq0$$
+\item[-] market clearing (disposal of unused goods is costly):
+$$\hat{c}^1_t+\hat{c}^2_t=w^1_t+w^2_t,\forall t$$
+\end{itemize}
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {AD equilibrium};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+        \item[-] utility weight: $\left\{\hat{\alpha}^1,\hat{\alpha}^2\right\}$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\hat{\alpha}^1,\hat{\alpha}^2\right\}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+        $$\max \alpha^1 \sum^{\infty}_{t=0}\beta^t u(c_t^1)+\alpha^2 \sum^{\infty}_{t=0}\beta^t u(c_t^2)$$
+        s.t. $c^1_t+c^2_t\leq w^1_t+w^2_t,\alpha^1+\alpha^2=1,\alpha^i,c^i_t\geq0$
+    \item[-] market clearing is the budget constraint.
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {AD equilibrium: social planner solves PO};
+\end{tikzpicture}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$
+        \item[-] lifetime transfer: $\left\{\hat{t}^1,\hat{t}^2\right\}$
+        \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, with numeraire $\hat{p}_0=1$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=0}$, $\left\{\hat{c}^1_t,\hat{c}^2_t\right\}^{\infty}_{t=0}$ solves:
+        $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)\ \text{ s.t. }\sum^{\infty}_{t=0}\hat{p}_t c^i_t\leq \sum^{\infty}_{t=0}\hat{p}_t w^i_t+\hat{t}^i_t,c^i_t\geq0$$
+    \item[-] market clearing: $\hat{c}^1_t+\hat{c}^2_t=w^1_t+w^2_t,\forall t$
+    \end{itemize}
+    
+    \underline{\textbf{\textit{How to solve}}}: just solve the zero lifetime transfer condition:
+$$t^i(\alpha)\equiv \sum^{\infty}_{t=0}\mu_t\left(c^i_t(\alpha)-w_t^i\right) =\sum^{\infty}_{t=0}\alpha^i\beta^t u'(c_t^i)\left(c^i_t(\mathbf{\alpha})-w_t^i\right)=0$$
+where $\mu_t$ is the Lagrange multiplier of social planner's problem.
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {AD equilibrium with transfer};
+\end{tikzpicture}
+
+\subsection*{SM equilibrium}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    \begin{itemize}
+        \item[-] allocation: $\left\{\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\},\left\{\tilde{a}^1_{t+1},\tilde{a}^2_{t+1}\right\}\right\}^{\infty}_{t=0}$
+        \item[-] regulating mechanism: $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=0}$, $\left\{\left\{\tilde{c}^1_t,\tilde{c}^2_t\right\},\left\{\tilde{a}^1_{t+1},\tilde{a}^2_{t+1}\right\}\right\}^{\infty}_{t=0}$ solves:
+        $$\max \sum^{\infty}_{t=0}\beta^t u(c_t^i)$$
+        s.t. $c^i_t+\frac{a^i_{t+1}}{1+\tilde{r}_{t+1}}\leq w^i_t+a^i_t,\ c^i_t\geq0,\ a^i_{t+1}\geq-\bar{A}^i>-\infty$
+    \item[-] market clearing (disposal of unused goods is costly):
+    $$\tilde{c}^1_t+\tilde{c}^2_t=w^1_t+w^2_t,\  \tilde{a}^1_{t+1}+\tilde{a}^2_{t+1}=0,\ \forall t$$
+    
+    \item[-] asset holding at $t$ $\left\{\tilde{a}^1_t,\tilde{a}^2_t\right\}^{\infty}_{t=0}$ with: $$\tilde{a}^i_{t+1}=\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}\left(\hat{c}^i_{t+\tau}-w^i_{t+\tau}\right)}{\hat{p}_{t+1}}$$
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {SM equilibrium};
+\end{tikzpicture}
+
+\subsection*{AD $\Leftrightarrow$ SM}
+
+\underline{\color{myred}\textbf{Proof of Position 1: AD$\Rightarrow$SM}}:
+\begin{itemize}
+    \item[-] \textbf{Step 1: Define the SM interest rate} as $$\frac{1}{1+\tilde{r}_{t+1}}=\frac{\hat{p}_{t+1}}{\hat{p}_t}$$
+    
+    \item[-] \textbf{Step 2: Derive}  $\tilde{a}^i_{t+1}=\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}\left(\hat{c}^i_{t+\tau}-w^i_{t+\tau}\right)}{\hat{p}_{t+1}}$
+    
+    \item[-] \textbf{Step 3: Find debt limit $\bar{A}^i$} since $\tilde{a}^i_{t+1}=\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}\left(\hat{c}^i_{t+\tau}-w^i_{t+\tau}\right)}{\hat{p}_{t+1}}\geq -\sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}w^i_{t+\tau}}{\hat{p}_{t+1}}\geq -\sum^{\infty}_{\tau=1}\xi^{\tau-1}{\hat{p}_{t+1}}>-\infty$, let $-\bar{A}^i=-\sup \sum^{\infty}_{\tau=1}\frac{\hat{p}_{t+\tau}}{\hat{p}_{t+1}}w^i_{t+\tau}$
+    
+    \item[-] \textbf{Step 4: Check utility maximization} FOCs align
+
+\end{itemize}
+   
+\vspace{2pt}
+\underline{\color{myred}\textbf{Proof of Position 2: AD$\Leftarrow$SM}}:
+\begin{itemize}
+    \item[-] \textbf{Step 1: Construct price series} $$\hat{p}_{t+1}=\frac{\hat{p}_t}{1+\tilde{r}_{t+1}}$$ as
+    
+    
+    \item[-] \textbf{Step 2: SM equilibrium allocation is utility maximizing within AD budget} since SM has one more constraint.
+
+\end{itemize}
+
+\section*{Overlapping generation}
+\subsection*{AD equilibrium}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    \begin{itemize}
+        \item[-] allocation: $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$
+        \item[-] regulating mechanism: $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$, with $m$ or $p_1$ (when $m=0$) as the numeraire.
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\hat{p}_t\right\}^{\infty}_{t=1}$, $\left\{\hat{c}^0_1,\left\{\hat{c}^t_t,\hat{c}^t_{t+1}\right\}^{\infty}_{t=1}\right\}$ solves:
+        $$\max_{c^t\geq 0} u(c_t^t)+\beta u(c_{t+1}^t)$$
+        s.t. 
+        $$\hat{p}_t c^t_t+\hat{p}_{t+1}c^t_{t+1}\leq \hat{p}_t w^t_t+\hat{p}_{t+1}w^t_{t+1}$$
+        \begin{align*}
+            \max_{c_1^0\geq 0} u(c_1^0)\ &\text{ s.t. } \hat{p}_1 c_1^0\leq \hat{p}_1 w_1^0+m
+        \end{align*}
+        
+    \item[-] market clearing (disposal of unused goods is costly):
+    $$\hat{c}^{t-1}_t+\hat{c}^t_t=w^{t-1}_t+w^t_t,\forall t\geq 1$$
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {AD equilibrium};
+\end{tikzpicture}
+
+\subsection*{SM equilibrium}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    \begin{itemize}
+        \item[-] allocation: $\left\{\tilde{c}^0_1,\left\{\tilde{c}^t_t,\tilde{c}^t_{t+1},\tilde{s}_t^t\right\}^{\infty}_{t=1}\right\}$
+        \item[-] regulating mechanism: interest rates $\left\{\tilde{r}_{t}\right\}^{\infty}_{t=1}$
+    \end{itemize}
+    such that:
+    \begin{itemize}
+        \item[-] given $\left\{\tilde{r}_{t+1}\right\}^{\infty}_{t=1},\forall t>1$, $\left\{\tilde{c}^t_t,\tilde{c}^t_{t+1}\right\}^{\infty}_{t=1}$ solves:
+        \begin{align*}
+            \max_{c^t\geq 0} u(c_t^t)+\beta u(c_{t+1}^t)\ \text{ s.t. } & c^t_t+s^t_t\leq w_t^t,\\
+            & c^t_{t+1}\leq w^t_{t+1}+(1+\tilde{r}_{t+1})s^t_t\\
+            \max_{c_1^0\geq 0} u(c_1^0)\ \text{ s.t. } & c_1^0\leq w_1^0+m(1+\tilde{r}_1)
+        \end{align*}
+    \item[-] good market clearing (disposal of unused goods is costly):
+    $$\tilde{c}^{t-1}_t+\tilde{c}^t_t=w^{t-1}_t+w^t_t,\forall t\geq 1$$
+    \item[-] asset market clearing: the budget constraint gives $$\tilde{c}^{t+1}_{t+1}+\tilde{c}^t_{t+1}+s^{t+1}_{t+1}=w^{t+1}_{t+1}+w^t_{t+1}+(1+\tilde{r}_{t+1})s^t_t$$
+    plug the good market clearing condition, get
+    $$s^{t+1}_{t+1}=(1+\tilde{r}_{t+1})s^t_t $$
+    iterate this backwards to $s^0_0=m$, get
+    $$s^t_t=\prod^t_{\tau=1}(1+\tilde{r}_{\tau})m$$
+    \end{itemize}
+    
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {SM equilibrium};
+\end{tikzpicture}
+
+\subsection*{AD $\Leftrightarrow$ SM}
+The interest rate and price stream are still inter-determined:
+$$\frac{1}{1+\tilde{r}_{t+1}}=\frac{\hat{p}_{t+1}}{\hat{p}_t},\ \frac{1}{1+\tilde{r}_1}=\hat{p}_1$$
+
+The two Euler equations are:
+\begin{align*}
+    u'_t(c_t^t)&=\beta u'_{t+1}(c_{t+1}^t)(\hat{p}_t/\hat{p}_{t+1}) &\cdots \text{ AD}\\
+    u'_t(c_t^t)&=\beta u'_{t+1}(c_{t+1}^t)(1+\tilde{r}_{t+1}) & \cdots\text{ SM}
+\end{align*}
+
+\underline{\textit{\textbf{An easy proof}}}:
+\begin{itemize}
+    \item[-] \textbf{\textit{AD $\Rightarrow$ SM}}: AD equilibrium allocation  satisfies SM FOC and the SM budget constraints: 
+    $$\tilde{\mu}_t^t=\hat{\lambda}\hat{p}_t,\tilde{\mu}_{t+1}^t=\hat{\lambda}\hat{p}_{t+1},\forall t\geq 0;\  \tilde{s}^t_t=w^t_t-\hat{c}^t_t,\forall t\geq 1$$
+    \item[-] \textbf{\textit{SM $\Rightarrow$ AD}}: SM equilibrium allocation satisfies AD FOC and the AD budget constraints:  $$\hat{\lambda}^t=\frac{\tilde{\mu}^t_t}{\prod^{t-1}_{\tau=0}(1+\tilde{r}_{t-\tau})}=\frac{\tilde{\mu}^t_{t+1}}{\prod^{t-1}_{\tau=0}(1+\tilde{r}_{t+1-\tau})},\forall t\geq 1$$
+    
+    $$\hat{\lambda}^0=\tilde{\mu}^0_1(1+\tilde{r}_1)$$
+\end{itemize}
+
+\subsection*{Offer curve}
+Use 
+\begin{align*}
+    u'(c^t_t) &=\lambda^t p_t\\
+    \beta u'(c^t_{t+1}) &= \lambda^t p_{t+1}
+\end{align*}
+and
+\begin{align*}
+    y(p_t,p_{t+1})=&c^t_t(p_t,p_{t+1})-w_1\\
+    z(p_t,p_{t+1})=&c^t_{t+1}(p_t,p_{t+1})-w_2
+\end{align*}
+get $z= f(y)$
+
+\begin{center}
+\begin{tikzpicture}
+\draw[->] (-3.1, 0) -- (1.5, 0) node[right] {$y(p_t,p_{t+1})$};
+\draw[->] (0, -1) -- (0, 3) node[left] {$z(p_t,p_{t+1})$};
+\draw[domain=-2.33:1.4, smooth, thick, variable=\x, black] plot ({\x}, { (2.7/(2.7+\x))^(2/3)-1 });
+
+\draw[domain=-2.77:0.5, smooth, thick, variable=\x, myred] plot ({\x}, { -\x})
+node[left] {Market clearing};
+
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}
+    \item[-] \underline{\textbf{Autarky equilibrium}} 
+    \begin{itemize}
+        \item[-] In \textit{knife-edge economy}, \textbf{Autarky is PE}
+        \item[-] In \textit{classical economy}, \textbf{Autarky is PE}
+        \item[-] In \textit{Samuelson economy}, \textbf{Autarky is NOT PE}
+    \end{itemize}
+    
+    \item[-] \underline{\textbf{Monetary stationary equilibrium}}
+    \begin{itemize}
+        \item[-] In \textit{Samuelson economy}, \textbf{MSE is PE} and \textbf{Pareto dominating Autarky}
+        
+        \item[-] In \textit{classical economy}, \textbf{MSE is PE} but \textbf{NOT Pareto dominating Autarky}
+    \end{itemize}
+    \item[-] \underline{\textbf{Monetary non-stationary equilibria}}
+    \begin{itemize}
+        \item[-] In \textit{Samuelson economy}, \textbf{MNSE is not PE} (converge to Autarky)
+        
+        \item[-] In \textit{classical economy}, \textbf{every MNSE is PE}
+        
+        \item[-] In \textit{kife-edge economy}, \textbf{every MNSE is PE}
+    \end{itemize}
+\end{itemize}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    Define $$\frac{1}{1+r_{t+1}}=\frac{\beta u'\left(\hat{c}^t_{t+1}\right)}{u'\left(\hat{c}^t_t\right)}=\frac{\hat{p}_{t+1}}{\hat{p}_t}$$
+    
+    Then the allocation is Pareto efficient if and only if
+    $$\sum^{\infty}_{t=1}\prod_{\tau}^t\left(1+r_{\tau+1}\right) =+\infty$$
+    
+    This \underline{\textbf{includes}} two scenarios (PE):
+    \begin{itemize}
+        \item[-] \textbf{AD prices falling}, i.e., \textbf{positive interest rate} $r_{t+1}$
+        \begin{itemize}
+            \item[-] \underline{classic Autarky}
+        \end{itemize}
+        
+        \item[-] \textbf{AD prices constant}, i.e., \textbf{zero interest rate} $r_{t+1}$
+        \begin{itemize}
+            \item[-] \underline{knife-edge Autarky}, \underline{all knife-edge MNSE} (converge to Autarky) 
+            \item[-]\underline{classic MSE}, \underline{all classic MNSE} (converge to classic MSE)
+            \item[-] \underline{Samuelson MSE}
+        \end{itemize}
+    \end{itemize}
+    This \underline{\textbf{excludes}} one scenario (not PE):
+    \begin{itemize}
+        \item[-] \textbf{AD prices increasing}, i.e., \textbf{negative interest rate} $r_{t+1}$ 
+        \begin{itemize}
+            \item[-] \underline{Samuelson Autarky}, \underline{all Samuelson MNSE} (converge to Samuelson Autarky). 
+        \end{itemize}
+    \end{itemize}
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Balasko-Shell condition};
+\end{tikzpicture}
+
+\section*{Neoclassical growth model}
+\subsection*{social planner's problem}
+$$\max_{\left\{c_t,i_t,k_{t+1},l_t,n_t,y_t\right\}^{\infty}_{t=0}} \sum^{\infty}_{t=0}\beta^t(u(c_t)+\psi(l_t))$$
+s.t.
+\begin{align*}
+    y_t&=c_t+i_t &\text{market clearing}\\
+    k_{t+1}&=(1-\delta)k_t+i_t &\text{capital accumulation}\\
+    1&=n_t+l_t & \text{time endowment}\\
+    y_t &= A\left(\alpha k_t^{1-\frac{1}{\gamma}}+(1-\alpha)n_t^{1-\frac{1}{\gamma}}\right)^{\frac{1}{1-\frac{1}{\gamma}}} & \text{production function}\\
+    0&\leq c_t,i_t,k_t,n_t,l_t,y_t,\forall t&\text{non-negativity}
+\end{align*}
+
+solve it, get 
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [redbox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myred}
+    \scriptsize
+    
+    The equilibrium in this economy is characterized by the following equations:
+    \begin{align*}
+        u'(c_t)&=\left(F_k(k_{t+1},n_{t+1})+1-\delta\right)\beta u'(c_{t+1}) & \text{Euler} \\
+        u'(c_t)&=\frac{\psi'(1-n_t)}{F_n(k_t,n_t)} & \text{labor}\\
+        k_{t+1}&=F(k_t,n_t)+(1-\delta)k_t-c_t & \text{budget}
+    \end{align*}
+    
+    and steady state
+    \begin{align*}
+        \frac{1}{\beta}-(1-\delta)&=F_k(k^*,n^*) & \text{Euler} \\
+        u'(c^*)&=\frac{\psi'(1-n^*)}{F_n(k^*,n^*)} & \text{labor}\\
+        c^*&=F(k^*,n^*)-\delta k^* & \text{budget}
+    \end{align*}
+    \end{minipage}
+};
+\node[redtitle, right=4pt] at (box.north west) {Social planner's problem: equilibrium};
+\end{tikzpicture}
+
+The Pareto efficient condition for an allocation $\{k_{t+1}\}_{t=0}^{\infty}$ is (by Stokey and Lucas):
+\begin{itemize}
+    \item[-] satisfying the Euler equation:
+    $$u'(c_t)=\beta u'(c_{t+1})\left[F_k(k_t,n_t)+(1-\delta)\right]$$
+    \item[-]: Transversality condition:
+    $$
+    \lim_{t\rightarrow\infty}\lambda_t F_k(k_t,n_t)k_t = 0 
+    $$
+    where $\lambda_t$, the social planner's Lagrange multiplier, is just $\beta^t u'(c_t)$.
+\end{itemize}
+
+\subsection*{competitive equilibrium}
+\subsubsection*{AD equilibrium}
+\textbf{\color{myred}\underline{numaraire}}: period 1 good price $p_0=1$
+\begin{itemize}
+    \item[-] HH's problem
+    $$
+    \max \sum^{\infty}_{t=0}\beta^tu(c_t)
+    $$
+    s.t.
+    $$
+    \sum^{\infty}_{t=0}p_t\left(c_t+(k_{t+1}-(1-\delta)k_t)\right) = \sum^{\infty}_{t=0}p_t\left( w_t n^s_t+r_t k^s_t \right)+\pi
+    $$
+    \item[-] firm's problem
+    $$
+    \max p_t(F(k^s_t,n^s_t)-r_tk^s_t-w_t n^s_t)
+    $$
+    \item[-] market clearing:
+    \begin{align*}
+        F(k^s_t,n^s_t)&=c_i + k_{t+1}-(1-\delta)k_t\\
+        k^s_t&=k^d_t=k_t\\
+        n^s_t&=n^d_t=n_t
+    \end{align*}
+\end{itemize}
+
+Euler equation
+$$
+\frac{\beta u'(c_{t+1})}{\beta u'(c_t)}=\frac{1}{F_k(k_{t+1},1)+(1-\delta)}
+$$
+TVC condition for Pareto efficiency
+$$
+\lim_{t\rightarrow\infty}p_tk_{t+1}=0
+$$
+
+\subsubsection*{SM equilibrium}
+\begin{itemize}
+    \item[-] HH's problem
+    $$
+    \max\sum_{t=0}^{\infty}\beta^t u(c_t)
+    $$
+    s.t.
+    $$
+    c_t+k_{t+1}-(1-\delta)k_t + \frac{a_{t+1}}{1+r_{t+1}} = r_tk_t+w_t + a_t +\pi
+    $$
+    \item[-] firm's problem
+    $$
+    \max F(k^d_t,n^d_t) -r_tk^d_t - w_tn^d_t
+    $$
+    -\item[-] market clearing
+\begin{align*}
+    F(k_t,n_t) &= c_t+k_{t+1}-(1-\delta)k_t\\
+    k_t &= k^d_t &1 &=n^d_t\\
+    a_t &= 0
+\end{align*}
+\end{itemize}
+
+\subsection*{recursive form}
+\subsubsection*{social planner}
+\begin{align*}
+    v(k) &= \max_{c,k'} u(c)+\beta v(k') \\
+    &= \max_{k'\leq f(k)+(1-\delta)k}\left\{ u(F(k)-k'+(1-\delta)k)+\beta v(k') \right\} \\
+\end{align*}
+
+\subsubsection*{competitive equilibrium}
+Use \textbf{SM equilibrium}. The HH's Bellman equation is
+$$
+v(k,K) = \max_{c,k'}\left\{ u(c)+\beta v(k',K') \right\}
+$$
+s.t.
+$$
+c+k'-(1-\delta)k = w(K)+kr(K),\ K'=H(K)
+$$
+and the recursive competitive equilibrium is
+\begin{itemize}
+    \item[-] value function: $v(k,K)$
+    \item[-] policy function: $c=C(k,K)$, $k'=G(k,K)$
+    \item[-] pricing function: $w(K),r(K)$
+    \item[-] aggregate law of motion: $K'=H(K)$
+\end{itemize}
+s.t.
+\begin{itemize}
+    \item[-] given pricing functions, \textbf{value function solves the Bellman equation}, with $C,G$ the associated policy functions
+    \item[-] \textbf{pricing function maximize firm's profit}
+    \item[-] \textbf{consistency}: $H(K)=K'=G(K,K)$
+    \item[-] \textbf{market clearing}: $C(K,K)+G(K,K)-(1-\delta)K=F(K,1)$
+\end{itemize}
+
+\section*{Balanced growth}
+\textbf{\color{myred}\underline{3 conditions} }to ensure balanced growth:
+\begin{itemize}
+    \item[-] \textbf{strictly positive growth}: $\gamma_c >0$
+    \item[-] \textbf{life-time utility bounded}: $\sum^{\infty}_{t=0}\beta^tu(c_t) = \sum^{\infty}_{t=0}\beta^t u(\gamma^tc_0)>\infty$
+    \item[-] \textbf{transversality}: $\lim_{t\rightarrow \infty} \beta^t u'(c_t)k_t =0$
+\end{itemize}
+
+\subsection*{Romer externality}
+\begin{itemize}
+    \item[-] CE
+    \begin{itemize}
+        \item[-firms] Firms solve
+$$
+\max F(L_{i,t},K_{i,t},\bar{K}_t)-w_tL_{i,t} - r_tK_{i,t}
+$$
+s.t. $\sum^N_{i=1}K_{i,t}=\bar{K}_t,\ \sum^N_{i=1}L_{i,t} = 1$.
+solve it, get 
+$\frac{K_{i,t}}{L_{i,t}}=\frac{K_{j,t}}{L_{j,t}}=\bar{K}_t,\forall i,j$, and $w_t=(1-\alpha)A\bar{K}_t$, $ r_t=\alpha A$, $Y_{i,t} = A\bar{K}_tL_{i,t}$, aggregate output $\bar{Y}_t=A\bar{K}_t$.
+\item[-] consumers: $$
+    \max \sum^{\infty}_{t=0}\beta^t \frac{c_t^{1-\sigma}-1}{1-\sigma}
+    $$
+    s.t.
+    $$
+    c_t + k_{t+1}-(1-\delta)k_t = r_tk_t + w_t
+    $$
+    \end{itemize}
+    \item[-] SP
+    $$
+\max \beta^t \frac{c^{1-\sigma}-1}{1-\sigma}
+$$
+s.t.
+$$
+c_t + \bar{K}_{t+1}-(1-\delta)\bar{K}_t = Y_t=A\bar{K}_t
+$$
+\end{itemize}
+
+the inefficiency of externality (lower growth rate):
+$$
+g_c^{CE}=\left[\beta \left(\alpha A+1-\delta\right) \right]^{\frac{1}{\sigma}} < \left[\beta \left(A+1-\delta\right) \right]^{\frac{1}{\sigma}} =g_c^{SP}
+$$
+
+\subsection*{Two capital model}
+$$\max \sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma}$$
+s.t.
+$$
+    c_t+i_{K,t} + i_{H,t} = Y_t
+$$
+where
+\begin{itemize}
+    \item[-] $Y_t=K_t^{\alpha}H_t^{1-\alpha}$
+    \item[-] $i_{K,t}=K_{t+1}-(1-\delta_K)K_{t}$
+    \item[-] $i_{H,t}=H_{t+1}-(1-\delta_H)H_t$
+\end{itemize}
+solve it get 
+$$
+\alpha \left(\frac{H_{t+1}}{K_{t+1}}\right)^{1-\alpha}+ (1-\delta_K) = \frac{1}{\beta}\left(\frac{c_{t+1}}{c_t}\right)^{\sigma}= (1-\alpha) \left(\frac{H_{t+1}}{K_{t+1}}\right)^{-\alpha}+ (1-\delta_H)
+$$
+hence $H_t/K_t$ is constant.
+
+\subsection*{Two sector model}
+$$\max \sum^{\infty}_{t=0}\beta^t\frac{c_t^{1-\sigma}-1}{1-\sigma}$$
+s.t.
+\begin{align*}
+    c_t+K_{t+1}-(1-\delta_K)K_t& = K_t^{\alpha}\left(\phi_t H_t \right)^{1-\alpha} & {\tiny\color{black}{\scriptscriptstyle\phi_tH_t}\textbf{ for output}} \\
+    H_{t+1}-H_{t}&=A(1-\phi_t)H_t & {\tiny\color{black}{\scriptscriptstyle(1-\phi_t)H_t} \textbf{ for accumulation}}\\
+    c_t, \phi_t, H_{t+1},K_{t+1} & \geq 0
+\end{align*}
+Euler equation
+ $$
+\left(\frac{\phi_t H_t}{K_t}\right)^{-\alpha}c_t^{-\sigma} = \beta c_{t+1}^{-\sigma}\left(\frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{-\alpha}(1+A)
+$$
+gives
+$$
+g_c = \left\{\beta \cdot \left[\alpha\left( \frac{\phi_{t+1}H_{t+1}}{K_{t+1}}\right)^{1-\alpha} + (1-\delta_K)  \right] \right\}^{1/\sigma}
+$$
+again, $H_t/K_t$ constant.
+
+\subsection*{3 sector endogenous growth}
+\subsubsection*{social planner}
+\underline{\textbf{Step 1}}: solve the \textbf{\color{myred}\underline{static choice of production inputs}}
+$$\max L_{1,t}^{1-\alpha}\int^{A_t}_0 x_t^{\alpha}(i)\mathrm{d}i
+$$
+s.t.
+$$
+\int^{A_t}_0 x_t(i)\mathrm{d}i=K_t,\ L_{1,t}=\phi_tL
+$$
+get 
+$$
+Y_t = L_{1,t}^{1-\alpha}\int^{A_t}_0 x_t^{\alpha}(i)\mathrm{d}i = \left(\phi_t L\right)^{1-\alpha} A_t\left(\frac{K_t}{A_t} \right)^{\alpha}=K_t^{\alpha}\left(\phi_t L A_t\right)^{1-\alpha}
+$$
+
+\underline{\textbf{Step 2}}, solve  \textbf{\color{myred}\underline{intertemporal planning problem}}.
+$$\max\sum^{\infty}_{t=0}\beta^t \frac{c_t^{1-\sigma}-1}{1-\sigma}
+$$
+s.t.
+\begin{align*}
+    c_t+K_{t+1}-(1-\delta)K_t &= K_t^{\alpha}\left(\phi_t L A_t\right)^{1-\alpha}\\
+    A_{t+1}-A_t &= \kappa(1-\phi_t)LA_t
+\end{align*}
+get Euler equation:
+    $$
+    \left(\frac{c_{t+1}}{c_t}\right)^{\sigma}=\beta\left[\alpha\left(\frac{\phi_{t+1}LA_{t+1}}{K_{t+1}}\right)^{1-\alpha}+(1-\delta)\right]
+    $$
+
+\subsubsection*{decentralize}
+\begin{itemize}
+    \item[-] Firm's problem:
+    \begin{itemize}
+        \item[-] \textbf{\color{myred}final good} \textbf{firm}: $$\max_{x_t(i),L_{1,t}}\left\{ L_{1,t}^{1-\alpha}\int^{A_t}_0 x_t^{\alpha}(i)\mathrm{d}i-w_tL_{1,t}-\int^{A_t}_0 p_t(i)x_t(i)\mathrm{d}i \right\}$$
+        \item[-] \textbf{\color{myred}intermediate good} \textbf{producer}: $$
+    \max_{x_t(i)}\left\{ p_t(i)x_t(i)-r_tK_t(i) \right\} \text{ s.t. } K_t(i)=x_t(i)
+    $$
+    \item[-] \textbf{\color{myred}R\&D sector} \textbf{producer}:
+    $$
+    \max_{A_{t+1},L_{2,t}}\left\{ p_t^P(A_{t+1}-A_t)-w_tL_{2,t} \right\}
+    $$
+    s.t.
+    $$
+    A_{t+1}-A_t = \kappa A_tL_{2,t}
+    $$
+    \item[-] closing the model
+    $$
+    p_t^P\cdot p_t = \sum^{\infty}_{\tau = t+1}\pi_{\tau}(i)p_{\tau}
+    $$
+    where 
+    \begin{itemize}
+        \item[-] price of patent $p_t^P$ $w_t=\kappa A_t L_{2,t} p^P_t$ 
+        \item[-] positive profit of intermediate good producer $\pi_t(i)=\alpha(1-\alpha)L_{1,t}(\alpha^2/r_t)^{\frac{\alpha}{1-\alpha}}$
+        \item[-] $p_t$ is the consumption price (time $t$ price $p_0$ as numeraire), faced by \underline{\textbf{households}}
+    \end{itemize}
+    \end{itemize}
+    \item[-] HH's problem
+     $$
+    \max \sum^{\infty}_{t=0}\beta^t \frac{c_t^{1-\sigma}-1}{1-\sigma}
+    $$
+    s.t.
+\begin{align*}
+    \sum^{\infty}_{t=0}p_t(c_t+i_t) & =\sum^{\infty}_{t=0} p_t(w_t L_t+r_t K_t+\int^{A_t}_0\pi_t(i)\mathrm{d}i)\\
+    %$\phi_t L_t & = L_{1,t} \\
+    i_t &= K_{t+1}-(1-\delta)K_t
+    %\pi_t(i)&=\alpha(1-\alpha)L_{1,t}\left(\frac{\alpha^2}{r_t}\right)^{\frac{\alpha}{1-\alpha}}
+\end{align*}
+get Euler $\left(\frac{c_{t+1}}{c_t}\right)^{\sigma} = \beta\left[r_{t+1}+(1-\delta)\right]
+$
+where $r_t = \alpha^2 L_{1,t}^{1-\alpha}(x_t)^{\alpha-1} \xRightarrow[x_t(i)=K_t(i)]{\int^{A_t}_0 K_t(i)=K_t} \alpha^2 \left(\phi_t L\right)^{1-\alpha} \left(\frac{A_t}{K_t}\right)^{1-\alpha}$, together
+$$
+\left(\frac{c_{t+1}}{c_t}\right)^{\sigma} = \beta\left[ \alpha^2 \left(\frac{\phi_{t+1}L A_{t+1}}{K_{t+1}}\right)^{1-\alpha}+(1-\delta) \right]
+$$
+\end{itemize}
+
+\newpage
+\section*{Real business cycle}
+\subsection*{2-period}
+\begin{itemize}
+    \item[-] CE
+    \begin{itemize}
+        \item[-] HH: $$
+    \max_{c_1,c_2,l,a}u(c_1)+v(l)+\beta u(c_2)
+    $$
+    s.t.
+    \begin{align*}
+        c_1 +a & = w(1-l)+\pi_1 +\pi^I\\
+        c_2 & = (1+r)a+\pi_2
+    \end{align*}
+    solve it, get 
+    \begin{align*}
+    u'(c_1) & =\beta(1+r)u'(c_2) & \text{intertemporal Euler equation}\\
+    v'(l)&=u'(c_1)w & \text{intratemporal labor supply}
+    \end{align*}
+    \item[-] Firm: 
+    \begin{align*}
+        \pi_1 &=\max_LF_1(L)-wL &\text{period 1}\\
+        \pi_2 &=\max_K F_2(K)-r^KK & \text{period 2}
+    \end{align*}
+ 
+    \item[-] Investment firm solve
+    $$
+    \max_I \pi^I =\frac{r^K}{1+r}I-I
+    $$
+    \end{itemize}
+    \item[-] planner:$$
+\max_{c_1,c_2,l,Y_1,Y_2,L,K,I}u(c_1)+v(l)+\beta u(c_2)
+$$
+s.t.
+\begin{align*}
+    Y_1 &=F_1(L)\\
+    l&=1-L\\
+    Y_2 &+F_2(K)\\
+    K&I\\
+    Y_1 &= c_1+I\\
+    Y_2 &=c_2
+\end{align*}
+\end{itemize}
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    \begin{align*}
+    Y_1 & F_1(L) &\Rightarrow \frac{\mathrm{d}Y}{\mathrm{d}L}>0\\
+    v'(1-L)&=F_1'(L)u'(c_1) & \Rightarrow \frac{\mathrm{d}c_1}{\mathrm{d}L}<0\\
+    u'(c_1)&=\beta F_2'(K)u'(F_2(K)) & \Rightarrow \frac{\mathrm{d}c_1}{\mathrm{d}K}>0\\
+    Y_1 &= u'^{-1}\left[\beta F_2'(K)u'(F_2(K))\right]+K & \Rightarrow \frac{\mathrm{d}Y_1}{\mathrm{d}K}>0
+\end{align*}
+    
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {RBC: characteristic equations};
+\end{tikzpicture}
+
+\begin{center}
+    \begin{tikzpicture}[scale=1.2]
+    % basics
+    \draw[color=black, thick] (0,0) -- (1,0) node[below] {$L$} -- (3,0) node[below] {$K$} -- (4,0);
+    \draw[color=black, thick] (0,0) -- (0,1) node[left] {$c$} -- (0,3) node[left] {$Y$} -- (0,4);
+    \draw[color=black, thick] (4,0) -- (4,4);
+    \draw[color=black, thick] (0,4) -- (4,4);
+    \draw[color=black, thick] (2,0) -- (2,4);
+    \draw[color=black, thick] (0,2) -- (4,2);
+    
+    \draw[domain =0.2:1.8, blue!45!black, thick, smooth, variable=\x] plot ({\x},{(\x)^0.7+2});
+    \draw[domain =0.2:1.8, blue!45!black, thick, smooth, variable=\x] plot ({\x},{0.7/(3*(\x))});
+    \draw[domain =2.6:3.4, blue!45!black, thick, smooth, variable=\x] plot ({\x},{ ((0.98*1+1)*(\x-2.5)+2});
+    \draw[domain =2.2:3.8, blue!45!black, thick, smooth, variable=\x] plot ({\x},{ (0.98*1)*(\x-2)});
+
+\end{tikzpicture}
+\end{center}
+
+The model can incorporate several shocks:
+\begin{itemize}
+    \item[-] \underline{\textbf{short-lived productivity shock}}: $Y_1 =AF_1(L)$
+    \begin{align*}
+        Y_1&=AF_1(L) &\Rightarrow Y-L \text{ curve} \uparrow\\
+        v'(1-L)&=AF_1'(L)u'(c_1) &\Rightarrow c-L \text{ curve} \uparrow\\
+    \end{align*}
+    there are income and substitution effects on labor supply, if \textbf{substitution effect} dominates, it looks like a business cycle.
+    \item[-] \underline{\textbf{impatience}}: $\beta$ increases
+    \begin{align*}
+        u'(c_1)&=\beta F_2'(K)u'(F_2(K)) & \Rightarrow c-K \text{ curve} \leftarrow\\
+    Y_1 &= u'^{-1}\left[\beta F_2'(K)u'(F_2(K))\right]+K & \Rightarrow Y-K \text{ curve} \leftarrow
+    \end{align*}
+    \item[-] \underline{\textbf{laziness or taxes}}:
+    \begin{align*}
+        v'(1-L)&=(1-\tau)F_1'(L)u'(c_1) &\Rightarrow c-L \text{ curve} \downarrow\\
+        \theta v'(1-L)&=F_1'(L)u'(c_1) &\Rightarrow c-L \text{ curve} \downarrow
+    \end{align*}
+    \item[-] \underline{\textbf{optimism about the future}}: one example is positive productivity shock of $F_2(K)$
+    \begin{align*}
+        u'(c_1) &= \beta AF_2'(K)u'(AF_2(K)) &\Rightarrow c-K \text{ curve} \downarrow\\
+        Y_1 &= u'^{-1}\left[\beta AF_2'(K)u'(AF_2(K))\right]+K & \Rightarrow Y-K \text{ curve} \downarrow
+    \end{align*}
+\end{itemize}
+
+\subsection*{Infinite, stochastic}
+$$
+\max_{c(s^t),L(s^t),K(s^t)}\sum^{\infty}_{t=0}\beta^t\sum_{s^t}\Pr (s^t)u\left( c(s^t),L(s^t) \right)
+$$
+s.t.
+$$
+c(s^t)+K(s^{t+1})\leq A(s_t)F(K(s^t),L(s^t))+(1-\delta)K(s^t),\ K_0\text{ given}
+$$
+
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    the intra-temporal consumption-labor condition:
+$$
+-u_L(c(s^t),L(s^t))=u_c(c(s^t),L(s^t))A(s^t)F_L(K(s^t),L(s^t))
+$$
+and the intertemporal Euler equation:
+\begin{align*}
+    u_c(c(s^t),L(s^t))= \beta \mathbb{E}_t &\left\{u_c(c(s^{t+1}),L(s^{t+1}))\right.\\
+    &\left.\cdot [A(s_{t+1})F_K(K(s^{t+1}),L(s^{t+1}))+(1-\delta)]\right\}
+\end{align*}
+and the transversality condition
+$$
+\lim_{t\rightarrow\infty}\beta^t\mathbb{E}_t\left[u_c\left(c(s^t),L(s^t)\right)\cdot A(s_t)\cdot F_K\left(K(s^t),L(s^t)\right)K(s^t)\right]=0
+$$
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Character equations};
+\end{tikzpicture}
+
+\subsubsection*{Recursive form}
+\begin{itemize}
+    \item[-] state variables: $s,K$
+    \item[-] Bellman equation:
+    $$
+    V(K,s)=\max_{c,L,K'}u(c,L)+\beta \sum\Pr(s'\mid s)V(K',s')
+    $$
+    s.t.
+    $$
+    c+K'\leq A(s)F(K,L)+(1-\delta)K
+    $$
+    \item[-] FOC w.r.t. $K'$ is
+    $$
+    \beta \sum \Pr(s'\mid s)V_K(K'(K,s),s')-\lambda(K,s)=0
+    $$
+    with envelope theorem
+    $$
+    V_K(K,s)=\lambda(K,s)\left[ A(s)F_K(K,L(K,s))+(1-\delta) \right]
+    $$
+    get Euler equation:
+    \begin{align*}
+        &u_c(c(K,s),L(K,s)) \\
+        =& \beta\sum\Pr(s'\mid s)u_c(c(K'(K,s),s'),L(K'(K,s),s'))\\
+        &\cdot \left[ A(s')F_K\left(K'(K,s),L(K'(K,s),s')\right)+(1-\delta) \right]
+    \end{align*}
+\end{itemize}
+
+\textbf{In summary}, RBC model has 3 fundamental equations:
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    \begin{itemize}
+        \item[-] Intertemporal Euler equation:
+        \begin{align*}
+            u_c(c_t,L_t)=&\beta \mathbb{E}_t\left( u_c(c_{t+1},L_{t+1})\right. \\
+            &\cdot\left.\left[ A_{t+1}F_K(K_{t+1},L_{t+1})+(1-\delta)\right] \right)
+        \end{align*}
+        \item[-] Intratemporal consumption-labor equation:
+        $$
+        -u_L(c_t,L_t)=u_c(c_t,L_t)A_tF_L(K_t,L_t)
+        $$
+        \item[-] Resource constraint:
+        $$
+        c_t+K_{t+1}-(1-\delta)K_t\leq A_tF(K_t,L_t)
+        $$
+    \end{itemize}
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {RBC equations};
+\end{tikzpicture}
+
+\subsection*{Q-theory: with condition on $I_t$}
+If $K_{t+1}=g(K_t,I_t)$, then social planner solves
+$$
+\max_{c_t,K_t,I_t,L_t} \mathbb{E}\sum\beta^t u(c_t,L_t)
+$$
+s.t.
+$$
+c_t+I_t\leq A_tF(K_t,L_t),\ K_{t+1}\leq g(K_t,I_t)
+$$
+Lagrange:
+\begin{align*}
+    \mathcal{L}=&\mathbb{E}\sum\beta^t u(c_t,L_t)+\lambda_t\left(A_tF(K_t,L_t)-c_t-I_t\right)\\
+    &{\color{myblue}+\mu_t\left(g(K_t,I_t)-K_{t+1}\right)}
+\end{align*}
+
+\subsection*{Log-linearization}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.315\textwidth}
+    \color{myblue}
+    \scriptsize
+    \begin{itemize}
+        \item[-] $X_t = X_{ss}(1+x_t)$
+        \item[-] $X_tY_t = X_{ss}Y_{ss}(1+x_t+y_t)$
+        \item[-] $f(X_t) = f(X_{ss})\left(1+\frac{f'(X_{ss})}{f(X_{ss})}X_{ss} x_t\right)$
+        \item[-] $X_t^{\theta}Y_t = \alpha Z_t\Rightarrow \theta x_t y_t = z_t $
+    \end{itemize}
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Log linearization formula};
+\end{tikzpicture}
+
+Log linearization of RBC model with 
+\begin{align*}
+    u(c,L)&=\frac{c^{1-\gamma}}{1-\gamma}-\psi\frac{L^{1+\phi}}{1+\phi} & F(K,L) &=AK^{\alpha}L^{1-\alpha}
+\end{align*}
+get
+
+\begin{itemize}
+    \item[-] Euler equation $C_t^{-\gamma}=\beta \mathbb{E}_t\left( C_{t+1}^{\gamma}\left[ A_{t+1}K_{t+1}^{\alpha-1}L_{t+1}^{1-\alpha}+(1-\delta)\right] \right)$:
+    \begin{align*}
+        -\gamma c_t = \mathbb{E}_t&\left[ -\gamma c_{t+1}\right. \\
+        &+ \left.(1-\beta(1-\delta)) \left(a_{t+1}+(\alpha-1)k_{t+1}+(1-\alpha)l_{t+1}\right) \right]
+    \end{align*}
+    \item[-] Intratemporal consumption-labor equation:
+    \begin{align*}
+        \phi l_t = -\gamma c_t + a_t +\alpha k_t -\alpha l_t &\Rightarrow {\color{myred}l_t  = -\frac{1}{\phi+\alpha}\left(-\gamma c_t+a_t+\alpha k_t\right)}
+    \end{align*}
+    \item[-] Resource constraint $ C_t+K_{t+1}-(1-\delta)K_t = Y_t$
+    \begin{align*}
+        \frac{C_{ss}}{Y_{ss}}c_t +\frac{K_{ss}}{Y_{ss}}k_{t+1} - (1-\delta)\frac{K_{ss}}{Y_{ss}}k_t = y_t
+    \end{align*}
+    \item[-] Production $Y_t=A_tK_t^{\alpha}L_t^{1-\alpha}$:
+    $$
+    y_t = a_t +\alpha k_t +(1-\alpha)l_t
+    $$
+\end{itemize}
+
+\subsection*{Asset pricing}
+Household's problem is
+$$
+\max_{c(s^t),a(s^{t+1})} \sum_{t,s^t}\beta^t \Pr(s^t)u(c(s^t))
+$$
+s.t.
+\begin{align*}
+    c(s^t)+q(s^t)\cdot a_{t+1}(s^t) &\leq W(s^t)\\
+    W(s^{t+1}) &= y(s^{t+1})+\left( q(s^{s+1}) + d(s^{t+1}) \right)\cdot a_{t+1}(s^t)
+\end{align*}
+complete market and AD security ($d=1,q=0$):
+$$
+c(s^t)+q(s^t)\cdot a_{t+1}(s^t) \leq y(s^t)+a_t(s^{t-1})
+$$
+get Euler
+$$
+u'(c(s^t)) = \beta \sum_{s_{t+1}}\Pr(s_{t+1}\mid s^t)u'(c(s^t,s_{t+1}))\frac{q(s^{t+1})+d(s^{t+1})}{q(s^t,s_{t+1})}
+$$
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    let $R(s^t,s_{t+1})\equiv \frac{q(s^{t+1})+d(s^{t+1})}{q(s^t,s_{t+1})}$, then get the Euler equation
+$$
+1 = \beta \mathbb{E}_t\left[\frac{u'(c_{t+1})}{u'(c_t)} R_{t+1} \right]
+$$
+This is true for all asset, hence:
+\begin{itemize}
+        \item[-] Pricing kernel: $m_{t+1} = \beta \frac{u'(c(s^t,s_{t+1}))}{u'(c(s^t))}$
+        \item[-] risk-free rate: $R^f_{t+1}=\frac{1}{\mathbb{E}_t\left[m_{t+1}\right]}$
+        \item[-] pricing formula:  $\mathbb{E}_t(R_{t+1}) = R^f_{t+1} - R^f_{t+1}\mathrm{Cov}(m_{t+1},R_{t+1})$
+        \item[-] risk-neutral probabilities: $$Q(s_{t+1}\mid s^t)=\frac{\Pr(s_{t+1}\mid s^t)u'\left(c'(s_{t+1},s^t)\right)}{\sum_{s_{t+1}}\Pr(s_{t+1}\mid s^t)u'\left(c'(s_{t+1},s^t)\right)}$$
+        \item[-] Sharpe ratio: $s^j = \frac{\mathbb{E}(R^j_{t+1})-R^f_{t+1}}{\sigma(R^j_{t+1})}$ and $\lvert s_j \rvert\leq \frac{\sigma(m_{t+1})}{\mathbb{E}(m_{t+1})}$
+    \end{itemize}
+
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Pricing kernel};
+\end{tikzpicture}
+
+\subsection*{Welfare cost}
+\subsubsection*{Lucas calculation}
+If $c_t = c_0e^{gt}\exp(\epsilon_t)$ where $\mathbb{E}(\exp(\epsilon_t))=1$, then the cost of business cycle is the number $\lambda$ that solves:
+$$
+\mathbb{E}\left(\sum^{\infty}_{t=0}\beta^t u\left(c_0(1+\lambda)e^{gt}\exp(\epsilon_t)\right)\right) = \mathbb{E}\left(\sum^{\infty}_{t=0}\beta^t u\left(c_0e^{gt}\right)\right)
+$$
+
+\subsubsection*{Alvarez calculation}
+\begin{itemize}
+    \item[-] $\left\{c_t\right\}$: business-cycle consumption process
+    \item[-] $\left\{C_t\right\}$: an alternative consumption process
+\end{itemize}
+consider the utility of the consumption process $\left\{c_t\right\}$: $U(\left\{c_t\right\})$ (standard utility is $U(\left\{c_t\right\})=\sum_{s_t}\beta^t \Pr(s^t)u(c(s^t))$). Welfare cost $\lambda(\alpha)$ solves
+$$
+U\left[ (1+\lambda(\alpha))\left\{c_t\right\} \right] = U\left[ (1-\alpha)\left\{c_t\right\} +\alpha \left\{C_t\right\} \right]
+$$
+
+\section*{Money}
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    
+    LM equation: 
+$$\frac{M^S}{p} = m^D(Y,i)$$
+that is, money demand equals money supply
+
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {LM equation};
+\end{tikzpicture}
+
+HH's problem is 
+$$
+\max \mathbb{E}\sum^{\infty}_{t=0}\beta^t u\left(c_t,L_t,\frac{M_t}{P_t}\right)
+$$
+s.t.
+\begin{align*}
+    P_tc_t+P_tk_{t+1}&+B_{t+1}+M_{t+1}+T_t \leq\\
+    &W_tL_t+(P_t(1-\delta)+R_t^K)k_t+(1+i_t)B_t+M_t\\
+    P_tc_t& \leq M_t
+\end{align*}
+the characteristic equations of this economy:
+\begin{align*}
+    u_{L,t} &= -\frac{W_t}{P_t}u_{c,t}\equiv -w_t u_{c,t} \\
+    u_{c,t} &= \beta u_{c,t+1}\left( 1-\delta + \frac{R^K_{t+1}}{P_{t+1}} \right)\equiv \beta u_{c,t+1}(1-\delta+r_{t+1}^K) \\
+    u_{c,t} &= \beta u_{c,t+1} \frac{1+i_{t+1}}{P_{t+1}/P_t} \equiv \beta u_{c,t+1}(1+r_{t+1}) & \text{bond} \\
+    i_{t+1} &= \frac{u_{M,t+1}}{u_{c,t+1}} &\text{money}
+\end{align*}
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    
+    $$
+\frac{M_t}{P_t}=\left(\frac{P_{t+1}}{P_t}\right)^{-\theta} \Rightarrow \log P_t = \frac{1}{1+\theta}\left[ \log M_t + \theta \log P_{t+1}\right]
+$$
+iterate forward, get
+\begin{align*}
+     &\log P_t = \frac{1}{1+\theta}\sum^{T-1}_{s=0}\left(\frac{\theta}{1+\theta}\right)^s \log M_{t+s} +\left(\frac{\theta}{1+\theta}\right)^T p_{t+T}\\
+     \xrightarrow{T\rightarrow\infty} & \log P_t = \frac{1}{1+\theta}\sum^{\infty}_{s=0}\left(\frac{\theta}{1+\theta}\right)^s \log M_{t+s}
+\end{align*}
+
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {A nice form of money supply};
+\end{tikzpicture}
+
+\section*{New Keynesian model}
+\subsection*{2-period for IS-LM}
+From 
+\begin{align*}
+    u'(c_1) &= \beta(1+r)u'(c_2) &\text{Euler equation}\\
+    F_2'(K)&= 1+r & \text{investment FOC}\\
+    Y_1 &=c_1+K & t=1 \text{ market clearing}\\
+    Y_2 &=c_2 = F_2(K) & t=2 \text{ market clearing}
+\end{align*}
+get \textbf{IS} equation (\textbf{I}nvestment = \textbf{S}avings)
+$$
+u'(Y_1-K(r)) = \beta(1+r)u'(F(K(r)))
+$$
+where $K(r) = (F_2')^{-1}(1+r)$. In nominal term
+$$
+\Delta = u'(Y_1-K(i-\pi))- \beta(1+i-\pi)u'(F(K(i-\pi)))
+$$
+
+hence
+
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    \begin{align*}
+    u'(Y_1-K(i-\pi)) &= \beta(1+i-\pi)u'(F(K(i-\pi))) & \text{IS}\\
+    \frac{M^S}{p} &= m^D(i,Y) & \text{LM}
+\end{align*}
+where 
+\begin{itemize}
+    \item[-] IS: $\frac{\mathrm{d}i}{\mathrm{d}Y} = -\frac{\partial \Delta/\partial Y_1}{\partial \Delta/\partial i} <0$, \textbf{downward}
+    \item[-] LM: $-\frac{\partial m^D/\partial Y_1{\color{myred}>0}}{\partial m^D/\partial i{\color{myred}<0}} >0$ with $M^S$ fixed and $p$ sticky
+\end{itemize}
+    
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {2-period LM-IS};
+\end{tikzpicture}
+
+Adding
+\begin{itemize}
+    \item[-] production shock of $t=2$, $AF_2(K)\Rightarrow K(r,A)=(F_2')^{-1}\left(\frac{1+r}{A}\right)$
+    \item[-] government spending: $G\Rightarrow c_1=Y_1-K(r)-G$
+\end{itemize}
+get 
+\begin{align*}
+    u'(Y_1-G-K(i-\pi,A)) &= \beta(1+i-\pi)u'(AF(K(i-\pi,A))) & \text{IS}\\
+    \frac{M^S}{p} &= m^D(i,Y) & \text{LM}\\
+\end{align*}
+we can analyze the following shocks:
+\begin{itemize}
+    \item[-] productivity shock in $t=1$, laziness, tax: \textbf{NO} effect
+    \item[-] productivity shock in $t=2$, $A\uparrow$: IS $\rightarrow$
+    \item[-] impatience $\beta \downarrow$: IS curve $\rightarrow$
+    \item[-] higher expected inflation $\pi \uparrow$: IS curve $\uparrow$
+    \item[-] higher government spending $G\uparrow$: IS curve $\rightarrow$
+    \item[-] money supply increase $M^S \uparrow$: LM curve $\downarrow$
+\end{itemize}
+
+\subsection*{NK model}
+assume $U(C_t,L_t)=u(C_t)-v(L_t)$ where $u(C_t) = \frac{C_t^{1-\gamma}-1}{1-\gamma}$, and $v(L)=\psi\frac{L_t^{1+\phi}}{1+\phi}$
+    \begin{itemize}
+        \item[-] Euler equation: $C_t^{-\gamma} = \beta\mathbb{E}\left[C_{t+1}^{-\gamma}\frac{1+i_{t+1}}{1+\pi_{t+1}}\right]$
+        \item[-] labor condition: $\psi L_t^{\phi} = \frac{W_t}{P_t}C_t^{-\gamma}$
+        \item[-] market clearing: $Y_t= C_t$
+        \item[-] GDP with misallocation: $Y_t=\frac{A_tL_t}{\Delta_t}$ where the productivity/misallocation $\Delta_t = (1-\mu)\left(\frac{1-\mu(1+\pi_t)^{\epsilon-1}}{1-\mu}\right)^{\frac{\epsilon}{\epsilon-1}}+(1+\pi_t)^{\epsilon}\mu\Delta_{t-1}$
+        \item[-] firm pricing: $\frac{P_{j,t}}{P_t}=\frac{\epsilon}{\epsilon-1}\frac{X_t}{Z_t}$ where $X_t\equiv \chi_t Y_t^{1-\gamma}+\beta\mu\mathbb{E}_t\left[X_{t+1}\left(\frac{P_{t+1}}{P_t}\right)^{\epsilon}\right]$, $Z_t\equiv Y_t^{1-\gamma}+\beta\mu\mathbb{E}_t\left[Z_{t+1}\left(\frac{P_{t+1}}{P_t}\right)^{\epsilon-1}\right]$
+        \item[-] real marginal cost: $\chi_t = \frac{W_t}{P_tA_t}$
+        \item[-] inflation: $\frac{1-\mu(1+\pi_t)^{\epsilon-1}}{1-\mu} = \left(\frac{\epsilon}{\epsilon-1}\frac{X_t}{Z_t}\right)^{1-\epsilon}$
+    \end{itemize}
+\vspace{2pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    
+    Hence, in NK model, we have:
+\begin{align*}
+    y_t &= \mathbb{E}\left[y_{t+1}-\frac{1}{\gamma} (i_{t+1}-\pi_{t+1}-\rho)\right] & \text{IS equation}\\
+    \pi_t &= \frac{(1-\mu)(1-\beta\mu)}{\mu}\hat{\chi}_t+\beta\mathbb{E}_t(\pi_{t+1}) & \text{Phillips curve}\\
+    w_t-p_t &= (\gamma+\phi)y_t-\phi a_t &\text{real wage}\\
+    \hat{\chi}_t &= w_t-p_t -a_t = (\gamma+\phi)y_t-(1+\phi) a_t &\text{marginal cost}
+\end{align*}
+    
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {NK model summary};
+\end{tikzpicture}
+
+\vspace{2pt}
+If prices are perfectly flexible ($w_t-p_t=a_t$), have
+\begin{align*}
+    y_t^n &= \frac{1+\phi}{\gamma+\phi}a_t & \text{nature level of output} \\
+    l^n_t &= \frac{1-\gamma}{\gamma+\phi}a_t & \text{nature level of employment}\\
+    r^n_{t+1} &= \rho + \gamma\frac{1+\phi}{\gamma+\phi}\left(\mathbb{E}[a_{t+1}]-a_t\right) &\text{natural real interest rate}
+\end{align*}
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    define $x_t = y_{t}-y^n_t$ as the \textbf{\color{myred}output gap}, we have 
+\begin{align*}
+    x_t &= \mathbb{E}\left[x_{t+1}-\frac{1}{\gamma} (i_{t+1}-\pi_{t+1}-r^n_{t+1})\right] & \text{IS equation}\\
+    \pi_t &= \kappa x_t +\beta\mathbb{E}_t (\pi_{t+1}) & \text{Phillips curve}
+\end{align*}
+where 
+$$\kappa(\mu)=\frac{(1-\mu)(1-\beta\mu)}{\mu} (\gamma+\phi)$$
+\begin{itemize}
+    \item[-] $\kappa'(\mu)<0$: less flexible (higher $\mu$), lower $\kappa$
+    \item[-] $\kappa'(\gamma),\kappa'(\phi)>0$: $\hat{\chi}_t = (\gamma+\phi)x_t$, higher $\gamma,\phi$ means that marginal cost is sensitive to output gap
+\end{itemize}
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {NK IS-Phillips};
+\end{tikzpicture}
+
+With Taylor rule (monetary policy): $$i_{t+1}=\rho_{t+1}+\lambda_{\pi}\pi_{t}+\lambda_{x}x_t$$
+where $\rho_{t+1}$ is the target real rate, get a 2-unknown 2-equation system:
+\begin{align*}
+    \pi_t &= \kappa x_t +\mathbb{E}(\pi_{t+1})\\
+    (\gamma+\lambda_x)x_t +\lambda_{\pi}\pi_t &= \mathbb{E}[\gamma x_{t+1}+\pi_{t+1}+r^n_{t+1}]-\rho_{t+1}
+\end{align*}
+
+\subsection*{Optimal monetary policy}
+$$
+\max_{y_t,\pi_t}-\frac{1}{2}\mathbb{E}_t\sum^{\infty}_{t=0}\beta^t\left[ x_t^2 + \frac{\epsilon}{\kappa} \pi_t^2 \right]
+$$
+s.t. Phillips curve. Two way to frame:
+\begin{itemize}
+    \item[-] \textbf{\color{myblue}discretion}: no commitment, take $\mathbb{E}_t[x_{t+\tau}]$ as given, hence no intertemporal decision:
+    $$
+    \max_{x_t,\pi_t}x_t^2+\frac{\epsilon}{\kappa}\pi_t^2 + \mathbb{E}_0\sum^{\infty}_{\tau=1}\beta^{\tau} \left[x_{\tau}^2+\frac{\epsilon}{\kappa}\pi_{\tau}^2\right]
+    $$
+    s.t.
+    $$
+    \pi_t = \kappa x_t +\beta\mathbb{E}_t[\pi_{t+1}]
+    $$
+    FOCs give
+    \begin{align*}
+        x_t &= \epsilon \pi_t & \pi_t = \frac{1}{1+\kappa\epsilon}[\beta\mathbb{E}_t(\pi_{t+1})]
+    \end{align*} 
+    
+    \item[-] \textbf{\color{myblue}commitment}
+This is an intertemporal question:
+$$
+\max_{x_t,\pi_t}-\frac{1}{2}\mathbb{E}_t\sum^{\infty}_{t=0}\beta^t\left[x_t^2 + \frac{\epsilon}{\kappa}\pi^2_t\right]
+$$
+s.t.
+$$
+\pi_t= \kappa x_t +\beta\mathbb{E}[\pi_{t+1}]+u_t
+$$
+FOCs are 
+\begin{align*}
+    \beta^t x_t &=\lambda_t \kappa\\
+    \beta^t\frac{\epsilon}{\kappa}\pi_t +\lambda_t -\beta\lambda_{t-1} &=0
+\end{align*}
+\end{itemize}
+
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    In continuous time:
+\begin{align*}
+    x_t = \mathbb{E}\left[x_{t+1}-\frac{1}{\gamma}(i_{t+1}-\pi_{t+1}-r^n_{t+1})\right] & \Rightarrow \dot{x}_t = \frac{1}{\gamma}(i_t-\pi_t -r^n_t) \\
+    \pi_t = \kappa x_t + \beta\mathbb{E}_t(\pi_{t+1}) & \Rightarrow \dot{\pi} = \rho \pi_t -\kappa x_t
+\end{align*}
+the welfare problem is 
+$$
+\max -\int_0^{\infty}e^{-\rho t}(x_t^2+\chi \pi_t^2)
+$$
+s.t.
+\begin{align*}
+    \dot{x}_t &= \frac{1}{\gamma}(i_t-\pi_t -r^n_t) & \text{IS equation}\\
+    \dot{\pi}_t &= \rho \pi_t -\kappa x_t & \text{Phillips curve}\\
+    i_t &\geq 0 & \text{ZLB}
+\end{align*}
+    
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Optimal monetary policy: continuous time};
+\end{tikzpicture}
+
+\section*{Incomplete market}
+\subsection*{Aiyagari}
+Household solves
+$$
+\max_{c(s^t),A(s^{t+1})}\sum^{\infty}_{t=0}\sum_{s^t}\beta^t \Pr(s^t)u(c(s^t))
+$$
+s.t.
+\begin{align*}
+    A(s^{t+1}) &= y(s_t)-c(s^t) +RA(s^t) \\
+    A(s^t) &\geq -b & \text{borrowing bound}
+\end{align*}
+a natural borrowing constraint is: the lowest-income state $\underline{s}$ forever $b = -\frac{1}{1-R}y(\underline{s})$. 
+
+Recursively, state variables are $A,s$, then
+$$
+V(A,s) = \max_{c,A'} u(c) + \beta\sum_{s'}\Pr(s'\mid s)V(A',s')
+$$
+s.t.
+$$A'\leq y(s)-c+RA,\ A\geq -b$$
+define \textbf{cash on hand} $x\equiv RA+y$, rewrite the problem with $x,s$ as state variables:
+$$
+V(x,s) = \max_{c,x'(s')} u(c) + \beta\sum_{s'}\Pr(s'\mid s)V(x'(s'),s')
+$$
+s.t.
+$$x'(s')\leq R(x-c)+y(s'),\ c\leq x+b$$
+FOCs are
+$$
+\begin{aligned}
+u'(c)-\sum_{s}\lambda(s)R-\mu &= 0 \\
+\beta \Pr(s'\mid s)\frac{\partial V(x'(s'),s')}{\partial x} - \lambda(s) &= 0
+\end{aligned} 
+$$
+gives
+$$
+ u'(c) = \beta R\sum_{s'} \Pr(s'\mid s)\frac{\partial V(x'(s'),s')}{\partial x} + \mu
+$$
+and envelope theorem
+$$
+\frac{\partial V(x,s)}{\partial x} = u'(c(x,s))
+$$
+gives Euler equation
+\begin{align*}
+    u'(c) &= \beta R\sum_{s'}\Pr(s'\mid s)u'(c(x'(s'),s'))+\mu \\
+    &{\color{myred}\geq \beta R\sum_{s'}\Pr(s'\mid s)u'(c(x'(s'),s'))}
+\end{align*}
+
+
+\subsection*{Insurance contract}
+Planner chooses effort $\{e_t\}$ and consumption $\{c_t\}$ to \textbf{maximize profits s.t. to household's utility}
+
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    Planner's problem
+    $$
+    V(w_0) =\max_{c,e}\sum_{s^t}\Pr(s^t\mid e)\beta^t (y(s_t)-c(s^t))
+    $$
+    s.t. 
+    $$
+    \sum_{s^t}\Pr(s^t\mid e)\beta^t\left[ u(c(s^t))-e(s^{t-1}) \right] = w_0
+    $$
+    \textbf{The recursive form} is 
+    $$
+    V(w) = \max_{e,c(s),w'(s)}\sum_s\Pr(s\mid e)\left[y(s)-c(s)+\beta V(w'(s))\right]
+    $$
+    s.t.
+    $$
+    \sum_s \Pr(s\mid e)\left[u(c(s))-e+\beta w'(s)\right] = w
+    $$
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Frictionless benchmark};
+\end{tikzpicture}
+
+FOCs are 
+\begin{align*}
+    -\Pr(s\mid e) +\mu\Pr(s\mid e)u'(c(s))=0 &\Rightarrow u'(c(s))=\frac{1}{\mu} \\
+    \Pr(s\mid e)\beta V'(w'(s)) + \mu\Pr(s\mid e)\beta =0 &\Rightarrow V'(w'(s)) = -\mu
+\end{align*}
+plus envelope condition 
+{\color{myblue}$
+V'(w(s))=-\mu
+$}
+then \textbf{continuation utility is the {\color{myblue}same} as current utility}.
+
+\vspace{4pt}
+\subsubsection*{Limited condition}
+Better than autarky $v_{aut}=\sum^{\infty}_{t=0}\beta^t \left(\sum_s \Pr(s)u(c(s))\right) = \frac{\sum_s\Pr(s)u(c(s))}{1-\beta}$. The recursive problem is 
+$$
+V(w) = \max_{c(s),w'(s)}\sum_s \Pr(s) \left[ y(s)-c(s) + \beta V(w'(s)) \right]
+$$
+s.t.
+\begin{align*}
+    \sum_s \Pr(s)\left[ u(c(s))+\beta w'(s) \right] &= w \\
+    u(c(s)) + \beta w'(s) &\geq u(y(s))+\beta v_{aut}, \forall s
+\end{align*}
+FOCs give
+\begin{align*}
+    u'(c(s)) &= -\frac{1}{V'(w'(s))} & V'(w'(s)) &= V'(w) -\frac{\lambda(s)}{\Pr(s)}
+\end{align*}
+
+\subsubsection*{Two-sided limited commitment}
+Planner needs a positive profit, the recursive problem is 
+$$
+V(w) = \max_{c(s),w'(s)}\sum_s \Pr(s) \left[ y(s)-c(s) + \beta V(w'(s)) \right]
+$$
+s.t.
+\begin{align*}
+    \sum_s \Pr(s)\left[ u(c(s))+\beta w'(s) \right] &= w \\
+    u(c(s)) + \beta w'(s) &\geq u(y(s))+\beta v_{aut}, \forall s \\
+    y(s)-c(s) +\beta V(w'(s)) & \geq 0, \forall s
+\end{align*}
+FOCs give
+\begin{align*}
+    u'(c(s)) &= -\frac{1}{V'(w'(s))} & V'(w'(s)) &= \frac{V'(w)\Pr(s)-\lambda(s)}{\Pr(s)+\eta(s)}
+\end{align*}
+
+\subsubsection*{moral hazard}
+Both parties commit, but household exerts unobserved effort, the recursive problem is
+$$
+V(w) = \max_{e, c(s),w'(s)}\sum_s \Pr(s\mid e) \left[ y(s)-c(s) + \beta V(w'(s)) \right]
+$$
+s.t.
+\begin{align*}
+    &\sum_s \Pr(s\mid e)\left[ u(c(s))-e+\beta w'(s) \right] = w \\
+    &\sum_s \Pr(s\mid e)\left[ u(c(s))-e+\beta w'(s) \right] \\
+    &\geq \sum_s \Pr(s\mid \tilde{e})\left[ u(c(s))-\tilde{e}+\beta w'(s) \right], \forall \tilde{e}
+\end{align*}
+assume the special case: $e\in\left\{0,1\right\}$, FOCs give
+\begin{align*}
+    u'(c(s)) &= -\frac{1}{V'(w'(s))} & V'(w'(s)) &= V'(w) - \lambda\left[ 1-\frac{\Pr(s\mid 0)}{\Pr(s\mid 1)} \right]
+\end{align*}
+which gives the inverse Euler equation:
+$$
+\mathbb{E}\left[\frac{1}{u'(c_{t+1})}\right] = \frac{1}{u'(c_t)}
+$$
+$c\rightarrow 0$: agents will quit.
+
+\subsubsection*{hidden income}
+Define transfer $\tau(s)\equiv c(s)-y(s)$, planner's problem (downward binding)
+$$
+V(w) = \max_{\tau(s),w'(s)}\sum_s \Pr(s) \left[ -\tau(s) + \beta V(w'(s)) \right]
+$$
+s.t.
+\begin{align*}
+    &\sum_s \Pr(s)\left[ u(\tau(s)+y(s))+\beta w'(s) \right] = w \\
+    &u(\tau(s)+y(s)) + \beta w'(s) \\
+    &\geq u(\tau(s-1)+y(s)) + \beta w'(s-1), \forall s>1
+\end{align*}
+
+FOC gives
+$$
+\Pr(s)\left[V'(w'(s))+\mu\right] = \lambda(s+1)-\lambda(s)
+$$
+sum over all s:
+\begin{align*}
+    \sum_s \Pr(s)\left[V'(w'(s))+\mu\right] &= \sum_s \left[\lambda(s+1)-\lambda(s)\right]\\
+    \Rightarrow \sum_s\Pr(s)V'(w'(s)) &= -\mu = V'(w(s))\\
+    \Rightarrow \mathbb{E}[V'(w'(s))] &= V'(w)
+\end{align*}
+
+\section*{Optimal policy}
+\subsection*{Primal optimal tax approach}
+
+\begin{itemize}
+    \item[-] linear tax on labor: $\tau_t^l$
+    \item[-] linear tax on capital: $\tau_t^k$. No arbitrage between bond and capital gives: $
+    R_t = 1+(1-\tau_t^k)(r_t^k-\delta)$
+    \item[-] no lump-sum tax
+    \item[-] the price series be
+$p_t \equiv \begin{cases}
+    \prod^{t-1}_{s=0}\frac{1}{R_{s+1}} & t\geq 1\\
+    1 & t=0
+\end{cases}$
+\end{itemize}
+
+\vspace{4pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    Solve $\max\sum^{\infty}_{t=0}\beta^t u(c_t,L_t)$
+    s.t.
+    $$
+    \sum_t p_tc_t \leq R_0A_0 + \sum_t p_tw_t(1-\tau^l_t)L_t
+    $$
+    get implementability condition:
+    $$
+    \sum_t \beta^t [u_c(c_t,L_t)c_t +u_L(c_t,L_t)L_t] \leq R_0(B_0+K_0)u_c(c_0,L_0)
+    $$
+    then define $W(c,L) = u(c,L)+\mu[u_c(c,L)c+u_L(c,L)L]$, government solves
+    $$
+    \max \sum^{\infty}_{t=0}\beta^t W(c_t,L_t) - \mu u_c(c_0,L_0)R_0(B_0+K_0)
+    $$
+    s.t.
+    $$
+    c_t+ K_{t+1} + g_t = F(K_t,L_t) + (1-\delta)K_t
+    $$
+    get capital rent
+    $$
+    R_{t+1} = \frac{W_c(c_{t+1},L_{t+1})}{u_c(c_{t+1},L_{t+1})}\frac{u_c(c_t,L_t)}{W_c(c_t,L_t)}R^*_{t+1}
+    $$
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Primal optimal tax policy};
+\end{tikzpicture}
+
+\subsection*{Optimal monetary policy}
+The price series $q_t = \begin{cases}
+\prod^{t-1}_{s=0}\frac{1}{1+i_{s+1}} & t\geq 1\\
+1 & t=0
+\end{cases}$
+\vspace{4pt}
+\begin{tikzpicture}
+\node [bluebox] (box){%
+    \begin{minipage}{0.3\textwidth}
+    \color{myblue}
+    \scriptsize
+    households solve $\max \sum_t \beta^t u(c^1_t,c^2_t,L_t)$ ($c^1_t$ cash good, $c^2_t$ credit good), s.t.
+\begin{align*}
+    p^1_t c^1_t +p^2_t c^2_t + M_{t+1}+B_{t+1} &\leq w_t(1-\tau_t)L_t + M_t + (1+i_t)B_t\\
+    p^1_t c^1_t \leq M_t
+\end{align*}
+
+    get implementability condition:
+    \begin{align*}
+        &\sum_t\beta^t \left[ u_{c^1}(c_t^1,c_t^2,L_t)c_t^1+ u_{c^2}(c_t^1,c_t^2,L_t)c_t^2 + u_{L}(c_t^1,c_t^2,L_t)L_t \right]\\
+        &=0
+    \end{align*}
+    then government solves
+    $$
+\max \sum_t \beta^ W(c^1_t,c^2_t,L_t)
+$$
+s.t. 
+$$
+c_t^1+c_t^2+g_t = AL_t
+$$
+    optimal nominal interest rate:
+\begin{align*}
+    1+i_t &= \frac{u_{c^1}(c^1_t,c^2_t,L_t)}{u_{c^2}(c^1_t,c^2_t,L_t)} = \frac{u_{c^1}(c^1_t,c^2_t,L_t)}{W_{c^1}(c^1_t,c^2_t,L_t)}\frac{W_{c^2}(c^1_t,c^2_t,L_t)}{u_{c^2}(c^1_t,c^2_t,L_t)}
+\end{align*}
+    \end{minipage}
+};
+\node[bluetitle, right=4pt] at (box.north west) {Optimal monetary policy};
+\end{tikzpicture}
+
+\section*{Searching}
+\begin{itemize}
+    \item[-] \textbf{number of matches}: $h=m(u,v)$
+    \item[-] \textbf{market tightness}: $\theta= \frac{v}{u}$
+    \item[-] \textbf{vacancy filling rate}: $\frac{h}{v}=\frac{m(u,v)}{v}=m\left(\frac{1}{\theta},1\right)\equiv q(\theta)$
+    \item[-] \textbf{job finding rate}: $\frac{h}{u} = \frac{h}{v}\frac{v}{u} = q(\theta)\theta = m(1,\theta)$, {\color{myred}$\partial\theta q(\theta)/\partial \theta>0$}
+\end{itemize}
+\subsection*{static version}
+\begin{itemize}
+    \item[-] bargaining: $
+\max_{w} (w-b)^{\beta}(y-w)^{1-\beta} \Rightarrow w=\beta y+(1-\beta)b
+$
+\item[-] surplus
+\begin{itemize}
+    \item[-] worker: $w = b + \beta(y-b)$
+    \item[-] firm: $-c+\frac{h}{v}(1-\beta)(y-b) = -c+q(\theta)(1-\beta)(y-b)=0$
+\end{itemize}
+\item[-] planner solves $
+\max_v m(u,v)(y-b)-cv
+$, FOC gives
+$$
+\frac{\partial m (u,v)}{\partial v} = \frac{c}{y-b} = q(\theta)(1-\beta) \Rightarrow 1-\beta = \frac{\partial m(u,v)}{\partial v}\frac{v}{m(u,v)}
+$$
+\end{itemize}
+
+\subsection*{dynamic version}
+\begin{itemize}
+    \item[-] \textbf{Workers}' value
+\begin{align*}
+    rU &= b+\frac{h}{u}(E-U) +\dot{U}\\
+    rE &= w+s(U-E) + \dot{E}
+\end{align*}
+\item[-] \textbf{Firms}' value
+\begin{align*}
+    rV &= -c+\frac{h}{v}(J-V)+\dot{V}\\
+    rJ &= y-w + s(V-J) + \dot{J}
+\end{align*}
+\item[-] \textbf{surplus}
+$$
+S = E-U+J-V
+$$
+\item[-] bargaining result:
+\begin{align*}
+    E &= U + \beta S & \text{workers}\\
+    J &= V + (1-\beta) S = (1-\beta)S & \text{firms} 
+\end{align*}
+\end{itemize}
+
+Solve these, get
+\begin{itemize}
+    \item[-] $q(\theta)=\frac{c}{J}$: \textbf{more valuable} employees $J\uparrow$ leads to \textbf{tighter} market $\theta \uparrow$ 
+    \item[-] $S=\frac{c}{(1-\beta)q(\theta)}$
+    \item[-] $w=(1-\beta)b+\beta y+\beta\theta c$: \textbf{tighter} market $\theta\uparrow$ leads to \textbf{higher} wage $w\uparrow$
+    \item[-] $\frac{r+s}{q(\theta)}+\beta\theta = \frac{(1-\beta)(y-b)}{c}$: \textbf{tightness} $\theta$ is \textbf{constant} over time.
+    \item[-] the elasticity of $\theta$ w.r.t $y-b$, $\epsilon$ is smaller than empirical observations
+\end{itemize}
+
+
+\end{multicols*}
+\end{document}
